@@ -1,0 +1,120 @@
+@use "../../abstracts" as *;
+@use "sass:color";
+
+/* Payment page (Bezahlen) styles */
+
+.pay-container {
+  max-width: 980px;
+  margin: 4rem auto;
+  padding: 1rem;
+  color: $color-text;
+}
+
+.pay-grid {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 1.25rem;
+}
+
+/* Form column */
+.pay-form {
+  background: $color-eigengrau-transparent;
+  padding: 1rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+}
+
+.pay-form label {
+  display: block;
+  margin-bottom: 0.25rem;
+  color: $color-text;
+  font-size: 0.95rem;
+}
+
+.pay-form input {
+  width: 100%;
+  padding: 0.6rem;
+  border-radius: 0.5rem;
+  margin-bottom: 0.75rem;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  color: $color-text;
+  outline: none;
+  transition: box-shadow 0.12s, border-color 0.12s;
+}
+
+.pay-form input:focus {
+  border-color: color.scale($color-primary, $lightness: 10%);
+  box-shadow: 0 6px 18px color.scale($color-primary, $alpha: -85%);
+}
+
+/* two-column (exp/CVC etc.) */
+.pay-form .two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+}
+
+/* Actions */
+.pay-actions {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.pay-actions .button {
+  padding: 0.6rem 1rem;
+}
+
+/* Summary column */
+.pay-summary {
+  background: $color-eigengrau;
+  padding: 1rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.16);
+  color: $color-text;
+}
+
+.pay-summary h2 {
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+  font-size: 1.1rem;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.25rem 0;
+  color: rgba($color-text, 0.95);
+}
+
+.summary-row.total {
+  font-weight: 800;
+  margin-top: 0.5rem;
+  font-size: 1.05rem;
+}
+
+/* Small helpers */
+.pay-form small.helper {
+  display: block;
+  margin-top: -0.5rem;
+  margin-bottom: 0.5rem;
+  color: rgba($color-text, 0.7);
+  font-size: 0.85rem;
+}
+
+/* Responsive */
+@media (max-width: $breakpoint-md) {
+  .pay-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .pay-summary {
+    order: 2;
+    margin-top: 1rem;
+  }
+
+  .pay-actions {
+    flex-direction: column;
+  }
+}

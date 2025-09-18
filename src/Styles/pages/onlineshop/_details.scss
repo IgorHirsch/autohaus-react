@@ -1,0 +1,160 @@
+@use "../../abstracts" as *;
+@use "sass:color";
+
+$-werbecard-border-width: 2px;
+$-werbecard-border-color: rgba(255, 255, 255, 0.2);
+$-werbecard-bg: #1a1a1a;
+$-werbecard-accent: rgba(0, 255, 47, 0.678);
+$-werbecard-text: #fff;
+$-werbecard-heading: #ffd700;
+$color-primary: #0078d7; // z.B. Blau
+
+/* Details Page Styles */
+.details-container {
+  margin: 5rem auto; // oben/unten 5rem, links/rechts automatisch
+  max-width: 1600px; // etwas schmaler wirkt eleganter
+  padding: 1rem;
+}
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 1rem;
+  color: $color-text;
+  opacity: 0.85;
+  text-decoration: none;
+
+  &:hover {
+    opacity: 1;
+    text-decoration: underline;
+  }
+}
+
+.detail-card {
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: 2rem;
+  background-color: $-werbecard-bg;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+  color: $color-text;
+
+  @media (max-width: $breakpoint-md) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.detail-media img {
+  width: 100%;
+  max-width: 1000px;
+  aspect-ratio: 1000 / 700;
+  object-fit: cover;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+  transition: transform 0.3s;
+}
+
+@media (max-width: 768px) {
+  .detail-media img {
+    max-width: 100%; // nimmt die gesamte Breite des kleinen Screens
+    aspect-ratio: 4 / 3; // etwas kompakter für Handy
+  }
+}
+
+.detail-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0.5rem 0.75rem;
+}
+
+.detail-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: $-werbecard-heading;
+}
+
+.detail-sub {
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+}
+
+.detail-meta {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  margin-bottom: 1rem;
+
+  .detail-price {
+    font-weight: 800;
+    color: $-werbecard-accent;
+    font-size: 1.5rem;
+  }
+
+  .detail-stock {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.6);
+  }
+}
+
+.detail-actions {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+
+  button {
+    padding: 0.6rem 1rem;
+    border-radius: 0.5rem;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background 0.3s;
+
+    &.btn-primary {
+      background: $color-primary;
+      color: $color-text;
+
+      &:hover {
+        background: color.adjust($color-primary, $lightness: -10%);
+      }
+    }
+
+    &.btn-secondary {
+      background: rgba(255, 255, 255, 0.1);
+      color: $color-text;
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.2);
+      }
+    }
+  }
+}
+
+.detail-specs,
+.detail-description {
+  margin-top: 1rem;
+
+  h2 {
+    margin-bottom: 0.5rem;
+    font-size: 1.25rem;
+    color: $-werbecard-heading;
+  }
+
+  ul {
+    margin: 0;
+    padding-left: 1.25rem;
+    color: rgba(255, 255, 255, 0.8);
+
+    li {
+      margin-bottom: 0.25rem;
+    }
+  }
+
+  p {
+    margin-top: 1rem;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.8);
+  }
+}

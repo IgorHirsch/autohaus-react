@@ -1,0 +1,37 @@
+@use "../abstracts/variables" as *;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 100%;
+  // font-family: "Century Gothic", sans-serif;
+  overflow-x: hidden;
+  background-color: black;
+  input,
+  select {
+    font-family: inherit;
+  }
+}
+
+body {
+  margin: 0;
+  background: black;
+  color: aliceblue;
+
+  font-family:  "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}

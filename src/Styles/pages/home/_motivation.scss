@@ -1,0 +1,176 @@
+@use "../../abstracts" as *;
+
+$-motivation__image-hover-padding: 0.33rem;
+$-motivation__image-hover-border: 0.33rem;
+
+$-image-margin: 0.66rem;
+
+.motivation {
+  padding: 3rem 0;
+
+  @media (max-width: 391px) {
+    padding-bottom: 1rem;
+    padding: 0.2rem;
+  }
+}
+
+.motivation__column-text {
+  float: top;
+  padding-top: 1rem;
+  padding-bottom: 2rem;
+  border-radius: 1.618rem;
+  margin: 0px auto;
+  max-width: 90%;
+
+  @media (max-width: 1440) {
+    width: 95%;
+  }
+
+  @media (max-width: 391px) {
+    width: 100%;
+
+    /* Beispiel für $breakpoint-sm */
+    .motivation__column-text {
+      float: none;
+
+      padding-bottom: 3rem;
+      margin: auto;
+    }
+
+    .motivation__text--full {
+      display: none;
+    }
+
+    .motivation__text--short {
+      display: block;
+      width: 100%;
+    }
+  }
+}
+
+// Große Uberschfift "Die Straße gehört dir. Wir geben dir das Auto dazu. "
+.motivation__text-heading {
+  color: $color-text;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+
+  &::before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 0.25rem;
+    background-color: $color-secondary;
+    margin-bottom: 0.5rem;
+  }
+
+  @media (max-width: $breakpoint-lg) {
+    font-size: 1.3rem;
+    &::before {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 0.25rem;
+      background-color: antiquewhite;
+      margin-bottom: 0.5rem;
+    }
+  }
+}
+
+//Text klein
+.motivation__text {
+  color: whitesmoke;
+  font-size: 1.1rem;
+  text-align: justify;
+  margin: 0px auto;
+  margin-bottom: 1rem;
+
+  @media (max-width: $breakpoint-lg) {
+    font-size: 1rem;
+    width: 39rem;
+  }
+
+  @media (max-width: $breakpoint-md) {
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    font-size: 0.8rem;
+  }
+}
+
+// Fotos Container
+.motivation__images-card {
+  flex-wrap: wrap;
+  justify-content: center;
+  border-radius: 1.618rem;
+  width: 90%;
+  margin: 0px auto;
+
+  @media (max-width: $breakpoint-lg) {
+    width: 100%;
+  }
+
+  @media (max-width: 1280px) {
+  }
+
+  @media (max-width: 391px) {
+    display: none;
+  }
+}
+
+/**
+ * @param $top: Position from top (in rem)
+ * @param $left: Position from left (in %)
+ */
+
+// Einzelne Fotos
+.motivation__image {
+  box-sizing: border-box;
+  height: auto;
+  margin: 1.5rem;
+  position: static;
+  box-shadow: 0 0 1rem rgba(05, 05, 05, 0.5);
+  border-radius: 1.618rem;
+  overflow: hidden;
+  width: 29%;
+  box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.5),
+    -8px -8px 16px rgba(255, 255, 255, 0.1);
+
+  filter: grayscale(80%);
+  transform: scale(1);
+  transition: filter ease-in-out 0.1s, transform ease-in-out 0.1s;
+
+  &:hover {
+    filter: grayscale(0%);
+    z-index: 1;
+     box-shadow: 9px 9px 17px rgba(0, 0, 0, 0.5),
+      -9px -9px 17px rgba(255, 255, 255, 0.1);
+
+
+
+
+
+
+    transform: scale(1.03);
+
+  }
+
+  // 1440 x 900
+  @media (max-width: 1440px) {
+    width: 30.5%;
+    margin: 0.5rem;
+  }
+
+  // 1280 x 800
+  @media (max-width: $breakpoint-lg) {
+    width: 31%;
+    margin: 0.7rem;
+    margin-bottom: 0.4rem;
+  }
+
+  @media (max-width: $breakpoint-iphone12) {
+    $-width-md: (100% * 0.5);
+
+    width: calc(100% - #{($-image-margin * 2 + 0.001rem)});
+  }
+}
+

@@ -1,0 +1,31 @@
+@use "./variables" as *;
+
+@mixin clearfix() {
+  &::after {
+    display: block;
+    clear: both;
+    content: "";
+  }
+}
+
+@mixin make-container() {
+  max-width: 68%;
+  margin: 3rem auto;
+  border-radius: 1.618rem;
+  padding: 1.618rem;
+  background-color: rgba(22, 22, 29, 0.5); // statt $color-eigengrau
+  -webkit-backdrop-filter: blur(200px);
+  backdrop-filter: blur(200px);
+  z-index: 1;
+
+  @include clearfix;
+
+  @media (max-width: 400px) {
+    max-width: 100%;
+    padding: 0 0.5rem;
+    padding-bottom: 1rem;
+  }
+
+  @media (max-width: $breakpoint-lg) {
+  }
+}

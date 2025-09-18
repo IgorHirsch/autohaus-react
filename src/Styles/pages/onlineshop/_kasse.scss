@@ -1,0 +1,174 @@
+@use "../../abstracts" as *;
+@use "sass:color";
+
+/* Checkout (Kasse) page styles */
+
+.checkout-container {
+  max-width: 1100px;
+  margin: 4rem auto;
+  padding: 1rem;
+  color: $color-text;
+}
+
+.checkout-grid {
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: 1.5rem;
+}
+
+/* Form column */
+.checkout-form {
+  background: $color-eigengrau-transparent;
+  padding: 1rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+}
+
+.checkout-form fieldset {
+  border: none;
+  margin: 0 0 1rem 0;
+  padding: 0;
+}
+
+.checkout-form legend {
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: color.scale($color-text, $lightness: 20%);
+}
+
+.checkout-form label {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-size: 0.95rem;
+  color: $color-text;
+}
+
+.checkout-form input[type="text"],
+.checkout-form input[type="email"],
+.checkout-form input[type="tel"] {
+  width: 100%;
+  padding: 0.6rem;
+  border-radius: 0.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: transparent;
+  color: $color-text;
+  margin-bottom: 0.75rem;
+  outline: none;
+  transition: box-shadow 0.12s, border-color 0.12s;
+}
+
+.checkout-form input:focus {
+  border-color: color.scale($color-primary, $lightness: 10%);
+  box-shadow: 0 4px 14px color.scale($color-primary, $alpha: -80%);
+}
+
+/* two-column small inputs (PLZ / Ort etc.) */
+.checkout-form .two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+}
+
+/* Radio lists */
+.checkout-form fieldset:last-of-type label,
+.checkout-form fieldset:nth-of-type(2) label {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: $color-text;
+}
+
+/* Summary column */
+.checkout-summary {
+  background: $color-eigengrau;
+  padding: 1rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  color: $color-text;
+}
+
+/* Order items list */
+.order-items {
+  margin: 0 0 0.75rem 0;
+  padding: 0;
+  list-style: none;
+}
+
+.order-items li {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.25rem 0;
+  color: rgba($color-text, 0.95);
+  font-size: 0.95rem;
+}
+
+/* Summary rows */
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.25rem 0;
+  color: rgba($color-text, 0.95);
+}
+
+.summary-row.total {
+  font-weight: 800;
+  font-size: 1.05rem;
+  margin-top: 0.5rem;
+  color: $color-text;
+}
+
+/* Actions */
+.summary-actions {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* Button fallbacks - rely on global button classes but tighten sizes here */
+.summary-actions .button {
+  width: 100%;
+}
+
+/* smaller utility within form if needed */
+.checkout-form .button--sm {
+  padding: 0.35rem 0.6rem;
+  font-size: 0.85rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: $breakpoint-md) {
+  .checkout-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .checkout-summary {
+    position: static;
+    margin-top: 1rem;
+  }
+
+  .summary-actions .button {
+    width: 100%;
+  }
+}
+
+/* Accessibility & micro-interactions */
+.checkout-form input[required] {
+  box-shadow: none;
+}
+
+.checkout-form input[aria-invalid="true"] {
+  border-color: rgba(255, 60, 60, 0.85);
+  box-shadow: 0 4px 16px rgba(255, 60, 60, 0.06);
+}
+
+/* Minor helpers */
+.checkout-form small.helper {
+  display: block;
+  margin-top: -0.5rem;
+  margin-bottom: 0.5rem;
+  color: rgba($color-text, 0.7);
+  font-size: 0.85rem;
+}

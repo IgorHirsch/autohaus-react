@@ -1,0 +1,197 @@
+@use "../../abstracts" as *;
+
+.glass-futuristic {
+  &::before {
+    content: "";
+    position: absolute;
+    top: 120px;
+    left: 610px;
+    width: 1100px;
+    height: 700px;
+    background: linear-gradient(120deg, #ff8c00 50%, #f095c3 40%, #9287df 100%);
+    clip-path: polygon(0 0, 100% 10, 100% 100%, 20 90%);
+    opacity: 0.6;
+    filter: blur(150px);
+    z-index: 0;
+  }
+}
+
+.aktuelles-futuristic {
+  padding: 0;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+.futuristic-container {
+  width: 100vw;
+  max-width: 100vw;
+  margin: 5rem auto;
+  padding: 0;
+  min-height: 7vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+  text-align: center;
+  overflow: visible;
+
+  .futuristic-image-wrapper {
+    width: 100vw;
+  max-width: 100vw;
+  height: 70vh;
+  max-height: 70vh;
+  overflow: hidden;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  background: #181f23;
+
+   .swiper {
+    width: 100vw;
+    height: 70vh;
+    max-width: 100vw;
+    max-height: 70vh;
+  }
+
+  .swiper-wrapper {
+    width: 100%;
+    height: 100%;
+  }
+
+  .swiper-slide {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .futuristic-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}
+
+
+  .futuristic-logos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4rem; // Abstand zwischen den Logos
+    width: 100%;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    z-index: 2;
+    position: relative;
+    background: none;
+  }
+
+  .futuristic-logo {
+    height: 64px; // vorher 48px oder 36px
+    width: auto;
+    filter: none; // entfernt den Schatten
+    background: transparent;
+    transition: transform 0.2s;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  .futuristic-logo[alt*="SEAT"] {
+    filter: brightness(0) saturate(100%);
+  }
+
+  .swiper-pagination {
+    position: absolute;
+    bottom: 1rem;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    z-index: 10;
+
+    .swiper-pagination-bullet {
+      width: 8px;
+      height: 8px;
+      background: #fff;
+      opacity: 0.6;
+      margin: 0 4px;
+      border-radius: 50%;
+      transition: background 0.2s;
+    }
+    .swiper-pagination-bullet-active {
+      opacity: 1;
+    }
+  }
+
+  .swiper-button-next,
+  .swiper-button-prev {
+    color: #fff;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: rgba(32, 45, 53, 0.25);
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+    font-size: 1.2rem;
+    transition: background 0.2s;
+
+    &:hover {
+      color: #fff;
+    }
+  }
+
+  .swiper-button-next {
+    right: 1rem;
+  }
+
+  .swiper-button-prev {
+    left: 1rem;
+  }
+
+  .swiper-slide img {
+  transform: scale(1);
+  transition: transform 5s ease; /* länger für smooth Effekt */
+}
+
+.swiper-slide-active img {
+  transform: scale(1.03); /* sanft reinzoomen */
+}
+}
+
+// Responsive Anpassungen
+@media (max-width: 900px) {
+  .futuristic-container {
+    .futuristic-image-wrapper {
+      height: 32vh;
+      max-height: 32vh;
+      .futuristic-logos {
+        top: 1.2rem;
+        gap: 1.2rem;
+      }
+    }
+    .futuristic-logo {
+      height: 48px; // vorher 36px
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .futuristic-container {
+    .futuristic-image-wrapper {
+      height: 22vh;
+      max-height: 22vh;
+      border-radius: 0.7rem;
+      .futuristic-logos {
+        top: 0.5rem;
+        gap: 0.7rem;
+      }
+    }
+    .futuristic-logo {
+      height: 36px; // vorher 28px
+    }
+  }
+}
