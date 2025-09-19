@@ -1,6 +1,7 @@
 import React from "react";
 import "../../Styles/main.css";
 import StarBorder from "../Elements/StarBorder";
+import BrandNavigation from "../Page/BrandNavigation";
 
 function Header() {
   return (
@@ -21,7 +22,22 @@ function Header() {
           title="Menü schließen"
         />
         <ul className="nav-links">
-          {/* Fahrzeugbestand */}
+          {/* Marken React */}
+          <li>
+            <a href="#" className="desktop-item">
+              Neuwagen
+            </a>
+            <input type="checkbox" id="showMega" />
+            <label htmlFor="showMega" className="mobile-item">
+              Neuwagen
+            </label>
+            <div className="mega-box">
+              <div className="content">
+                <BrandNavigation />
+              </div>
+            </div>
+          </li>
+
           <li>
             <a href="#" className="desktop-item">
               Fahrzeugbestand
@@ -41,182 +57,32 @@ function Header() {
                 </div>
 
                 <div className="row">
-                  <header>Neufahrzeuge</header>
-                  <ul className="mega-links">
-                    <li>
-                      <a href="sites/unternehmen/fahrzeugebestand.html">Seat</a>
-                    </li>
-                    <li>
-                      <a href="sites/unternehmen/fahrzeugebestand.html">
-                        Cupra
-                      </a>
-                    </li>
-                    <li>
-                      <a href="sites/unternehmen/fahrzeugebestand.html">
-                        Nissan
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-                <div className="row">
-                  <header>Tageszulassungen</header>
-                  <ul className="mega-links">
-                    <li>
-                      <a href="#">Seat</a>
-                    </li>
-                    <li>
-                      <a href="#">Cupra</a>
-                    </li>
-                    <li>
-                      <a href="#">Nissan</a>
-                    </li>
-                  </ul>
-                </div>
-                <div className="row">
-                  <header>Vorführwagen</header>
-                  <ul className="mega-links">
-                    <li>
-                      <a href="#">Seat</a>
-                    </li>
-                    <li>
-                      <a href="#">Cupra</a>
-                    </li>
-                    <li>
-                      <a href="#">Nissan</a>
-                    </li>
-                  </ul>
-                </div>
-                <div className="row">
-                  <header>Gebrauchtwagen</header>
-                  <ul className="mega-links">
-                    <li>
-                      <a href="#">Seat</a>
-                    </li>
-                    <li>
-                      <a href="#">Cupra</a>
-                    </li>
-                    <li>
-                      <a href="#">Nissan</a>
-                    </li>
-                    <li>
-                      <a href="#">Audi</a>
-                    </li>
-                    <li>
-                      <a href="#">Porsche</a>
-                    </li>
-                  </ul>
-                </div>
-                <div className="row">
-                  <header>Nutzfahrzeuge</header>
-                  <ul className="mega-links">
-                    <li>
-                      <a href="#">Nissan Townstar</a>
-                    </li>
-                    <li>
-                      <a href="#">Nissan NV 400</a>
-                    </li>
-                    <li>
-                      <a href="#">Nissan Primastar</a>
-                    </li>
-                    <li>
-                      <a href="#">Nissan Interstar</a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </li>
-
-          {/* Marken */}
-          <li>
-            <a href="#" className="desktop-item">
-              Marken
-            </a>
-            <input type="checkbox" id="showMega" />
-            <label htmlFor="showMega" className="mobile-item">
-              Marken
-            </label>
-            <div className="mega-box">
-              <div className="content">
-                <div className="row">
                   <img
                     id="dynamic-logo"
-                    src="images/marken/cupra/cupra-logo_copper-343x330.png"
+                    src="https://static.vecteezy.com/system/resources/previews/020/927/059/original/seat-logo-brand-car-symbol-white-design-spanish-automobile-illustration-with-black-background-free-vector.jpg"
                     alt="Cupra Logo"
                   />
                 </div>
-
                 <div className="row">
-                  <header>Cupra</header>
-                  <ul className="mega-links">
-                    <li>
-                      <a href="#">Born</a>
-                    </li>
-                    <li>
-                      <a href="#">Ateca</a>
-                    </li>
-                    <li>
-                      <a href="#">Tavascan</a>
-                    </li>
-                    <li>
-                      <a href="#">Formentor</a>
-                    </li>
-                    <li>
-                      <a href="#">Leon</a>
-                    </li>
-                    <li>
-                      <a href="#">Leon Sportstourer</a>
-                    </li>
-                    <li>
-                      <a href="#">Terramar</a>
-                    </li>
-                  </ul>
+                  <img
+                    id="dynamic-logo"
+                    src="https://tse4.mm.bing.net/th/id/OIP.sTB2EHz-3nyR82Gp_0fzVQHaEK?rs=1&pid=ImgDetMain&o=7&rm=3"
+                    alt="Cupra Logo"
+                  />
                 </div>
                 <div className="row">
-                  <header>Seat</header>
-                  <ul className="mega-links">
-                    <li>
-                      <a href="#">Ateca</a>
-                    </li>
-                    <li>
-                      <a href="#">Arona</a>
-                    </li>
-                    <li>
-                      <a href="#">Ibiza</a>
-                    </li>
-                    <li>
-                      <a href="#">Leon Sportstourer</a>
-                    </li>
-                  </ul>
+                  <img
+                    id="dynamic-logo"
+                    src="https://wallpapercave.com/wp/wp2229386.jpg"
+                    alt="Cupra Logo"
+                  />
                 </div>
                 <div className="row">
-                  <header>Nissan</header>
-                  <ul className="mega-links">
-                    <li>
-                      <a href="#">Juke Hybrid</a>
-                    </li>
-                    <li>
-                      <a href="#">Qashqai e-Power</a>
-                    </li>
-                    <li>
-                      <a href="#">Leaf</a>
-                    </li>
-                    <li>
-                      <a href="#">Ariya</a>
-                    </li>
-                    <li>
-                      <a href="#">X-Trail e-Power</a>
-                    </li>
-                    <li>
-                      <a href="#">Townstar Kombi</a>
-                    </li>
-                    <li>
-                      <a href="#">Primaster Kombi</a>
-                    </li>
-                    <li>
-                      <a href="#">Primaster Seaside</a>
-                    </li>
-                  </ul>
+                  <img
+                    id="dynamic-logo"
+                    src="https://logowik.com/content/uploads/images/audi-line-black4986.logowik.com.webp"
+                    alt="Cupra Logo"
+                  />
                 </div>
               </div>
             </div>
@@ -334,6 +200,8 @@ function Header() {
               </li>
             </ul>
           </li>
+
+          {/* Onlineshop */}
           <li>
             <a href="#" className="desktop-item">
               Onlineshop

@@ -1,3 +1,4 @@
+@use "sass:color";
 @use "../abstracts/_variables.scss" as *;
 
 nav {
@@ -110,20 +111,17 @@ nav .wrapper {
   opacity: 0;
   visibility: hidden;
   z-index: 888;
-  background: $color-eigengrau-transparent; // halbtransparent wie offers__card
+  background: $color-eigengrau; // halbtransparent wie offers__card
   border-radius: 0 0 1rem 1rem;
-  color: $color-primary;
-  -webkit-backdrop-filter: blur(50px); // Für Safari
-  backdrop-filter: blur(50px); // Blur-Effekt
-  color: $color-text;
 }
 .mega-box .content {
   padding: 25px 20px;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: flex-start;
-  gap: 4rem; // Abstand zwischen Bild und Row
   width: 100%;
+
+  height: 40rem;
   box-shadow: 24px 48px 48px -16px rgba(0, 0, 0, 0.38),
     // unten rechts, -16px spread verhindert oben
     -24px 48px 48px -16px rgba(0, 0, 0, 0.38),
@@ -137,13 +135,93 @@ nav .wrapper {
   z-index: 500;
   border-radius: 0 0 1rem 1rem;
 }
-.mega-box .content .row {
-  width: calc(25% - 30px);
-  line-height: 45px;
+
+// Brand Navigation
+.brand-navigation {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  width: 100%;
+  justify-content: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 1rem;
+
+  .brand-nav-item {
+    padding: 1rem 1.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 120px;
+    height: 80px;
+
+    .brand-logo {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      filter: brightness(0.8) contrast(1.2);
+      transition: all 0.3s ease;
+    }
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: $color-primary;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      transform: translateY(-2px);
+
+      .brand-logo {
+        filter: brightness(1.1) contrast(1.3);
+        transform: scale(1.05);
+      }
+    }
+
+    &.active {
+      background: linear-gradient(
+        135deg,
+        $color-primary,
+        color.adjust($color-primary, $lightness: 10%)
+      );
+      border-color: $color-primary;
+      box-shadow: 0 6px 20px rgba($color-primary, 0.4);
+      transform: translateY(-3px);
+
+      .brand-logo {
+        filter: brightness(1.2) contrast(1.4)
+          drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+        transform: scale(1.1);
+      }
+    }
+  }
+} // Car Grid
+.car-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  width: 100%;
 }
+
+.mega-box .content .row {
+  width: calc(16.666% - 20px);
+  line-height: 45px;
+  margin-right: 15px;
+}
+
+.mega-box .content .column {
+  width: calc(20% - 20px);
+  display: flex;
+  flex-direction: column;
+  margin-right: 15px;
+}
+
 .content .row img {
-  width: 450px;
-  height: 350px;
+  width: 100%;
+  max-width: 200px;
+  height: 150px;
   object-fit: cover;
   border-radius: 0.5rem;
   border: $color-eigengrau;
@@ -291,6 +369,27 @@ nav .wrapper {
     box-shadow: none;
     flex-direction: column;
     padding: 20px 20px 0 20px;
+  }
+
+  .brand-navigation {
+    flex-direction: row;
+    gap: 1rem;
+    margin-bottom: 1rem;
+
+    .brand-nav-item {
+      padding: 0.8rem 1rem;
+      width: 80px;
+      height: 60px;
+
+      .brand-logo {
+        max-width: 90%;
+        max-height: 90%;
+      }
+    }
+  }
+  .car-grid {
+    flex-direction: column;
+    gap: 0.5rem;
   }
   .mega-box .content .row {
     width: 100%;

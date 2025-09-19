@@ -1,0 +1,203 @@
+@use "../abstracts" as *;
+
+.mega-menu-car {
+  background: $color-eigengrau;
+  border-radius: 1rem;
+  box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.5),
+    -8px -8px 16px rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  width: 280px;
+  margin: 1rem;
+  text-align: center;
+  transition: all 0.3s ease;
+
+  &:hover {
+    box-shadow: 12px 12px 20px rgba(0, 0, 0, 0.6),
+      -12px -12px 20px rgba(255, 255, 255, 0.15);
+    transform: translateY(-2px);
+  }
+
+  .mega-menu-car__image-container {
+    width: 100%;
+    height: 180px;
+    background: $color-eigengrau;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 1rem 1rem 0 0;
+    position: relative;
+
+    .mega-menu-car__image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      transition: transform 0.3s ease;
+
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
+
+    .mega-menu-car__fuel-badge {
+      position: absolute;
+      top: 0.6rem;
+      right: 0.6rem;
+      background: $color-eigengrau-transparent-light;
+      color: white;
+      padding: 0.2rem 0.4rem;
+      border-radius: 0.3rem;
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+      z-index: 2;
+      display: flex;
+
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      height: 3rem;
+    }
+  }
+
+  .mega-menu-car__content {
+    padding: 0.4rem;
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.05) 0%,
+      rgba(255, 255, 255, 0.02) 100%
+    );
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+
+    //height: 10rem;
+  }
+
+  .mega-menu-car__name {
+    color: $color-secondary-light;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-align: center;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0.3rem;
+  }
+
+  .mega-menu-car__specs {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+    margin-bottom: 0.4rem;
+
+    height: 5rem;
+
+    .mega-menu-car__spec {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.9rem;
+      height: 2rem;
+
+      .spec-label {
+        color: $color-text;
+        opacity: 0.8;
+      }
+
+      .spec-value {
+        color: $color-secondary;
+        font-weight: 500;
+      }
+    }
+  }
+
+  .mega-menu-car__price {
+    background: $color-eigengrau;
+    color: $color-secondary;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    font-weight: 700;
+    text-align: center;
+    margin: 0 -0.6rem -0.6rem -0.6rem;
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.2);
+
+
+    display: flex;
+    height: 3rem;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+}
+
+// Responsive Design
+@media (max-width: $breakpoint-md) {
+  .mega-menu-car {
+    width: 240px;
+    margin: 0.8rem;
+
+    .mega-menu-car__image-container {
+      height: 160px;
+
+      .mega-menu-car__fuel-badge {
+        top: 0.6rem;
+        right: 0.6rem;
+        font-size: 0.7rem;
+        padding: 0.25rem 0.5rem;
+      }
+    }
+
+    .mega-menu-car__name {
+      font-size: 1.1rem;
+    }
+
+    .mega-menu-car__specs {
+      .mega-menu-car__spec {
+        font-size: 0.8rem;
+      }
+    }
+
+    .mega-menu-car__price {
+      font-size: 1rem;
+      padding: 0.7rem;
+    }
+  }
+}
+
+@media (max-width: $breakpoint-sm) {
+  .mega-menu-car {
+    width: 100%;
+    max-width: 280px;
+    margin: 0.5rem auto;
+
+    .mega-menu-car__image-container {
+      height: 140px;
+
+      .mega-menu-car__fuel-badge {
+        top: 0.5rem;
+        right: 0.5rem;
+        font-size: 0.7rem;
+      }
+    }
+
+    .mega-menu-car__name {
+      font-size: 1rem;
+    }
+
+    .mega-menu-car__specs {
+      gap: 0.3rem;
+
+      .mega-menu-car__spec {
+        font-size: 0.8rem;
+      }
+    }
+
+    .mega-menu-car__price {
+      font-size: 0.9rem;
+      padding: 0.6rem;
+    }
+  }
+}
