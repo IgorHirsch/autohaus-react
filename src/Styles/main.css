@@ -647,6 +647,7 @@ nav input {
   flex-direction: row;
   justify-content: center;
   padding-bottom: 2rem;
+  border-bottom: 0.175rem solid rgba(255, 255, 255, 0.2);
 }
 @media (max-width: 48em) {
   .footer__container {
