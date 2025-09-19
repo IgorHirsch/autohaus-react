@@ -15,7 +15,56 @@ function Footer() {
             </p>
 
             <div className="footer_info">
-              <div className ="footer_info-contakt">
+              <div className="footer__info-column">
+                <div className="footer__address-block">
+                  <div className="footer__address-heading">Anschrift</div>
+                  <address className="footer__address-text">
+                    Auto Emotion GmbH &amp; Co. KG
+                    <br />
+                    Sprendlinger Landstr. 166
+                    <br />
+                    63069 Offenbach
+                  </address>
+                </div>
+                <div className="footer__hours-block">
+                  <div className="footer__hours-heading">Öffnungszeiten</div>
+                  <div className="footer__hours-section">
+                    <div className="footer__hours-title">Verkauf</div>
+                    <div>
+                      Montag - Freitag{" "}
+                      <span className="footer__hours-time">
+                        08:00 - 18:00 Uhr
+                      </span>
+                    </div>
+                    <div>
+                      Samstag{" "}
+                      <span className="footer__hours-time">
+                        09:00 - 14:00 Uhr
+                      </span>
+                    </div>
+                    <div className="footer__hours-note">
+                      Außerhalb der gesetzlichen Öffnungszeiten sowie sonntags
+                      keine Beratung und kein Verkauf.
+                    </div>
+                  </div>
+                  <div className="footer__hours-section">
+                    <div className="footer__hours-title">Werkstatt</div>
+                    <div>
+                      Montag - Freitag{" "}
+                      <span className="footer__hours-time">
+                        07:30 - 18:00 Uhr
+                      </span>
+                    </div>
+                    <div>
+                      Samstag{" "}
+                      <span className="footer__hours-time">
+                        09:00 - 13:00 Uhr
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="footer__info-contact">
                 <div className="footer__contact-item">
                   <div className="footer__contact-item-icon">
                     <svg
@@ -54,56 +103,6 @@ function Footer() {
                   >
                     +49 123 456 789
                   </a>
-                </div>
-              </div>
-              <div className="footer__info-column">
-                <div className="footer__address-block">
-                  <div className="footer__address-heading">Anschrift</div>
-                  <address className="footer__address-text">
-                    Auto Emotion GmbH &amp; Co. KG
-                    <br />
-                    Sprendlinger Landstr. 166
-                    <br />
-                    63069 Offenbach
-                  </address>
-                  
-                </div>
-                <div className="footer__hours-block">
-                  <div className="footer__hours-heading">Öffnungszeiten</div>
-                  <div className="footer__hours-section">
-                    <div className="footer__hours-title">Verkauf</div>
-                    <div>
-                      Montag - Freitag{" "}
-                      <span className="footer__hours-time">
-                        08:00 - 18:00 Uhr
-                      </span>
-                    </div>
-                    <div>
-                      Samstag{" "}
-                      <span className="footer__hours-time">
-                        09:00 - 14:00 Uhr
-                      </span>
-                    </div>
-                    <div className="footer__hours-note">
-                      Außerhalb der gesetzlichen Öffnungszeiten sowie sonntags
-                      keine Beratung und kein Verkauf.
-                    </div>
-                  </div>
-                  <div className="footer__hours-section">
-                    <div className="footer__hours-title">Werkstatt</div>
-                    <div>
-                      Montag - Freitag{" "}
-                      <span className="footer__hours-time">
-                        07:30 - 18:00 Uhr
-                      </span>
-                    </div>
-                    <div>
-                      Samstag{" "}
-                      <span className="footer__hours-time">
-                        09:00 - 13:00 Uhr
-                      </span>
-                    </div>
-                  </div>
                 </div>
               </div>
             </div>
