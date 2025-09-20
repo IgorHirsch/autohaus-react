@@ -1,0 +1,197 @@
+@use "sass:color";
+@use "../../../abstracts/variables" as *;
+
+// Vehicle Stock Layout
+.vehicle-stock-navigation {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.vehicle-categories {
+  width: 100%;
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+  .category-nav {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    border-radius: 1rem;
+    height: 6rem;
+
+    .category-item {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 0.8rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border: 2px solid rgba(255, 255, 255, 0.1);
+      text-align: center;
+      min-width: 140px;
+      height: 80px;
+
+      h3 {
+        color: $color-text;
+        font-size: 0.9rem;
+        font-weight: 600;
+        margin: 0;
+        padding: 0;
+        height: 2.5rem;
+        line-height: 1.2;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border-radius: 1rem;
+        box-sizing: border-box;
+      }
+
+      p {
+        color: $color-text;
+        opacity: 0.7;
+        font-size: 0.7rem;
+        margin: 0;
+        padding: 0;
+        height: 1.5rem;
+        line-height: 1.2;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border-radius: 1rem;
+        box-sizing: border-box;
+      }
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.1);
+        border-color: $color-primary;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+
+        h3 {
+          color: $color-primary;
+        }
+      }
+
+      &.active {
+        background: linear-gradient(
+          135deg,
+          $color-primary,
+          color.adjust($color-primary, $lightness: 10%)
+        );
+        border-color: $color-primary;
+        box-shadow: 0 6px 20px rgba($color-primary, 0.4);
+        transform: translateY(-3px);
+
+        h3,
+        p {
+          color: $color-eigengrau;
+          font-weight: 600;
+        }
+      }
+    }
+  }
+}
+
+.vehicle-grid-container {
+  width: 100%;
+
+  .grid-title {
+    color: $color-primary;
+    font-size: 1.4rem;
+    margin: 5px;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 3rem;
+  }
+
+  .vehicle-brands-grid {
+    margin: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    align-items: stretch;
+    border-radius: 1rem;
+
+    .brand-section {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 1rem;
+      padding: 0.8rem;
+      flex: 0 0 auto;
+      min-width: 180px;
+      max-width: 200px;
+      transition: all 0.3s ease;
+      border: 2px solid rgba(255, 255, 255, 0.1);
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.08);
+        border-color: $color-primary;
+        transform: translateY(-3px);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+      }
+
+      .brand-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        height: 120px;
+        justify-content: space-between;
+
+        .brand-image {
+          width: 80px;
+          height: 60px;
+          object-fit: contain;
+          border-radius: 0.5rem;
+          margin-bottom: 0.5rem;
+          filter: brightness(0.9) contrast(1.1);
+          transition: all 0.3s ease;
+        }
+
+        .brand-info {
+          flex-grow: 1;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-around;
+          align-items: center;
+          width: 100%;
+
+          .brand-name {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: $color-primary;
+            margin-bottom: 0.3rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            line-height: 1.2;
+          }
+
+          .vehicle-count {
+            font-size: 0.8rem;
+            color: whitesmoke;
+            font-weight: 500;
+            opacity: 0.9;
+            line-height: 1.2;
+          }
+        }
+      }
+
+      &:hover .brand-card .brand-image {
+        filter: brightness(1.1) contrast(1.2);
+        transform: scale(1.05);
+      }
+    }
+  }
+}

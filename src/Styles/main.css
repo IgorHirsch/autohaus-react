@@ -275,20 +275,13 @@ nav {
   top: 0;
   z-index: 1100;
   width: 100%;
-  background: rgb(22, 22, 29); /* oder rgba() falls transparent gewünscht */
-  /* optional: leichte Schattenlinie */
+  background: rgb(22, 22, 29);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
   border-radius: 0 0 -1rem -1rem;
   transition: all 0.5s ease;
   -webkit-backdrop-filter: blur(50px);
   backdrop-filter: blur(50px);
   color: #e2e8ef;
-}
-
-.marke-icon {
-  margin-top: 1.5rem;
-  height: 40px; /* Größe anpassen */
-  margin-right: 10px; /* Abstand zum Text */
 }
 
 nav .wrapper {
@@ -355,13 +348,12 @@ nav .wrapper {
   position: absolute;
   background: rgba(22, 22, 29, 0.95);
   box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.5);
-  border-radius: 0 0 -1rem -1rem;
+  border-radius: 0 0 1rem 1rem;
   width: 300px;
   line-height: 45px;
   top: 85px;
   opacity: 0;
   visibility: hidden;
-  border-radius: 0 0 1rem 1rem;
 }
 
 .nav-links li:hover .drop-menu,
@@ -378,6 +370,19 @@ nav .wrapper {
   padding: 0 0 0 15px;
   font-weight: 400;
   border-radius: 0px;
+}
+
+.wrapper .btn {
+  color: #e2e8ef;
+  font-size: 20px;
+  cursor: pointer;
+  display: none;
+}
+
+.wrapper .btn.close-btn {
+  position: absolute;
+  right: 30px;
+  top: 10px;
 }
 
 .mega-box {
@@ -402,6 +407,32 @@ nav .wrapper {
   box-shadow: 24px 48px 48px -16px rgba(0, 0, 0, 0.38), -24px 48px 48px -16px rgba(0, 0, 0, 0.38), 0 32px 64px -16px rgba(0, 0, 0, 0.22);
   z-index: 500;
   border-radius: 0 0 1rem 1rem;
+}
+
+.marke-icon {
+  margin-top: 1.5rem;
+  height: 40px;
+  margin-right: 10px;
+}
+
+nav input {
+  display: none;
+}
+
+.blur-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 800;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s;
+  -webkit-backdrop-filter: blur(18px);
+  backdrop-filter: blur(18px);
+}
+
+.blur-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .brand-navigation {
@@ -515,203 +546,6 @@ nav .wrapper {
 
 .row .mega-links li a:hover {
   color: #e2e8ef;
-}
-
-.wrapper .btn {
-  color: #e2e8ef;
-  font-size: 20px;
-  cursor: pointer;
-  display: none;
-}
-
-.wrapper .btn.close-btn {
-  position: absolute;
-  right: 30px;
-  top: 10px;
-}
-
-@media screen and (max-width: 970px) {
-  .wrapper .btn {
-    display: block;
-  }
-  .wrapper .nav-links {
-    position: fixed;
-    height: 100vh;
-    width: 100%;
-    max-width: 350px;
-    top: 0;
-    left: -100%;
-    background: rgb(22, 22, 29);
-    display: block;
-    padding: 50px 10px;
-    line-height: 50px;
-    overflow-y: auto;
-    box-shadow: 0px 15px 15px rgba(0, 0, 0, 0.18);
-    transition: all 0.3s ease;
-  }
-  /* custom scroll bar */
-  ::-webkit-scrollbar {
-    width: 10px;
-  }
-  ::-webkit-scrollbar-track {
-    background: rgb(22, 22, 29);
-  }
-  ::-webkit-scrollbar-thumb {
-    background: #011820;
-  }
-  #menu-btn:checked ~ .nav-links {
-    left: 0%;
-  }
-  #menu-btn:checked ~ .btn.menu-btn {
-    display: none;
-  }
-  #close-btn:checked ~ .btn.menu-btn {
-    display: block;
-  }
-  .nav-links li {
-    margin: 15px 10px;
-  }
-  .nav-links li a {
-    padding: 0 20px;
-    display: block;
-    font-size: 20px;
-  }
-  .nav-links .drop-menu {
-    position: static;
-    opacity: 1;
-    top: 65px;
-    visibility: visible;
-    padding-left: 20px;
-    width: 100%;
-    max-height: 0px;
-    overflow: hidden;
-    box-shadow: none;
-    transition: all 0.3s ease;
-  }
-  #showDrop:checked ~ .drop-menu,
-  #showMega:checked ~ .mega-box {
-    max-height: 100%;
-  }
-  .nav-links .desktop-item {
-    display: none;
-  }
-  .nav-links .mobile-item {
-    display: block;
-    color: #e2e8ef;
-    font-size: 20px;
-    font-weight: 500;
-    padding-left: 20px;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: all 0.3s ease;
-  }
-  .nav-links .mobile-item:hover {
-    background: rgba(87, 87, 116, 0.1);
-  }
-  .drop-menu li {
-    margin: 0;
-  }
-  .drop-menu li a {
-    border-radius: 5px;
-    font-size: 18px;
-    color: #345a62;
-  }
-  .mega-box {
-    position: static;
-    top: 65px;
-    opacity: 1;
-    visibility: visible;
-    padding: 0 20px;
-    max-height: 0px;
-    overflow: hidden;
-    transition: all 0.3s ease;
-  }
-  .mega-box .content {
-    box-shadow: none;
-    flex-direction: column;
-    padding: 20px 20px 0 20px;
-  }
-  .brand-navigation {
-    flex-direction: row;
-    gap: 1rem;
-    margin-bottom: 1rem;
-  }
-  .brand-navigation .brand-nav-item {
-    padding: 0.8rem 1rem;
-    width: 80px;
-    height: 70px;
-  }
-  .brand-navigation .brand-nav-item .brand-logo {
-    max-width: 90%;
-    max-height: 90%;
-  }
-  .car-grid {
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-  .mega-box .content .row {
-    width: 100%;
-    margin-bottom: 15px;
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
-  }
-  .mega-box .content .row:nth-child(1),
-  .mega-box .content .row:nth-child(2) {
-    border-top: 0px;
-  }
-  .content .row .mega-links {
-    border-left: 0px;
-    padding-left: 15px;
-  }
-  .row .mega-links li {
-    margin: 0;
-  }
-  .content .row header {
-    font-size: 19px;
-    color: #e2e8ef;
-  }
-}
-nav input {
-  display: none;
-}
-
-.body-text {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 100%;
-  text-align: center;
-  padding: 0 30px;
-}
-
-.body-text div {
-  font-size: 45px;
-  font-weight: 600;
-}
-
-#dynamic-logo {
-  transition: opacity 0.3s ease-in-out;
-  opacity: 1;
-}
-
-#dynamic-logo.hidden {
-  opacity: 0;
-}
-
-.blur-overlay {
-  position: fixed;
-  inset: 0;
-  z-index: 800;
-  pointer-events: none;
-  opacity: 0;
-  transition: opacity 0.3s;
-  -webkit-backdrop-filter: blur(18px);
-  backdrop-filter: blur(18px);
-}
-
-.blur-overlay.active {
-  opacity: 1;
-  pointer-events: auto;
 }
 
 .vehicle-stock-navigation {
@@ -887,58 +721,6 @@ nav input {
   transform: scale(1.05);
 }
 
-@media (max-width: 62em) {
-  .vehicle-categories .category-nav {
-    flex-direction: column;
-    gap: 0.8rem;
-  }
-  .vehicle-categories .category-nav .category-item {
-    min-width: unset;
-    padding: 0.6rem 1rem;
-  }
-  .vehicle-categories .category-nav .category-item h3 {
-    font-size: 0.85rem;
-  }
-  .vehicle-categories .category-nav .category-item p {
-    font-size: 0.65rem;
-  }
-  .vehicle-grid-container .vehicle-brands-grid {
-    flex-wrap: wrap;
-    gap: 0.8rem;
-  }
-  .vehicle-grid-container .vehicle-brands-grid .brand-section {
-    padding: 0.8rem;
-    min-width: 160px;
-    max-width: 180px;
-  }
-  .vehicle-grid-container .vehicle-brands-grid .brand-section h4 {
-    font-size: 0.9rem;
-    margin-bottom: 0.8rem;
-  }
-  .vehicle-grid-container .vehicle-brands-grid .brand-section .brand-vehicles .vehicle-item img {
-    max-width: 120px;
-    height: 85px;
-  }
-  .vehicle-grid-container .vehicle-brands-grid .brand-section .brand-vehicles .vehicle-item .vehicle-info .vehicle-name {
-    font-size: 0.85rem;
-  }
-  .vehicle-grid-container .vehicle-brands-grid .brand-section .brand-vehicles .vehicle-item .vehicle-info .vehicle-price {
-    font-size: 0.9rem;
-    padding: 0.3rem 0.6rem;
-  }
-}
-@media (max-width: 48em) {
-  .vehicle-grid-container .vehicle-brands-grid {
-    flex-direction: column;
-    align-items: center;
-    gap: 0.8rem;
-  }
-  .vehicle-grid-container .vehicle-brands-grid .brand-section {
-    min-width: unset;
-    max-width: 100%;
-    width: 100%;
-  }
-}
 .footer {
   position: fixed;
   bottom: 0;
@@ -1375,16 +1157,6 @@ nav input {
   font-size: 0.92em;
   color: rgba(255, 255, 255, 0.7);
   margin-top: 0.3em;
-}
-
-.app-container {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-main {
-  flex: 1 0 auto;
 }
 
 .motivation {

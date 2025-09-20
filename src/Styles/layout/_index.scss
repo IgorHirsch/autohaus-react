@@ -1,13 +1,3 @@
-@use "header";
+@use "header"; 
 @use "footer";
 
-// Footer always at the bottom layout helper
-.app-container {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-main {
-  flex: 1 0 auto;
-}
