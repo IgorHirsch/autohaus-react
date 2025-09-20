@@ -2,6 +2,7 @@ import React from "react";
 import "../../Styles/main.css";
 import StarBorder from "../Elements/StarBorder";
 import BrandNavigation from "../Page/BrandNavigation";
+import VehicleStockNavigation from "../Page/VehicleStockNavigation";
 
 function Header() {
   return (
@@ -42,48 +43,13 @@ function Header() {
             <a href="#" className="desktop-item">
               Fahrzeugbestand
             </a>
-            <input type="checkbox" id="showMega" />
-            <label htmlFor="showMega" className="mobile-item">
+            <input type="checkbox" id="showMega2" />
+            <label htmlFor="showMega2" className="mobile-item">
               Fahrzeugbestand
             </label>
             <div className="mega-box">
               <div className="content">
-                <div className="row">
-                  <img
-                    id="dynamic-logo"
-                    src="https://static.vecteezy.com/system/resources/previews/020/502/464/original/cupra-brand-logo-car-symbol-white-design-spanish-automobile-illustration-with-black-background-free-vector.jpg"
-                    alt="Cupra Logo"
-                  />
-                </div>
-
-                <div className="row">
-                  <img
-                    id="dynamic-logo"
-                    src="https://static.vecteezy.com/system/resources/previews/020/927/059/original/seat-logo-brand-car-symbol-white-design-spanish-automobile-illustration-with-black-background-free-vector.jpg"
-                    alt="Cupra Logo"
-                  />
-                </div>
-                <div className="row">
-                  <img
-                    id="dynamic-logo"
-                    src="https://tse4.mm.bing.net/th/id/OIP.sTB2EHz-3nyR82Gp_0fzVQHaEK?rs=1&pid=ImgDetMain&o=7&rm=3"
-                    alt="Cupra Logo"
-                  />
-                </div>
-                <div className="row">
-                  <img
-                    id="dynamic-logo"
-                    src="https://wallpapercave.com/wp/wp2229386.jpg"
-                    alt="Cupra Logo"
-                  />
-                </div>
-                <div className="row">
-                  <img
-                    id="dynamic-logo"
-                    src="https://logowik.com/content/uploads/images/audi-line-black4986.logowik.com.webp"
-                    alt="Cupra Logo"
-                  />
-                </div>
+                <VehicleStockNavigation />
               </div>
             </div>
           </li>
