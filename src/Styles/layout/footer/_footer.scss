@@ -24,25 +24,26 @@
   overflow-x: hidden;
   max-width: 100%;
 
-  // Ensure footer stays at bottom on all devices
+  // Mobile: Footer wird scrollbar und bleibt am Ende des Contents
   @media screen and (max-width: 970px) {
-    position: fixed !important;
-    bottom: 0 !important;
-    z-index: 950 !important;
+    position: static !important; // Nicht mehr fixed
+    bottom: auto !important;
+    z-index: 10 !important; // Niedrigere z-index
+    padding: 2rem 0 1rem 0;
   }
 
   @media screen and (max-width: 768px) {
-    position: fixed !important;
-    bottom: 0 !important;
-    z-index: 950 !important;
-    padding: 2rem 0 0.5rem 0;
+    position: static !important;
+    bottom: auto !important;
+    z-index: 10 !important;
+    padding: 1.5rem 0 1rem 0;
   }
 
   @media screen and (max-width: 480px) {
-    position: fixed !important;
-    bottom: 0 !important;
-    z-index: 950 !important;
-    padding: 1.5rem 0 0.5rem 0;
+    position: static !important;
+    bottom: auto !important;
+    z-index: 10 !important;
+    padding: 1rem 0 1rem 0;
   }
 }
 

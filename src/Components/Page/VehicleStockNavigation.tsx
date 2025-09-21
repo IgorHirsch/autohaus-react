@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 interface VehicleCategory {
   id: string;
@@ -17,6 +17,19 @@ interface VehicleCategory {
 
 const VehicleStockNavigation: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState<string>("neuwagen");
+  const [isMobile, setIsMobile] = useState<boolean>(false);
+
+  // Check if device is mobile
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 970);
+    };
+
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   const vehicleCategories: VehicleCategory[] = [
     {
@@ -186,20 +199,41 @@ const VehicleStockNavigation: React.FC = () => {
       {/* Category Navigation */}
       <div className="vehicle-categories">
         <div className="category-nav">
-          {vehicleCategories.map((category) => (
-            <div
-              key={category.id}
-              className={`category-item ${
-                activeCategory === category.id ? "active" : ""
-              }`}
-              onClick={() => setActiveCategory(category.id)}
-            >
-              <h3>
-                {category.icon} {category.name}
-              </h3>
-              <p>{category.description}</p>
+          {isMobile ? (
+            // Mobile Swiper Structure for Categories
+            <div className="swiper-container-categories">
+              {vehicleCategories.map((category) => (
+                <div
+                  key={category.id}
+                  className={`category-item ${
+                    activeCategory === category.id ? "active" : ""
+                  }`}
+                  onClick={() => setActiveCategory(category.id)}
+                >
+                  <h3>
+                    {category.icon} {category.name}
+                  </h3>
+                  <p>{category.description}</p>
+                </div>
+              ))}
             </div>
-          ))}
+          ) : (
+            // Desktop Structure for Categories
+            vehicleCategories.map((category) => (
+              <div
+                key={category.id}
+                className={`category-item ${
+                  activeCategory === category.id ? "active" : ""
+                }`}
+                onClick={() => setActiveCategory(category.id)}
+              >
+                <h3>
+                  {category.icon} {category.name}
+                </h3>
+                <p>{category.description}</p>
+              </div>
+            ))
+          )}
         </div>
       </div>
 
@@ -207,38 +241,75 @@ const VehicleStockNavigation: React.FC = () => {
       {currentCategory && (
         <div className="vehicle-grid-container">
           <h2 className="grid-title">{currentCategory.name}</h2>
+
           <div className="vehicle-brands-grid">
-            {/* Group vehicles by brand */}
-            {Object.entries(
-              currentCategory.vehicles.reduce((acc, vehicle) => {
-                if (!acc[vehicle.brand]) {
-                  acc[vehicle.brand] = {
-                    brand: vehicle.brand,
-                    image: vehicle.image,
-                    vehicles: [],
-                  };
-                }
-                acc[vehicle.brand].vehicles.push(vehicle);
-                return acc;
-              }, {} as Record<string, { brand: string; image: string; vehicles: any[] }>)
-            ).map(([brand, data]) => (
-              <div key={brand} className="brand-section">
-                <div className="brand-card">
-                  <img
-                    src={data.image}
-                    alt={`${brand} Logo`}
-                    className="brand-image"
-                  />
-                  <div className="brand-info">
-                    <h4 className="brand-name">{brand}</h4>
-                    <span className="vehicle-count">
-                      {data.vehicles.length} Fahrzeug
-                      {data.vehicles.length !== 1 ? "e" : ""} verfügbar
-                    </span>
+            {isMobile ? (
+              // Mobile Swiper Structure for Brands
+              <div className="swiper-container-brands">
+                {Object.entries(
+                  currentCategory.vehicles.reduce((acc, vehicle) => {
+                    if (!acc[vehicle.brand]) {
+                      acc[vehicle.brand] = {
+                        brand: vehicle.brand,
+                        image: vehicle.image,
+                        vehicles: [],
+                      };
+                    }
+                    acc[vehicle.brand].vehicles.push(vehicle);
+                    return acc;
+                  }, {} as Record<string, { brand: string; image: string; vehicles: any[] }>)
+                ).map(([brand, data]) => (
+                  <div key={brand} className="brand-section">
+                    <div className="brand-card">
+                      <img
+                        src={data.image}
+                        alt={`${brand} Logo`}
+                        className="brand-image"
+                      />
+                      <div className="brand-info">
+                        <h4 className="brand-name">{brand}</h4>
+                        <span className="vehicle-count">
+                          {data.vehicles.length} Fahrzeug
+                          {data.vehicles.length !== 1 ? "e" : ""} verfügbar
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            ) : (
+              // Desktop Structure for Brands
+              Object.entries(
+                currentCategory.vehicles.reduce((acc, vehicle) => {
+                  if (!acc[vehicle.brand]) {
+                    acc[vehicle.brand] = {
+                      brand: vehicle.brand,
+                      image: vehicle.image,
+                      vehicles: [],
+                    };
+                  }
+                  acc[vehicle.brand].vehicles.push(vehicle);
+                  return acc;
+                }, {} as Record<string, { brand: string; image: string; vehicles: any[] }>)
+              ).map(([brand, data]) => (
+                <div key={brand} className="brand-section">
+                  <div className="brand-card">
+                    <img
+                      src={data.image}
+                      alt={`${brand} Logo`}
+                      className="brand-image"
+                    />
+                    <div className="brand-info">
+                      <h4 className="brand-name">{brand}</h4>
+                      <span className="vehicle-count">
+                        {data.vehicles.length} Fahrzeug
+                        {data.vehicles.length !== 1 ? "e" : ""} verfügbar
+                      </span>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))
+            )}
           </div>
         </div>
       )}

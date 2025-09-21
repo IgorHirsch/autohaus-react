@@ -33,14 +33,19 @@ body {
   -moz-osx-font-smoothing: grayscale;
 
   // Mobile responsive body padding
+  @media screen and (max-width: 970px) {
+    padding-top: 70px; // Smaller header on tablet
+    padding-bottom: 0; // Kein Footer-Padding, da Footer nicht mehr fixed
+  }
+
   @media screen and (max-width: 768px) {
     padding-top: 70px; // Smaller header on tablet
-    padding-bottom: 180px; // Smaller footer space
+    padding-bottom: 0; // Kein Footer-Padding
   }
 
   @media screen and (max-width: 480px) {
     padding-top: 60px; // Mobile header height
-    padding-bottom: 160px; // Mobile footer space
+    padding-bottom: 0; // Kein Footer-Padding
     overflow-x: hidden; // Prevent horizontal scroll
   }
 }

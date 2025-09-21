@@ -223,7 +223,7 @@ const BrandNavigation: React.FC = () => {
       <div className="car-grid">
         {isMobile ? (
           // Mobile Swiper Structure
-          <div className="swiper-container">
+          <div className="swiper-container-newcar">
             {carData[activeBrand].map((car, index) => (
               <div key={`${activeBrand}-${index}`} className="mega-menu-car">
                 <div className="mega-menu-car__wrapper">

@@ -48,6 +48,20 @@ nav .wrapper {
   transform: skewX(-8deg);
   transition: color 0.2s;
   color: $color-text;
+
+  // Mobile responsive styles für Logo
+  @media screen and (max-width: 970px) {
+    font-size: 1.6rem;
+  }
+
+  @media screen and (max-width: 768px) {
+    font-size: 1.4rem;
+  }
+
+  @media screen and (max-width: 480px) {
+    font-size: 1.2rem;
+    letter-spacing: 0.1em;
+  }
 }
 
 // Navigation Links
@@ -242,8 +256,8 @@ nav input {
     right: -100vw;
     background: $color-eigengrau;
     display: block;
-    padding: 50px 20px;
-    line-height: 50px;
+    padding: 40px 20px 80px 20px; // Bottom padding hinzugefügt für Kontakt-Button
+    line-height: 45px; // Reduziert von 50px
     overflow-y: auto;
     box-shadow: none;
     transition: all 0.3s ease;
@@ -294,18 +308,18 @@ nav input {
   }
 
   .nav-links li {
-    margin: 20px auto;
+    margin: 10px auto; // Reduziert von 20px auf 10px
     text-align: center;
     max-width: 600px;
   }
 
   .nav-links li a {
-    padding: 15px 30px;
+    padding: 10px 25px; // Reduziert von 15px 30px
     display: block;
-    font-size: 24px;
+    font-size: 20px; // Reduziert von 24px
     text-align: center;
-    border-radius: 10px;
-    margin: 10px 0;
+    border-radius: 8px; // Reduziert von 10px
+    margin: 6px 0; // Reduziert von 10px
   }
 
   .nav-links .drop-menu {
@@ -338,14 +352,14 @@ nav input {
   .nav-links .mobile-item {
     display: block;
     color: $color-text;
-    font-size: 24px;
+    font-size: 20px; // Reduziert von 24px
     font-weight: 500;
-    padding: 15px 30px;
-    margin: 10px auto;
+    padding: 10px 25px; // Reduziert von 15px 30px
+    margin: 6px auto; // Reduziert von 10px
     max-width: 600px;
     text-align: center;
     cursor: pointer;
-    border-radius: 10px;
+    border-radius: 8px; // Reduziert von 10px
     transition: all 0.3s ease;
 
     // Button-style like contact button
@@ -387,8 +401,8 @@ nav input {
   .mega-box .content {
     box-shadow: none;
     flex-direction: column;
-    padding: 20px;
     height: auto;
+    padding: 0px;
     max-width: 100%;
     width: 100%;
   }
