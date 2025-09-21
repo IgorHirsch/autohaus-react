@@ -22,13 +22,32 @@ body {
   background: black;
   color: aliceblue;
 
-  font-family:  "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  // Space for fixed header and footer
+  padding-top: 85px; // Height of header
+  padding-bottom: 200px; // Space for footer
+
+  font-family: "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
+    "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
+  // Mobile responsive body padding
+  @media screen and (max-width: 768px) {
+    padding-top: 70px; // Smaller header on tablet
+    padding-bottom: 180px; // Smaller footer space
+  }
+
+  @media screen and (max-width: 480px) {
+    padding-top: 60px; // Mobile header height
+    padding-bottom: 160px; // Mobile footer space
+    overflow-x: hidden; // Prevent horizontal scroll
+  }
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
 }
 
 code {

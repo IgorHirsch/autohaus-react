@@ -1,10 +1,23 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import MegaMenuCar from "./MegaMenuCar";
 
 const BrandNavigation: React.FC = () => {
   const [activeBrand, setActiveBrand] = useState<"seat" | "cupra" | "nissan">(
     "seat"
   );
+  const [isMobile, setIsMobile] = useState<boolean>(false);
+
+  // Check if device is mobile
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 970);
+    };
+
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   const carData = {
     seat: [
@@ -208,17 +221,56 @@ const BrandNavigation: React.FC = () => {
 
       {/* Car Cards Grid */}
       <div className="car-grid">
-        {carData[activeBrand].map((car, index) => (
-          <MegaMenuCar
-            key={`${activeBrand}-${index}`}
-            image={car.image}
-            name={car.name}
-            price={car.price}
-            fuelType={car.fuelType}
-            power={car.power}
-            consumption={car.consumption}
-          />
-        ))}
+        {isMobile ? (
+          // Mobile Swiper Structure
+          <div className="swiper-container">
+            {carData[activeBrand].map((car, index) => (
+              <div key={`${activeBrand}-${index}`} className="mega-menu-car">
+                <div className="mega-menu-car__wrapper">
+                  <div className="mega-menu-car__image-container">
+                    <img
+                      className="mega-menu-car__image"
+                      src={car.image}
+                      alt={car.name}
+                    />
+                    <div className="mega-menu-car__fuel-badge">
+                      {car.fuelType}
+                    </div>
+                  </div>
+                  <div className="mega-menu-car__content">
+                    <div className="mega-menu-car__name">{car.name}</div>
+                    <div className="mega-menu-car__specs">
+                      <div className="mega-menu-car__spec">
+                        <span className="spec-label">Leistung:</span>
+                        <span className="spec-value">{car.power}</span>
+                      </div>
+                      {car.consumption && (
+                        <div className="mega-menu-car__spec">
+                          <span className="spec-label">Verbrauch:</span>
+                          <span className="spec-value">{car.consumption}</span>
+                        </div>
+                      )}
+                    </div>
+                    <div className="mega-menu-car__price">ab {car.price}</div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        ) : (
+          // Desktop Grid Structure (original)
+          carData[activeBrand].map((car, index) => (
+            <MegaMenuCar
+              key={`${activeBrand}-${index}`}
+              image={car.image}
+              name={car.name}
+              price={car.price}
+              fuelType={car.fuelType}
+              power={car.power}
+              consumption={car.consumption}
+            />
+          ))
+        )}
       </div>
     </>
   );

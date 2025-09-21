@@ -109,7 +109,7 @@ function Footer() {
           </div>
         </div>
 
-        <nav className="footer__footer">
+        <div className="footer__footer">
           <ul className="footer__footer-list">
             <li>
               <a className="footer__footer-link" href="#">
@@ -132,7 +132,7 @@ function Footer() {
               </a>
             </li>
           </ul>
-        </nav>
+        </div>
         <div className="footer__copyright">
           &copy; {new Date().getFullYear()} AUTO EMOTION GmbH. Alle Rechte
           vorbehalten.

@@ -1,3 +1,4 @@
+@use "sass:color";
 @use "../abstracts" as *;
 
 .mega-menu-car {
@@ -11,10 +12,65 @@
   text-align: center;
   transition: all 0.3s ease;
 
+
+  // Mobile Swiper Implementation (moved from _neuwagen.scss)
+  @media (max-width: 970px) {
+    flex: 0 0 100vw;
+    width: 100vw;
+    scroll-snap-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    box-sizing: border-box;
+    margin: 0;
+    box-shadow: none; // Remove shadows on mobile
+  }
+
   &:hover {
     box-shadow: 12px 12px 20px rgba(0, 0, 0, 0.6),
       -12px -12px 20px rgba(255, 255, 255, 0.15);
     transform: translateY(-2px);
+
+    // Remove hover effects on mobile for performance
+    @media (max-width: 970px) {
+      box-shadow: none;
+      transform: none;
+    }
+  }
+
+  // Mobile wrapper styling (moved from _neuwagen.scss)
+  .mega-menu-car__wrapper {
+    // Desktop styling (default)
+    width: 100%;
+    height: 100%;
+
+    // Mobile styling
+    @media (max-width: 970px) {
+      width: 85vw;
+      max-width: 350px;
+      background: rgba(255, 255, 255, 0.08);
+      -webkit-backdrop-filter: blur(15px);
+      backdrop-filter: blur(15px);
+      border-radius: 1.2rem;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      transition: all 0.4s ease;
+      overflow: hidden;
+
+      // Tablet adjustments
+      @media (max-width: 768px) {
+        width: 85vw;
+        max-width: 350px;
+      }
+
+      // Mobile adjustments
+      @media (max-width: 480px) {
+        width: 95vw;
+        max-width: 320px;
+        border-radius: 1rem;
+        box-shadow: none; // Remove shadows on mobile for performance
+      }
+    }
   }
 
   .mega-menu-car__image-container {
@@ -28,6 +84,21 @@
     border-radius: 1rem 1rem 0 0;
     position: relative;
 
+    // Mobile styles (moved from _neuwagen.scss)
+    @media (max-width: 970px) {
+      height: 200px;
+      border-radius: 1.2rem 1.2rem 0 0;
+
+      @media (max-width: 768px) {
+        height: 220px;
+      }
+
+      @media (max-width: 480px) {
+        height: 160px;
+        border-radius: 1rem 1rem 0 0;
+      }
+    }
+
     .mega-menu-car__image {
       width: 100%;
       height: 100%;
@@ -37,6 +108,11 @@
 
       &:hover {
         transform: scale(1.05);
+
+        // Remove hover on mobile for performance
+        @media (max-width: 970px) {
+          transform: none;
+        }
       }
     }
 
@@ -71,7 +147,20 @@
     );
     border-top: 1px solid rgba(255, 255, 255, 0.1);
 
-    //height: 10rem;
+    // Mobile styles (moved from _neuwagen.scss)
+    @media (max-width: 970px) {
+      padding: 1.5rem;
+      text-align: center;
+      background: rgba(255, 255, 255, 0.05);
+
+      @media (max-width: 768px) {
+        padding: 1.6rem;
+      }
+
+      @media (max-width: 480px) {
+        padding: 1rem;
+      }
+    }
   }
 
   .mega-menu-car__name {
@@ -84,6 +173,22 @@
     align-items: center;
     justify-content: center;
     margin-bottom: 0.3rem;
+
+    // Mobile styles (moved from _neuwagen.scss)
+    @media (max-width: 970px) {
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+      color: $color-text;
+
+      @media (max-width: 768px) {
+        font-size: 1.4rem;
+      }
+
+      @media (max-width: 480px) {
+        font-size: 1.1rem;
+        margin-bottom: 0.8rem;
+      }
+    }
   }
 
   .mega-menu-car__specs {
@@ -91,8 +196,16 @@
     flex-direction: column;
     gap: 0.1rem;
     margin-bottom: 0.4rem;
-
     height: 5rem;
+
+    // Mobile styles (moved from _neuwagen.scss)
+    @media (max-width: 970px) {
+      margin-bottom: 1rem;
+
+      @media (max-width: 480px) {
+        margin-bottom: 0.8rem;
+      }
+    }
 
     .mega-menu-car__spec {
       display: flex;
@@ -101,14 +214,40 @@
       font-size: 0.9rem;
       height: 2rem;
 
+      // Mobile styles (moved from _neuwagen.scss)
+      @media (max-width: 970px) {
+        margin: 0.5rem 0;
+        font-size: 1rem;
+
+        @media (max-width: 768px) {
+          font-size: 1.05rem;
+        }
+
+        @media (max-width: 480px) {
+          margin: 0.4rem 0;
+          font-size: 0.9rem;
+        }
+      }
+
       .spec-label {
         color: $color-text;
         opacity: 0.8;
+
+        // Mobile styles (moved from _neuwagen.scss)
+        @media (max-width: 970px) {
+          color: rgba(255, 255, 255, 0.7);
+        }
       }
 
       .spec-value {
         color: $color-secondary;
         font-weight: 500;
+
+        // Mobile styles (moved from _neuwagen.scss)
+        @media (max-width: 970px) {
+          color: $color-primary;
+          font-weight: 600;
+        }
       }
     }
   }
@@ -123,18 +262,47 @@
     text-align: center;
     margin: 0 -0.6rem -0.6rem -0.6rem;
     box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.2);
-
-
     display: flex;
     height: 3rem;
     align-items: center;
     justify-content: center;
     text-align: center;
+
+    // Mobile styles (moved from _neuwagen.scss)
+    @media (max-width: 970px) {
+      background: linear-gradient(
+        135deg,
+        $color-primary,
+        color.adjust($color-primary, $lightness: 10%)
+      );
+      color: white;
+      padding: 1rem;
+      border-radius: 0.8rem;
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-top: 1rem;
+      box-shadow: none; // Remove shadows on mobile for performance
+      margin: 1rem 0 0 0;
+      height: auto;
+
+      @media (max-width: 768px) {
+        padding: 1.1rem;
+        font-size: 1.25rem;
+      }
+
+      @media (max-width: 480px) {
+        padding: 0.9rem;
+        border-radius: 0.6rem;
+        font-size: 1.1rem;
+        margin-top: 0.8rem;
+        box-shadow: none; // Remove shadows on mobile for performance
+      }
+    }
   }
 }
 
-// Responsive Design
-@media (max-width: $breakpoint-md) {
+// Desktop-only Responsive Design (tablet and mobile are handled in main styles above)
+@media (min-width: 971px) and (max-width: $breakpoint-md) {
   .mega-menu-car {
     width: 240px;
     margin: 0.8rem;
@@ -167,7 +335,7 @@
   }
 }
 
-@media (max-width: $breakpoint-sm) {
+@media (min-width: 971px) and (max-width: $breakpoint-sm) {
   .mega-menu-car {
     width: 100%;
     max-width: 280px;

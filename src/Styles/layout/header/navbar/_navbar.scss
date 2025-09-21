@@ -2,8 +2,10 @@
 
 // Base Navigation Styles
 nav {
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: 1100;
   width: 100%;
   background: $color-eigengrau;
@@ -174,3 +176,222 @@ nav input {
   opacity: 1;
   pointer-events: auto;
 }
+
+// Mobile Menu Button Styles
+.wrapper .btn {
+  color: $color-text;
+  font-size: 20px;
+  cursor: pointer;
+  display: none;
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  padding: 10px;
+  background: $color-primary;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  text-align: center;
+  transition: all 0.3s ease;
+
+  z-index: 130000000;
+}
+
+.wrapper .btn:hover {
+  background: $color-secondary-light;
+}
+
+// CSS Hamburger Icon (replaces FontAwesome)
+.wrapper .btn::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 2px;
+  background: $color-text;
+  box-shadow: 0 -6px 0 $color-text, 0 6px 0 $color-text;
+  transition: all 0.3s ease;
+}
+
+// Hide FontAwesome icon if present
+.wrapper .btn i {
+  display: none;
+}
+
+.wrapper .btn.close-btn {
+  position: absolute;
+  right: 30px;
+  top: 10px;
+}
+
+// Mobile Responsive Styles
+@media screen and (max-width: 970px) {
+  .wrapper .btn {
+    display: block;
+  }
+
+  .wrapper .nav-links {
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    max-width: 100vw;
+    top: 0;
+    right: -100vw;
+    background: $color-eigengrau;
+    display: block;
+    padding: 50px 20px;
+    line-height: 50px;
+    overflow-y: auto;
+    box-shadow: none;
+    transition: all 0.3s ease;
+    z-index: 1200;
+  }
+
+  // Custom scrollbar for mobile navigation
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: $color-eigengrau;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: $color-secondary-dark;
+  }
+
+  #menu-toggle:checked ~ .nav-links {
+    right: 0;
+    left: 0;
+  }
+
+  // Keep button visible and change appearance when menu is open
+  #menu-toggle:checked ~ .btn.menu-btn {
+    display: block;
+    background: $color-secondary; // Different color when menu is open
+    z-index: 9999999; // Ensure it stays on top
+  }
+
+  // Change hamburger icon to X when menu is open
+  #menu-toggle:checked ~ .btn.menu-btn::before {
+    transform: translate(-50%, -50%) rotate(45deg);
+    box-shadow: 0 0 0 $color-text;
+    width: 20px;
+  }
+
+  #menu-toggle:checked ~ .btn.menu-btn::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-45deg);
+    width: 20px;
+    height: 2px;
+    background: $color-text;
+  }
+
+  .nav-links li {
+    margin: 20px auto;
+    text-align: center;
+    max-width: 600px;
+  }
+
+  .nav-links li a {
+    padding: 15px 30px;
+    display: block;
+    font-size: 24px;
+    text-align: center;
+    border-radius: 10px;
+    margin: 10px 0;
+  }
+
+  .nav-links .drop-menu {
+    position: static;
+    opacity: 1;
+    top: 65px;
+    visibility: visible;
+    padding-left: 20px;
+    width: 100%;
+    max-height: 0px;
+    overflow: hidden;
+    box-shadow: none;
+    transition: all 0.3s ease;
+  }
+
+  #showDrop:checked ~ .drop-menu,
+  #showDrop1:checked ~ .drop-menu,
+  #showDrop2:checked ~ .drop-menu,
+  #showDrop3:checked ~ .drop-menu,
+  #showDrop4:checked ~ .drop-menu,
+  #showMega:checked ~ .mega-box,
+  #showMega2:checked ~ .mega-box {
+    max-height: 100%;
+  }
+
+  .nav-links .desktop-item {
+    display: none;
+  }
+
+  .nav-links .mobile-item {
+    display: block;
+    color: $color-text;
+    font-size: 24px;
+    font-weight: 500;
+    padding: 15px 30px;
+    margin: 10px auto;
+    max-width: 600px;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+
+    // Button-style like contact button
+    background: rgba(35, 38, 40, 0.8);
+    border: 1.5px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.18);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+  }
+
+  .nav-links .mobile-item:hover {
+    background: rgba(35, 39, 43, 0.9);
+    border-color: $color-primary;
+    box-shadow: 0 4px 24px 0 rgba(0, 0, 0, 0.22);
+    transform: translateY(-1px);
+  }
+
+  .drop-menu li {
+    margin: 0;
+  }
+
+  .drop-menu li a {
+    border-radius: 5px;
+    font-size: 18px;
+    color: $color-secondary;
+  }
+
+  .mega-box {
+    position: static;
+    top: 0;
+    opacity: 1;
+    visibility: visible;
+    max-height: 0px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    width: 100%;
+  }
+
+  .mega-box .content {
+    box-shadow: none;
+    flex-direction: column;
+    padding: 20px;
+    height: auto;
+    max-width: 100%;
+    width: 100%;
+  }
+}
+
+// Mobile responsive styles

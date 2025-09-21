@@ -15,13 +15,7 @@ function Header() {
             <span className="logo__accent">AUTO EMOTION</span>
           </a>
         </div>
-        <input type="radio" name="slider" id="menu-btn" title="Menü öffnen" />
-        <input
-          type="radio"
-          name="slider"
-          id="close-btn"
-          title="Menü schließen"
-        />
+        <input type="checkbox" id="menu-toggle" title="Menü umschalten" />
         <ul className="nav-links">
           {/* Marken React */}
           <li>
@@ -59,8 +53,8 @@ function Header() {
             <a href="#" className="desktop-item">
               Leistungen
             </a>
-            <input type="checkbox" id="showDrop" />
-            <label htmlFor="showDrop" className="mobile-item">
+            <input type="checkbox" id="showDrop1" />
+            <label htmlFor="showDrop1" className="mobile-item">
               Leistungen
             </label>
             <ul className="drop-menu">
@@ -113,9 +107,9 @@ function Header() {
             <a href="#" className="desktop-item">
               Für Gewerbekunden
             </a>
-            <input type="checkbox" id="showDrop" />
-            <label htmlFor="showDrop" className="mobile-item">
-              Leistungen
+            <input type="checkbox" id="showDrop2" />
+            <label htmlFor="showDrop2" className="mobile-item">
+              Für Gewerbekunden
             </label>
             <ul className="drop-menu">
               <li>
@@ -137,8 +131,8 @@ function Header() {
             <a href="#" className="desktop-item">
               Unternehmen
             </a>
-            <input type="checkbox" id="showDrop" />
-            <label htmlFor="showDrop" className="mobile-item">
+            <input type="checkbox" id="showDrop3" />
+            <label htmlFor="showDrop3" className="mobile-item">
               Unternehmen
             </label>
             <ul className="drop-menu">
@@ -172,9 +166,9 @@ function Header() {
             <a href="#" className="desktop-item">
               Onlineshop
             </a>
-            <input type="checkbox" id="showDrop" />
-            <label htmlFor="showDrop" className="mobile-item">
-              Unternehmen
+            <input type="checkbox" id="showDrop4" />
+            <label htmlFor="showDrop4" className="mobile-item">
+              Onlineshop
             </label>
             <ul className="drop-menu">
               <li>
@@ -209,7 +203,7 @@ function Header() {
             </StarBorder>
           </li>
         </ul>
-        <label htmlFor="menu-btn" className="btn menu-btn">
+        <label htmlFor="menu-toggle" className="btn menu-btn">
           <i className="fas fa-bars"></i>
         </label>
       </div>

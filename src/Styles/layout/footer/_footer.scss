@@ -2,11 +2,12 @@
 @use "sass:color";
 
 .footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  z-index: 100;
+  position: fixed !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  width: 100% !important;
+  z-index: 950 !important;
   background-image: linear-gradient(
     to right bottom,
     rgba(22, 22, 29, 0.95),
@@ -22,6 +23,27 @@
   flex-direction: column;
   overflow-x: hidden;
   max-width: 100%;
+
+  // Ensure footer stays at bottom on all devices
+  @media screen and (max-width: 970px) {
+    position: fixed !important;
+    bottom: 0 !important;
+    z-index: 950 !important;
+  }
+
+  @media screen and (max-width: 768px) {
+    position: fixed !important;
+    bottom: 0 !important;
+    z-index: 950 !important;
+    padding: 2rem 0 0.5rem 0;
+  }
+
+  @media screen and (max-width: 480px) {
+    position: fixed !important;
+    bottom: 0 !important;
+    z-index: 950 !important;
+    padding: 1.5rem 0 0.5rem 0;
+  }
 }
 
 .footer__container {
