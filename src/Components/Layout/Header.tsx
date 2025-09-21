@@ -5,6 +5,27 @@ import BrandNavigation from "../Page/BrandNavigation";
 import VehicleStockNavigation from "../Page/VehicleStockNavigation";
 
 function Header() {
+  // Function to close all other menus when one is opened
+  const handleMenuToggle = (targetId: string) => {
+    const menuIds = [
+      "showMega",
+      "showMega2",
+      "showDrop1",
+      "showDrop2",
+      "showDrop3",
+      "showDrop4",
+    ];
+
+    menuIds.forEach((id) => {
+      if (id !== targetId) {
+        const checkbox = document.getElementById(id) as HTMLInputElement;
+        if (checkbox) {
+          checkbox.checked = false;
+        }
+      }
+    });
+  };
+
   return (
     <nav>
       <div className="wrapper">
@@ -23,7 +44,11 @@ function Header() {
               Neuwagen
             </a>
             <input type="checkbox" id="showMega" />
-            <label htmlFor="showMega" className="mobile-item">
+            <label
+              htmlFor="showMega"
+              className="mobile-item"
+              onClick={() => handleMenuToggle("showMega")}
+            >
               Neuwagen
             </label>
             <div className="mega-box">
@@ -38,7 +63,11 @@ function Header() {
               Fahrzeugbestand
             </a>
             <input type="checkbox" id="showMega2" />
-            <label htmlFor="showMega2" className="mobile-item">
+            <label
+              htmlFor="showMega2"
+              className="mobile-item"
+              onClick={() => handleMenuToggle("showMega2")}
+            >
               Fahrzeugbestand
             </label>
             <div className="mega-box">
@@ -54,7 +83,11 @@ function Header() {
               Leistungen
             </a>
             <input type="checkbox" id="showDrop1" />
-            <label htmlFor="showDrop1" className="mobile-item">
+            <label
+              htmlFor="showDrop1"
+              className="mobile-item"
+              onClick={() => handleMenuToggle("showDrop1")}
+            >
               Leistungen
             </label>
             <ul className="drop-menu">
@@ -108,7 +141,11 @@ function Header() {
               Für Gewerbekunden
             </a>
             <input type="checkbox" id="showDrop2" />
-            <label htmlFor="showDrop2" className="mobile-item">
+            <label
+              htmlFor="showDrop2"
+              className="mobile-item"
+              onClick={() => handleMenuToggle("showDrop2")}
+            >
               Für Gewerbekunden
             </label>
             <ul className="drop-menu">
@@ -132,7 +169,11 @@ function Header() {
               Unternehmen
             </a>
             <input type="checkbox" id="showDrop3" />
-            <label htmlFor="showDrop3" className="mobile-item">
+            <label
+              htmlFor="showDrop3"
+              className="mobile-item"
+              onClick={() => handleMenuToggle("showDrop3")}
+            >
               Unternehmen
             </label>
             <ul className="drop-menu">
@@ -167,7 +208,11 @@ function Header() {
               Onlineshop
             </a>
             <input type="checkbox" id="showDrop4" />
-            <label htmlFor="showDrop4" className="mobile-item">
+            <label
+              htmlFor="showDrop4"
+              className="mobile-item"
+              onClick={() => handleMenuToggle("showDrop4")}
+            >
               Onlineshop
             </label>
             <ul className="drop-menu">
