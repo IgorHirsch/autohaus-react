@@ -154,31 +154,31 @@
     }
 
     // Swiper Navigation Indicator
-    &::after {
-      content: "◀ Swipe für mehr Fahrzeuge ▶";
-      position: absolute;
-      top: -2.5rem;
-      left: 50%;
-      transform: translateX(-50%);
-      color: rgba(35, 25, 25, 0.7);
-      font-size: 0.85rem;
-      text-align: center;
-      pointer-events: none;
-      opacity: 0.9;
-      animation: fadeInOut 3s infinite;
-      z-index: 10000000;
+    // &::after {
+    //   content: "◀ Swipe für mehr Fahrzeuge ▶";
+    //   position: absolute;
+    //   top: -2.5rem;
+    //   left: 50%;
+    //   transform: translateX(-50%);
+    //   color: rgba(35, 25, 25, 0.7);
+    //   font-size: 0.85rem;
+    //   text-align: center;
+    //   pointer-events: none;
+    //   opacity: 0.9;
+    //   animation: fadeInOut 3s infinite;
+    //   z-index: 10000000;
 
-      @media (max-width: 768px) {
-        font-size: 0.9rem;
-      }
+    //   @media (max-width: 768px) {
+    //     font-size: 0.9rem;
+    //   }
 
-      @media (max-width: 480px) {
-        content: "◀ Swipe ▶";
-        top: -1.2rem;
-        font-size: 0.75rem;
-        color: rgb(255, 255, 255);
-      }
-    }
+    //   @media (max-width: 480px) {
+    //     content: "◀ Swipe ▶";
+    //     top: -1.2rem;
+    //     font-size: 0.75rem;
+    //     color: rgb(255, 255, 255);
+    //   }
+    // }
       
     @keyframes fadeInOut {
       0%,

@@ -137,7 +137,7 @@ nav .wrapper {
   top: 10px;
 }
 
-// Mega Menu Base
+// Mega Menu Base---------------------------------------------------------------------------------------
 .mega-box {
   position: absolute;
   left: 0;
@@ -255,13 +255,26 @@ nav input {
     top: 0;
     right: -100vw;
     background: $color-eigengrau;
-    display: block;
-    padding: 40px 20px 80px 20px; // Bottom padding hinzugefügt für Kontakt-Button
-    line-height: 45px; // Reduziert von 50px
+    display: flex; // Flexbox für bessere Anordnung
+    flex-direction: column;
+    padding: 30px 15px 60px 15px; // Kompakteres Padding
+    line-height: 35px; // Noch kompakter
     overflow-y: auto;
     box-shadow: none;
     transition: all 0.3s ease;
     z-index: 1200;
+
+    // Grid-Layout für Menu-Items
+    ul {
+      display: grid;
+      grid-template-columns: 1fr 1fr; // 2 Spalten nebeneinander
+      gap: 10px;
+      width: 100%;
+
+      @media (max-width: 480px) {
+        grid-template-columns: 1fr; // Auf sehr kleinen Handys 1 Spalte
+      }
+    }
   }
 
   // Custom scrollbar for mobile navigation
@@ -308,18 +321,28 @@ nav input {
   }
 
   .nav-links li {
-    margin: 10px auto; // Reduziert von 20px auf 10px
+    margin: 4px auto; // Noch kompakter
     text-align: center;
-    max-width: 600px;
+    max-width: 100%; // Volle Breite nutzen
+    width: 100%;
+
+    // Kompakterer Hintergrund und Rahmen
+    background: rgba(20, 25, 30, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 8px; // Kleinere Radius
+    padding: 6px; // Weniger Padding
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
   }
 
   .nav-links li a {
-    padding: 10px 25px; // Reduziert von 15px 30px
+    padding: 8px 15px; // Kompakteres Padding
     display: block;
-    font-size: 20px; // Reduziert von 24px
+    font-size: 16px; // Kleinere Schrift für mehr Platz
     text-align: center;
-    border-radius: 8px; // Reduziert von 10px
-    margin: 6px 0; // Reduziert von 10px
+    border-radius: 6px;
+    margin: 3px 0; // Weniger Margin
   }
 
   .nav-links .drop-menu {
@@ -327,14 +350,21 @@ nav input {
     opacity: 1;
     top: 65px;
     visibility: visible;
-    padding-left: 20px;
+    padding: 8px; // Kompakteres Padding
     width: 100%;
     max-height: 0px;
     overflow: hidden;
     box-shadow: none;
     transition: all 0.3s ease;
-  }
 
+    // Kompakteres Styling für Untermenü-Container
+    background: rgba(15, 20, 25, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 6px;
+    margin-top: 4px; // Weniger Abstand
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+  }
   #showDrop:checked ~ .drop-menu,
   #showDrop1:checked ~ .drop-menu,
   #showDrop2:checked ~ .drop-menu,
@@ -352,20 +382,20 @@ nav input {
   .nav-links .mobile-item {
     display: block;
     color: $color-text;
-    font-size: 20px; // Reduziert von 24px
+    font-size: 16px; // Kompakter
     font-weight: 500;
-    padding: 10px 25px; // Reduziert von 15px 30px
-    margin: 6px auto; // Reduziert von 10px
-    max-width: 600px;
+    padding: 8px 15px; // Kompakteres Padding
+    margin: 3px auto; // Weniger Margin
+    max-width: 100%;
     text-align: center;
     cursor: pointer;
-    border-radius: 8px; // Reduziert von 10px
+    border-radius: 6px;
     transition: all 0.3s ease;
 
-    // Button-style like contact button
+    // Kompakter Button-Style
     background: rgba(35, 38, 40, 0.8);
     border: 1.5px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.18);
+    box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.18);
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
   }
@@ -378,15 +408,30 @@ nav input {
   }
 
   .drop-menu li {
-    margin: 0;
+    margin: 4px 0;
+
+    // Styling für einzelne Untermenü-Items
+    background: rgba(25, 30, 35, 0.6);
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.03);
   }
 
   .drop-menu li a {
-    border-radius: 5px;
-    font-size: 18px;
+    border-radius: 4px;
+    font-size: 14px; // Kleinere Schrift
     color: $color-secondary;
+    padding: 6px 10px; // Kompakteres Padding
+    transition: all 0.3s ease;
   }
 
+  .drop-menu li a:hover {
+    background: rgba(40, 45, 50, 0.8);
+    color: $color-primary;
+    transform: translateX(2px);
+  }
+
+
+  //-------------------------------------------------------------------------------------------------------
   .mega-box {
     position: static;
     top: 0;
@@ -396,6 +441,14 @@ nav input {
     overflow: hidden;
     transition: all 0.3s ease;
     width: 100%;
+
+    // Styling für Mega-Menu Container (Neuwagen, Fahrzeugbestand)
+    background: rgba(15, 20, 25, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    margin-top: 8px;
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
   }
 
   .mega-box .content {

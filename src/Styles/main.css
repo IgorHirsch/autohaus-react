@@ -536,14 +536,28 @@ nav input {
     top: 0;
     right: -100vw;
     background: rgb(22, 22, 29);
-    display: block;
-    padding: 40px 20px 80px 20px;
-    line-height: 45px;
+    display: flex;
+    flex-direction: column;
+    padding: 30px 15px 60px 15px;
+    line-height: 35px;
     overflow-y: auto;
     box-shadow: none;
     transition: all 0.3s ease;
     z-index: 1200;
   }
+  .wrapper .nav-links ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    width: 100%;
+  }
+}
+@media screen and (max-width: 970px) and (max-width: 480px) {
+  .wrapper .nav-links ul {
+    grid-template-columns: 1fr;
+  }
+}
+@media screen and (max-width: 970px) {
   ::-webkit-scrollbar {
     width: 10px;
   }
@@ -578,29 +592,43 @@ nav input {
     background: #e2e8ef;
   }
   .nav-links li {
-    margin: 10px auto;
+    margin: 4px auto;
     text-align: center;
-    max-width: 600px;
+    max-width: 100%;
+    width: 100%;
+    background: rgba(20, 25, 30, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+    padding: 6px;
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
   }
   .nav-links li a {
-    padding: 10px 25px;
+    padding: 8px 15px;
     display: block;
-    font-size: 20px;
+    font-size: 16px;
     text-align: center;
-    border-radius: 8px;
-    margin: 6px 0;
+    border-radius: 6px;
+    margin: 3px 0;
   }
   .nav-links .drop-menu {
     position: static;
     opacity: 1;
     top: 65px;
     visibility: visible;
-    padding-left: 20px;
+    padding: 8px;
     width: 100%;
     max-height: 0px;
     overflow: hidden;
     box-shadow: none;
     transition: all 0.3s ease;
+    background: rgba(15, 20, 25, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 6px;
+    margin-top: 4px;
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
   }
   #showDrop:checked ~ .drop-menu,
   #showDrop1:checked ~ .drop-menu,
@@ -617,18 +645,18 @@ nav input {
   .nav-links .mobile-item {
     display: block;
     color: #e2e8ef;
-    font-size: 20px;
+    font-size: 16px;
     font-weight: 500;
-    padding: 10px 25px;
-    margin: 6px auto;
-    max-width: 600px;
+    padding: 8px 15px;
+    margin: 3px auto;
+    max-width: 100%;
     text-align: center;
     cursor: pointer;
-    border-radius: 8px;
+    border-radius: 6px;
     transition: all 0.3s ease;
     background: rgba(35, 38, 40, 0.8);
     border: 1.5px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.18);
+    box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.18);
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
   }
@@ -639,12 +667,22 @@ nav input {
     transform: translateY(-1px);
   }
   .drop-menu li {
-    margin: 0;
+    margin: 4px 0;
+    background: rgba(25, 30, 35, 0.6);
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.03);
   }
   .drop-menu li a {
-    border-radius: 5px;
-    font-size: 18px;
+    border-radius: 4px;
+    font-size: 14px;
     color: #345a62;
+    padding: 6px 10px;
+    transition: all 0.3s ease;
+  }
+  .drop-menu li a:hover {
+    background: rgba(40, 45, 50, 0.8);
+    color: rgb(52, 75, 86);
+    transform: translateX(2px);
   }
   .mega-box {
     position: static;
@@ -655,6 +693,12 @@ nav input {
     overflow: hidden;
     transition: all 0.3s ease;
     width: 100%;
+    background: rgba(15, 20, 25, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    margin-top: 8px;
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
   }
   .mega-box .content {
     box-shadow: none;
@@ -800,35 +844,6 @@ nav input {
     padding-left: 6rem;
     padding-right: 6rem;
     gap: 2rem;
-  }
-}
-@media (max-width: 970px) {
-  .car-grid::after {
-    content: "◀ Swipe für mehr Fahrzeuge ▶";
-    position: absolute;
-    top: -2.5rem;
-    left: 50%;
-    transform: translateX(-50%);
-    color: rgba(35, 25, 25, 0.7);
-    font-size: 0.85rem;
-    text-align: center;
-    pointer-events: none;
-    opacity: 0.9;
-    animation: fadeInOut 3s infinite;
-    z-index: 10000000;
-  }
-}
-@media (max-width: 970px) and (max-width: 768px) {
-  .car-grid::after {
-    font-size: 0.9rem;
-  }
-}
-@media (max-width: 970px) and (max-width: 480px) {
-  .car-grid::after {
-    content: "◀ Swipe ▶";
-    top: -1.2rem;
-    font-size: 0.75rem;
-    color: rgb(255, 255, 255);
   }
 }
 @media (max-width: 970px) {
