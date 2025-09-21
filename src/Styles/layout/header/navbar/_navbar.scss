@@ -156,7 +156,7 @@ nav .wrapper {
   flex-direction: column;
   align-items: center;
   width: 100%;
-  height: 40rem;
+  height: 65rem; // Weitere Erhöhung auf 65rem für optimale Darstellung aller Fahrzeuge
   box-shadow: 24px 48px 48px -16px rgba(0, 0, 0, 0.38),
     -24px 48px 48px -16px rgba(0, 0, 0, 0.38),
     0 32px 64px -16px rgba(0, 0, 0, 0.22);
@@ -429,7 +429,6 @@ nav input {
     color: $color-primary;
     transform: translateX(2px);
   }
-
 
   //-------------------------------------------------------------------------------------------------------
   .mega-box {

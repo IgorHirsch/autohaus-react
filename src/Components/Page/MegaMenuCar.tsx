@@ -8,6 +8,7 @@ interface MegaMenuCarProps {
   fuelType: "Benzin" | "Diesel" | "Elektro" | "Hybrid";
   power: string;
   consumption?: string;
+  brand?: string; // Neue Prop für die Marke
 }
 
 const MegaMenuCar: React.FC<MegaMenuCarProps> = ({
@@ -17,10 +18,21 @@ const MegaMenuCar: React.FC<MegaMenuCarProps> = ({
   fuelType,
   power,
   consumption,
+  brand,
 }) => (
   <div className="mega-menu-car">
     <div className="mega-menu-car__image-container">
-      <img className="mega-menu-car__image" src={image} alt={name} />
+      <img
+        className={`mega-menu-car__image ${
+          brand === "cupra"
+            ? "wide-image"
+            : brand === "nissan"
+            ? "nissan-image"
+            : ""
+        }`}
+        src={image}
+        alt={name}
+      />
       <div className="mega-menu-car__fuel-badge">{fuelType}</div>
     </div>
     <div className="mega-menu-car__content">

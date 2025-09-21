@@ -4,14 +4,13 @@
 .mega-menu-car {
   background: $color-eigengrau;
   border-radius: 1rem;
-  box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.5),
-    -8px -8px 16px rgba(255, 255, 255, 0.1);
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.4),
+    -4px -4px 8px rgba(255, 255, 255, 0.03);
   overflow: hidden;
   width: 280px;
   margin: 1rem;
   text-align: center;
   transition: all 0.3s ease;
-
 
   // Mobile Swiper Implementation (moved from _neuwagen.scss)
   @media (max-width: 970px) {
@@ -28,8 +27,8 @@
   }
 
   &:hover {
-    box-shadow: 12px 12px 20px rgba(0, 0, 0, 0.6),
-      -12px -12px 20px rgba(255, 255, 255, 0.15);
+    box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.5),
+      -6px -6px 12px rgba(255, 255, 255, 0.05);
     transform: translateY(-2px);
 
     // Remove hover effects on mobile for performance
@@ -106,14 +105,33 @@
       object-position: center;
       transition: transform 0.3s ease;
 
-      &:hover {
-        transform: scale(1.05);
-
-        // Remove hover on mobile for performance
-        @media (max-width: 970px) {
-          transform: none;
-        }
+      // Spezielle Behandlung für breite Bilder (wie Cupra Leon)
+      &.wide-image {
+        object-fit: contain;
+        object-position: center;
+        background: $color-eigengrau;
       }
+
+      // Spezielle Behandlung für Nissan PNG-Bilder mit weißem Hintergrund
+      &.nissan-image {
+        object-fit: contain;
+        object-position: center;
+        background: white;
+        // Bilder horizontal spiegeln
+        transform: scaleX(-1);
+        // Alternativer Filter um Weiß zu dämpfen
+        filter: brightness(0.95) contrast(1.1);
+      }
+
+      // Hover-Effekt beim Foto entfernt
+      // &:hover {
+      //   transform: scale(1.05);
+
+      //   // Remove hover on mobile for performance
+      //   @media (max-width: 970px) {
+      //     transform: none;
+      //   }
+      // }
     }
 
     .mega-menu-car__fuel-badge {

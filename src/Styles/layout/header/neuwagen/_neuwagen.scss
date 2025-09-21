@@ -9,6 +9,7 @@
   width: 100%;
   justify-content: center;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 1rem;
 
   // Tablet adjustments
   @media (max-width: 768px) {
@@ -35,7 +36,6 @@
     justify-content: center;
     width: 120px;
     height: 80px;
-
 
     // Tablet adjustments
     @media (max-width: 768px) {
@@ -121,7 +121,6 @@
   justify-content: center;
   width: 100%;
 
-
   // Mobile Swiper Implementation
   @media (max-width: 970px) {
     position: relative;
@@ -179,7 +178,7 @@
     //     color: rgb(255, 255, 255);
     //   }
     // }
-      
+
     @keyframes fadeInOut {
       0%,
       100% {

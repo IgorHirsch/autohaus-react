@@ -23,15 +23,16 @@ const BrandNavigation: React.FC = () => {
     seat: [
       {
         image:
-          "https://s1.cdn.autoevolution.com/images/gallery/SEAT-Ateca-5711_21.jpg",
-        name: "Ateca",
-        price: "32.990 €",
+          "https://seat-hws-prod.imgix.net/cms/Modelle/NEU/Ibiza_900x450.png?auto=format&fit=max&w=3840",
+        name: "Ibiza",
+        price: "18.990 €",
         fuelType: "Benzin" as const,
-        power: "150 PS",
-        consumption: "6.8 L/100km",
+        power: "95 PS",
+        consumption: "5.4 L/100km",
       },
       {
-        image: "https://i.blogs.es/6a0af4/seat-arona_/original.jpg",
+        image:
+          "https://seat-hws-prod.imgix.net/cms/Modelle/NEU/Arona_900x450.png?auto=format&fit=max&w=3840",
         name: "Arona",
         price: "21.990 €",
         fuelType: "Benzin" as const,
@@ -40,7 +41,16 @@ const BrandNavigation: React.FC = () => {
       },
       {
         image:
-          "https://www.seat.es/content/dam/public/seat-website/myco/2325/carworlds/leon/leon-style/first-visual/seat-leon-style-trim-midnight-black-colour-dynamic-alloy-wheels.jpg",
+          "https://seat-hws-prod.imgix.net/cms/Modelle/NEU/Ateca_900x450.png?auto=format&fit=max&w=3840",
+        name: "Ateca",
+        price: "32.990 €",
+        fuelType: "Benzin" as const,
+        power: "150 PS",
+        consumption: "6.8 L/100km",
+      },
+      {
+        image:
+          "https://seat-hws-prod.imgix.net/cms/Modelle/NEU/Leon-5D_900x450.png?auto=format&fit=max&w=3840",
         name: "Leon",
         price: "24.990 €",
         fuelType: "Benzin" as const,
@@ -49,7 +59,7 @@ const BrandNavigation: React.FC = () => {
       },
       {
         image:
-          "https://content.presspage.com/uploads/1444/1920_ipp-all-new-seat-leon-58-hq1-2.jpg?10000",
+          "https://seat-hws-prod.imgix.net/cms/Modelle/NEU/Leon-SP_900x450.png?auto=format&fit=max&w=3840",
         name: "Leon Sportstour",
         price: "26.990 €",
         fuelType: "Benzin" as const,
@@ -58,7 +68,7 @@ const BrandNavigation: React.FC = () => {
       },
       {
         image:
-          "https://th.bing.com/th/id/R.a61226cc0955bb4cbc2c0df18ac59ef2?rik=pcgEObbF7Hs9gQ&pid=ImgRaw&r=0",
+          "https://seat-hws-prod.imgix.net/cms/Modelle/NEU/Tarraco_900x450.png?auto=format&fit=max&w=3840",
         name: "Tarraco",
         price: "39.990 €",
         fuelType: "Benzin" as const,
@@ -68,7 +78,8 @@ const BrandNavigation: React.FC = () => {
     ],
     cupra: [
       {
-        image: "https://cdn.motor1.com/images/mgl/XxZZ9/s1/cupra-born-2021.jpg",
+        image:
+          "https://cupra-hws-cdn.imgix.net/cms/Modelle/Fahrzeugaufwertungen/cupra-born-aurora-blue-side.png?auto=format&fit=max&w=1440",
         name: "Born",
         price: "35.990 €",
         fuelType: "Elektro" as const,
@@ -77,7 +88,7 @@ const BrandNavigation: React.FC = () => {
       },
       {
         image:
-          "https://cdn.motor1.com/images/mgl/vxKKkR/s1/cupra-formentor-restyling-2023-il-render-di-motor1.com.jpg",
+          "https://cupra-hws-cdn.imgix.net/cms/Modelle/Fahrzeugaufwertungen/new-cupra-formentor-2024-side.png?auto=format&fit=max&w=1440",
         name: "Formentor",
         price: "42.990 €",
         fuelType: "Benzin" as const,
@@ -86,7 +97,7 @@ const BrandNavigation: React.FC = () => {
       },
       {
         image:
-          "https://media.autoexpress.co.uk/image/private/s--hdtm22K4--/v1592811551/autoexpress/2020/06/Cupra%20Ateca%20facelift.jpg",
+          "https://cupra-hws-cdn.imgix.net/cms/Modelle/Cupra_Ateca.png?auto=format&fit=max&w=1440",
         name: "Ateca",
         price: "39.990 €",
         fuelType: "Benzin" as const,
@@ -95,7 +106,7 @@ const BrandNavigation: React.FC = () => {
       },
       {
         image:
-          "https://tse2.mm.bing.net/th/id/OIP.kd2hKrKzR__8ULYciDXDSgHaE8?rs=1&pid=ImgDetMain&o=7&rm=3",
+          "https://cupra-hws-cdn.imgix.net/cms/Modelle/Fahrzeugaufwertungen/new-cupra-leon-2024-side-grey-matte.png?auto=format&fit=max&w=1440",
         name: "Leon",
         price: "37.990 €",
         fuelType: "Benzin" as const,
@@ -104,7 +115,7 @@ const BrandNavigation: React.FC = () => {
       },
       {
         image:
-          "https://i.auto-bild.de/ir_img/3/6/2/1/6/1/9/Spanische-Wuerze-trifft-deutsche-Technik-_-erste-Fahrt-im-Tavascan-2869-1800x1012-b8af3a7ff3718714.jpg?impolicy=og_images",
+          "https://cupra-hws-cdn.imgix.net/cms/Modelle/Cupra%20Tavascan.png?auto=format&fit=max&w=1440",
         name: "Tavascan",
         price: "47.990 €",
         fuelType: "Elektro" as const,
@@ -113,7 +124,7 @@ const BrandNavigation: React.FC = () => {
       },
       {
         image:
-          "https://www.cupraofficial.ch/content/dam/public/cupra-website/cars/car-range/new-cupra-terramar-vz-dark-void-car.png",
+          "https://cupra-hws-cdn.imgix.net/cms/Modelle/cupra_terramar_profil.png?auto=format&fit=max&w=1440",
         name: "Terramar",
         price: "44.990 €",
         fuelType: "Hybrid" as const,
@@ -124,7 +135,16 @@ const BrandNavigation: React.FC = () => {
     nissan: [
       {
         image:
-          "https://tse3.mm.bing.net/th/id/OIP.z6OSsWQ8IkCyUMl1a8unQQHaE8?rs=1&pid=ImgDetMain&o=7&rm=3",
+          "https://www-europe.nissan-cdn.net/content/dam/Nissan/de/model-overview/Micra_600x320.png.ximg.l_3_m.smart.png",
+        name: "Micra",
+        price: "16.990 €",
+        fuelType: "Benzin" as const,
+        power: "92 PS",
+        consumption: "5.1 L/100km",
+      },
+      {
+        image:
+          "https://www-europe.nissan-cdn.net/content/dam/Nissan/de/vehicles/juke-my24-assets-webp/juke_mc.webp.ximg.l_3_m.smart.webp",
         name: "Juke",
         price: "23.990 €",
         fuelType: "Benzin" as const,
@@ -133,7 +153,7 @@ const BrandNavigation: React.FC = () => {
       },
       {
         image:
-          "https://cdn.motor1.com/images/mgl/PEEP8/s1/nissan-qashqai-2021.jpg",
+          "https://www-europe.nissan-cdn.net/content/dam/Nissan/nissan_europe/UNVEIL_QQ-PUSH/new-unveil-qashqai.png.ximg.l_3_m.smart.png",
         name: "Qashqai",
         price: "28.990 €",
         fuelType: "Hybrid" as const,
@@ -142,7 +162,7 @@ const BrandNavigation: React.FC = () => {
       },
       {
         image:
-          "https://autode-static.de/wp-content/uploads/2020/05/Nissan-Leaf-e-a-167985.jpg",
+          "https://www-europe.nissan-cdn.net/content/dam/Nissan/de/model-overview/Leaf_600x320.png.ximg.l_3_m.smart.png",
         name: "Leaf",
         price: "31.990 €",
         fuelType: "Elektro" as const,
@@ -151,16 +171,7 @@ const BrandNavigation: React.FC = () => {
       },
       {
         image:
-          "https://th.bing.com/th/id/R.1943fcc8d760492fc11d08bb8b8e073d?rik=O03ID%2fmYuvOfeA&pid=ImgRaw&r=0",
-        name: "Ariya",
-        price: "45.990 €",
-        fuelType: "Elektro" as const,
-        power: "218 PS",
-        consumption: "19.6 kWh/100km",
-      },
-      {
-        image:
-          "https://file.chobrod.com/2017/06/12/UYK53jes/as45aaaaaaa-4676.jpg",
+          "https://www-europe.nissan-cdn.net/content/dam/Nissan/de/vehicles/x-trail-my24-assets-webp/x-trail.webp.ximg.l_3_m.smart.webp",
         name: "X-Trail",
         price: "35.990 €",
         fuelType: "Hybrid" as const,
@@ -169,12 +180,66 @@ const BrandNavigation: React.FC = () => {
       },
       {
         image:
-          "https://www.nissancentrum.hu/tartalom/jarmuvek/haszongepjarmuvek/townstar-van/townstar-van/883740a-f275-21wceulhd_townstar_van_cv_qng_001.jpg",
+          "https://www-europe.nissan-cdn.net/content/dam/Nissan/de/model-overview/Ariya_600x320.png.ximg.l_3_m.smart.png",
+        name: "Ariya",
+        price: "45.990 €",
+        fuelType: "Elektro" as const,
+        power: "218 PS",
+        consumption: "19.6 kWh/100km",
+      },
+      {
+        image:
+          "https://www-europe.nissan-cdn.net/content/dam/Nissan/de/vehicles/townstar-van-my24-assets-webp/townstar_van.webp.ximg.l_3_m.smart.webp",
         name: "Townstar",
         price: "25.990 €",
         fuelType: "Diesel" as const,
         power: "130 PS",
         consumption: "5.4 L/100km",
+      },
+      {
+        image:
+          "https://www-europe.nissan-cdn.net/content/dam/Nissan/de/vehicles/Townstar-Combi-my24-assets-webp/Townstar%20combi.webp.ximg.l_3_m.smart.webp",
+        name: "Townstar Kombi",
+        price: "28.990 €",
+        fuelType: "Benzin" as const,
+        power: "130 PS",
+        consumption: "6.4 L/100km",
+      },
+      {
+        image:
+          "https://www-europe.nissan-cdn.net/content/dam/Nissan/nissan_europe/vehicles/TDIEU_MY21_PRIMASTAR_FULL_PES_VLP-PLUS/Primastar%20fourgon.jpg.ximg.l_3_m.smart.jpg",
+        name: "Primastar",
+        price: "29.990 €",
+        fuelType: "Diesel" as const,
+        power: "120 PS",
+        consumption: "6.5 L/100km",
+      },
+      {
+        image:
+          "https://www-europe.nissan-cdn.net/content/dam/Nissan/nissan_europe/vehicles/TDIEU_MY21_PRIMASTAR_FULL_PES_VLP-PLUS/Primastar-combi_de.jpg.ximg.l_3_m.smart.jpg",
+        name: "Primastar Kombi",
+        price: "32.990 €",
+        fuelType: "Diesel" as const,
+        power: "120 PS",
+        consumption: "6.8 L/100km",
+      },
+      {
+        image:
+          "https://www-europe.nissan-cdn.net/content/dam/Nissan/nissan_europe/vehicles/TDIEU_MY21_PRIMASTAR_FULL_PES_VLP-PLUS/Primastar-combi-seaside_de.jpg.ximg.l_3_m.smart.jpg",
+        name: "Primastar Seaside",
+        price: "48.990 €",
+        fuelType: "Diesel" as const,
+        power: "120 PS",
+        consumption: "7.2 L/100km",
+      },
+      {
+        image:
+          "https://www-europe.nissan-cdn.net/content/dam/Nissan/nissan_europe/vehicles/interstar/unveil/new-interstar-vap_V2.jpg.ximg.l_3_m.smart.jpg",
+        name: "Interstar",
+        price: "38.990 €",
+        fuelType: "Diesel" as const,
+        power: "150 PS",
+        consumption: "7.8 L/100km",
       },
     ],
   };
@@ -229,7 +294,13 @@ const BrandNavigation: React.FC = () => {
                 <div className="mega-menu-car__wrapper">
                   <div className="mega-menu-car__image-container">
                     <img
-                      className="mega-menu-car__image"
+                      className={`mega-menu-car__image ${
+                        activeBrand === "cupra"
+                          ? "wide-image"
+                          : activeBrand === "nissan"
+                          ? "nissan-image"
+                          : ""
+                      }`}
                       src={car.image}
                       alt={car.name}
                     />
@@ -268,6 +339,7 @@ const BrandNavigation: React.FC = () => {
               fuelType={car.fuelType}
               power={car.power}
               consumption={car.consumption}
+              brand={activeBrand}
             />
           ))
         )}
