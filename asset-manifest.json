@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/autohaus-react/static/css/main.d24dc9f6.css",
-    "main.js": "/autohaus-react/static/js/main.ac5b0a1b.js",
+    "main.css": "/autohaus-react/static/css/main.d4ec798c.css",
+    "main.js": "/autohaus-react/static/js/main.7b814514.js",
     "index.html": "/autohaus-react/index.html",
-    "main.d24dc9f6.css.map": "/autohaus-react/static/css/main.d24dc9f6.css.map",
-    "main.ac5b0a1b.js.map": "/autohaus-react/static/js/main.ac5b0a1b.js.map"
+    "main.d4ec798c.css.map": "/autohaus-react/static/css/main.d4ec798c.css.map",
+    "main.7b814514.js.map": "/autohaus-react/static/js/main.7b814514.js.map"
   },
   "entrypoints": [
-    "static/css/main.d24dc9f6.css",
-    "static/js/main.ac5b0a1b.js"
+    "static/css/main.d4ec798c.css",
+    "static/js/main.7b814514.js"
   ]
 }
