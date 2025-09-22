@@ -11,10 +11,10 @@ $color-eigengrau-light: rgba(87, 87, 116, 0.1);
 
 $color-text: #e2e8ef;
 
-$color-primary: rgb(52, 75, 86) !default;
-$color-secondary: #345a62 !default;
+$color-primary: #e9e9e2 !default;
+$color-secondary: #e9e9e2 !default;
 
-$color-secondary-dark: #011820 !default;
+$color-secondary-dark: #e9e9e2 !default; // Auch hier neue Farbe statt grün-dunkle Farbe
 $color-secondary-light: color.scale($color-secondary, $lightness: 20%) !default;
 
 $slope-incline: math.asin(0.1);
@@ -32,8 +32,7 @@ $breakpoint-sm: 48em !default;
 $breakpoint-xs: 36em !default;
 
 /** iPhone 12 Pro spezifischer Breakpoint */
-$breakpoint-iphone12: 391px !default;  // Entspricht 390px
-
+$breakpoint-iphone12: 391px !default; // Entspricht 390px
 
 /** Breakpoints */
 @media (max-width: $breakpoint-lg) {

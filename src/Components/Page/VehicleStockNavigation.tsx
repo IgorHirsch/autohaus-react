@@ -188,6 +188,50 @@ const VehicleStockNavigation: React.FC = () => {
         },
       ],
     },
+    {
+      id: "ersatz-mietwagen",
+      name: "Ersatz- & Mietwagen",
+      description: "Flexibilität wenn Sie sie brauchen",
+      icon: "",
+      vehicles: [
+        {
+          brand: "SEAT",
+          model: "Ibiza",
+          price: "ab 35 €/Tag",
+          year: 2023,
+          mileage: "15.000 km",
+          image:
+            "https://logos-world.net/wp-content/uploads/2021/10/SEAT-Logo.png",
+        },
+        {
+          brand: "CUPRA",
+          model: "Formentor",
+          price: "ab 55 €/Tag",
+          year: 2024,
+          mileage: "8.000 km",
+          image:
+            "https://logos-world.net/wp-content/uploads/2021/03/Cupra-Logo.png",
+        },
+        {
+          brand: "VOLKSWAGEN",
+          model: "Golf",
+          price: "ab 45 €/Tag",
+          year: 2023,
+          mileage: "12.000 km",
+          image:
+            "https://logos-world.net/wp-content/uploads/2021/04/Volkswagen-Logo-700x394.png",
+        },
+        {
+          brand: "AUDI",
+          model: "A3",
+          price: "ab 65 €/Tag",
+          year: 2024,
+          mileage: "5.000 km",
+          image:
+            "https://logos-world.net/wp-content/uploads/2021/03/Audi-Logo.png",
+        },
+      ],
+    },
   ];
 
   const currentCategory = vehicleCategories.find(

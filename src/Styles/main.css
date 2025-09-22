@@ -70,7 +70,7 @@ code {
 .button {
   display: inline-block;
   border-radius: 1rem;
-  color: rgb(52, 75, 86);
+  color: #e9e9e2;
   text-decoration: none;
   padding: 1rem 6rem;
   text-transform: uppercase;
@@ -79,7 +79,7 @@ code {
   box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.5), -8px -8px 16px rgba(255, 255, 255, 0.1);
 }
 .button:hover {
-  color: rgb(80.0347826087, 115.4347826087, 132.3652173913);
+  color: rgb(237.4, 237.4, 231.8);
 }
 
 .shopping-cart-button {
@@ -105,8 +105,8 @@ code {
 
 .button--secondary {
   color: white;
-  background-color: rgb(52, 75, 86);
-  border: 0.125rem solid rgb(52, 75, 86);
+  background-color: #e9e9e2;
+  border: 0.125rem solid #e9e9e2;
 }
 .button--secondary:hover {
   color: white;
@@ -120,7 +120,7 @@ code {
 }
 
 .button--form {
-  background: rgb(52, 75, 86);
+  background: #e9e9e2;
   color: #fff;
   border-radius: 0.7rem;
   padding: 0.8rem 1.5rem;
@@ -131,7 +131,7 @@ code {
   transition: background 0.2s;
 }
 .button--form:hover {
-  background: rgb(32.7826086957, 47.2826086957, 54.2173913043);
+  background: #d3d3c5;
 }
 
 .contact-button {
@@ -198,9 +198,9 @@ code {
 
 .form__input {
   background-color: transparent;
-  border: 0.125rem solid rgb(52, 75, 86);
+  border: 0.125rem solid rgb(22, 22, 29);
   padding: 0.75rem 1rem;
-  color: rgb(52, 75, 86);
+  color: #e2e8ef;
   text-shadow: 0 0 1rem rgba(0, 0, 0, 0.5);
   box-shadow: 0 0 1rem rgba(0, 0, 0, 0.25);
   border-radius: 10000px;
@@ -243,7 +243,7 @@ code {
   left: 0;
   font-size: 1rem;
   margin: 0.75rem 1rem;
-  color: rgb(52, 75, 86);
+  color: #e2e8ef;
   text-shadow: 0 0 1rem rgba(0, 0, 0, 0.5);
   transform-origin: 0% 50%;
   transform: scale(1) translate(0, 0);
@@ -265,8 +265,8 @@ code {
   background-color: transparent;
   border: 1px solid #ccc;
   border-radius: 1rem;
-  border: 0.125rem solid rgb(52, 75, 86);
-  color: rgb(52, 75, 86);
+  border: 0.125rem solid rgb(22, 22, 29);
+  color: #e2e8ef;
   font-size: 1rem;
   font-family: inherit;
   resize: vertical; /* Benutzer können die Höhe anpassen */
@@ -282,7 +282,7 @@ code {
 
 .form__textarea:focus {
   outline: none;
-  border-color: rgb(52, 75, 86); /* Passe dies an deine Farbvariablen an */
+  border-color: rgb(22, 22, 29);
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
 
@@ -305,7 +305,7 @@ code {
 .form__radio-item-label {
   display: inline-block;
   padding-left: 0.25rem;
-  color: rgb(52, 75, 86);
+  color: #e2e8ef;
   font-size: 1rem;
   padding-top: 0.1rem;
   text-shadow: 0 0 0.25rem rgba(0, 0, 0, 0.5);
@@ -412,7 +412,7 @@ nav {
   background: rgb(22, 22, 29);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
   border-radius: 0 0 -1rem -1rem;
-  transition: all 0.5s ease;
+  transition: all 0.2s ease;
   -webkit-backdrop-filter: blur(50px);
   backdrop-filter: blur(50px);
   color: #e2e8ef;
@@ -481,7 +481,7 @@ nav .wrapper {
   font-weight: 500;
   padding: 9px 15px;
   border-radius: 5px;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
 }
 
 .nav-links li a:hover {
@@ -501,17 +501,21 @@ nav .wrapper {
   border-radius: 0 0 1rem 1rem;
   width: 300px;
   line-height: 45px;
-  top: 85px;
+  top: 80px;
   opacity: 0;
   visibility: hidden;
+  transition: all 0.3s ease;
+  transition-delay: 0s;
 }
 
 .nav-links li:hover .drop-menu,
 .nav-links li:hover .mega-box {
-  transition: all 0.3s ease;
-  top: 70px;
+  transition: all 0.25s ease;
+  transition-delay: 0.1s;
+  top: 80px;
   opacity: 1;
   visibility: visible;
+  transform: perspective(800px) rotateX(0deg) translateY(0px) scale(1);
 }
 
 .drop-menu li a {
@@ -543,12 +547,27 @@ nav .wrapper {
   position: absolute;
   left: 0;
   width: 100%;
-  top: 85px;
+  top: 80px;
   opacity: 0;
   visibility: hidden;
   z-index: 888;
   background: rgb(22, 22, 29);
   border-radius: 0 0 1rem 1rem;
+  transform: perspective(800px) rotateX(-45deg) translateY(-20px) scale(0.9);
+  transform-origin: top center;
+  transition: all 0.3s ease;
+  transition-property: opacity, visibility, transform;
+  will-change: transform, opacity;
+}
+.mega-box::before {
+  content: "";
+  position: absolute;
+  top: -1px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: rgb(22, 22, 29);
+  z-index: 1000;
 }
 
 .mega-box .content {
@@ -561,6 +580,16 @@ nav .wrapper {
   box-shadow: 24px 48px 48px -16px rgba(0, 0, 0, 0.38), -24px 48px 48px -16px rgba(0, 0, 0, 0.38), 0 32px 64px -16px rgba(0, 0, 0, 0.22);
   z-index: 500;
   border-radius: 0 0 1rem 1rem;
+  transform: translateY(30px) scale(0.95);
+  opacity: 0;
+  transition: all 0.25s ease;
+  transition-delay: 0.1s;
+  will-change: transform, opacity;
+}
+
+.nav-links li:hover .mega-box .content {
+  transform: translateY(0) scale(1);
+  opacity: 1;
 }
 
 .marke-icon {
@@ -599,7 +628,7 @@ nav input {
   right: 20px;
   transform: translateY(-50%);
   padding: 10px;
-  background: rgb(52, 75, 86);
+  background: #e9e9e2;
   border-radius: 50%;
   width: 45px;
   height: 45px;
@@ -609,7 +638,7 @@ nav input {
 }
 
 .wrapper .btn:hover {
-  background: rgb(76.96, 133.2, 145.04);
+  background: rgb(237.4, 237.4, 231.8);
 }
 
 .wrapper .btn::before {
@@ -676,7 +705,7 @@ nav input {
     background: rgb(22, 22, 29);
   }
   ::-webkit-scrollbar-thumb {
-    background: #011820;
+    background: #e9e9e2;
   }
   #menu-toggle:checked ~ .nav-links {
     right: 0;
@@ -684,7 +713,7 @@ nav input {
   }
   #menu-toggle:checked ~ .btn.menu-btn {
     display: block;
-    background: #345a62;
+    background: #e9e9e2;
     z-index: 9999999;
   }
   #menu-toggle:checked ~ .btn.menu-btn::before {
@@ -747,8 +776,12 @@ nav input {
   #showDrop3:checked ~ .drop-menu,
   #showDrop4:checked ~ .drop-menu,
   #showMega:checked ~ .mega-box,
-  #showMega2:checked ~ .mega-box {
+  #showMega2:checked ~ .mega-box,
+  #showMega3:checked ~ .mega-box {
     max-height: 100%;
+    transform: translateY(0) scale(1);
+    opacity: 1;
+    transition: all 1s cubic-bezier(0.25, 0.8, 0.25, 1);
   }
   .nav-links .desktop-item {
     display: none;
@@ -773,7 +806,7 @@ nav input {
   }
   .nav-links .mobile-item:hover {
     background: rgba(35, 39, 43, 0.9);
-    border-color: rgb(52, 75, 86);
+    border-color: #e9e9e2;
     box-shadow: 0 4px 24px 0 rgba(0, 0, 0, 0.22);
     transform: translateY(-1px);
   }
@@ -786,13 +819,13 @@ nav input {
   .drop-menu li a {
     border-radius: 4px;
     font-size: 14px;
-    color: #345a62;
+    color: #e9e9e2;
     padding: 6px 10px;
     transition: all 0.3s ease;
   }
   .drop-menu li a:hover {
     background: rgba(40, 45, 50, 0.8);
-    color: rgb(52, 75, 86);
+    color: #e9e9e2;
     transform: translateX(2px);
   }
   .mega-box {
@@ -802,7 +835,9 @@ nav input {
     visibility: visible;
     max-height: 0px;
     overflow: hidden;
+    transform: translateY(20px) scale(0.95);
     transition: all 0.3s ease;
+    transition-property: max-height, transform, opacity;
     width: 100%;
     background: rgba(15, 20, 25, 0.8);
     border: 1px solid rgba(255, 255, 255, 0.05);
@@ -879,7 +914,7 @@ nav input {
 }
 .brand-navigation .brand-nav-item:hover {
   background: rgba(255, 255, 255, 0.1);
-  border-color: rgb(52, 75, 86);
+  border-color: #e9e9e2;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   transform: translateY(-2px);
 }
@@ -899,9 +934,9 @@ nav input {
   }
 }
 .brand-navigation .brand-nav-item.active {
-  background: linear-gradient(135deg, rgb(52, 75, 86), rgb(71.2173913043, 102.7173913043, 117.7826086957));
-  border-color: rgb(52, 75, 86);
-  box-shadow: 0 6px 20px rgba(52, 75, 86, 0.4);
+  background: linear-gradient(135deg, #e9e9e2, white);
+  border-color: #e9e9e2;
+  box-shadow: 0 6px 20px rgba(233, 233, 226, 0.4);
   transform: translateY(-3px);
 }
 @media (max-width: 970px) {
@@ -1198,7 +1233,7 @@ nav input {
 }
 .vehicle-categories .category-nav .category-item:hover {
   background: rgba(255, 255, 255, 0.1);
-  border-color: rgb(52, 75, 86);
+  border-color: #e9e9e2;
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
@@ -1209,12 +1244,12 @@ nav input {
   }
 }
 .vehicle-categories .category-nav .category-item:hover h3 {
-  color: rgb(52, 75, 86);
+  color: #e9e9e2;
 }
 .vehicle-categories .category-nav .category-item.active {
-  background: linear-gradient(135deg, rgb(52, 75, 86), rgb(71.2173913043, 102.7173913043, 117.7826086957));
-  border-color: rgb(52, 75, 86);
-  box-shadow: 0 6px 20px rgba(52, 75, 86, 0.4);
+  background: linear-gradient(135deg, #e9e9e2, white);
+  border-color: #e9e9e2;
+  box-shadow: 0 6px 20px rgba(233, 233, 226, 0.4);
   transform: translateY(-3px);
 }
 @media (max-width: 970px) {
@@ -1246,7 +1281,7 @@ nav input {
   }
 }
 .vehicle-grid-container .grid-title {
-  color: rgb(52, 75, 86);
+  color: #e9e9e2;
   font-size: 1.4rem;
   margin: 5px;
   font-weight: 700;
@@ -1361,7 +1396,7 @@ nav input {
 }
 .vehicle-grid-container .vehicle-brands-grid .brand-section:hover {
   background: rgba(255, 255, 255, 0.08);
-  border-color: rgb(52, 75, 86);
+  border-color: #e9e9e2;
   transform: translateY(-3px);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
 }
@@ -1451,7 +1486,7 @@ nav input {
 .vehicle-grid-container .vehicle-brands-grid .brand-section .brand-card .brand-info .brand-name {
   font-size: 0.95rem;
   font-weight: 700;
-  color: rgb(52, 75, 86);
+  color: #e9e9e2;
   margin-bottom: 0.3rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -1714,7 +1749,7 @@ nav input {
   }
 }
 .footer__address-contact a {
-  color: rgb(52, 75, 86);
+  color: #e9e9e2;
   text-decoration: underline;
   margin-left: 0.2em;
 }
@@ -1813,13 +1848,13 @@ nav input {
 .footer__contact-item-icon {
   position: relative;
   z-index: 2;
-  background-color: rgb(52, 75, 86);
+  background-color: #e9e9e2;
   height: 4rem;
   width: 4rem;
   text-align: center;
   border-radius: 100000px;
   font-size: 2.5rem;
-  color: rgb(76.96, 133.2, 145.04);
+  color: rgb(237.4, 237.4, 231.8);
 }
 .footer__contact-item-icon--phone {
   line-height: 3.9rem;
@@ -1873,7 +1908,7 @@ nav input {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: linear-gradient(135deg, rgb(52, 75, 86) 0%, #345a62 100%);
+  background-image: linear-gradient(135deg, #e9e9e2 0%, #e9e9e2 100%);
   border-radius: 1000000px;
 }
 @media (max-width: 62em) {
@@ -1947,7 +1982,7 @@ nav input {
 }
 
 .footer__address-contact a {
-  color: rgb(52, 75, 86);
+  color: #e9e9e2;
   text-decoration: underline;
   margin-left: 0.2em;
 }
@@ -2024,7 +2059,7 @@ nav input {
   display: block;
   width: 100%;
   height: 0.25rem;
-  background-color: #345a62;
+  background-color: #e9e9e2;
   margin-bottom: 0.5rem;
 }
 @media (max-width: 1280px) {
@@ -2337,7 +2372,7 @@ nav input {
 }
 
 .tours__card-icon-background {
-  background-color: rgb(52, 75, 86);
+  background-color: #e9e9e2;
   position: absolute;
   top: 0;
   left: 0;
@@ -2429,7 +2464,7 @@ nav input {
 .tours__card-desc {
   font-size: 0.6rem;
   padding: 0.9rem 0;
-  background-image: linear-gradient(90deg, rgb(52, 75, 86) 60%, transparent 60%);
+  background-image: linear-gradient(90deg, #e9e9e2 60%, transparent 60%);
   background-position-y: top;
   background-repeat: no-repeat;
   background-size: 100% 0.125rem;
@@ -2482,7 +2517,7 @@ nav input {
   display: block;
   width: 100%;
   height: 0.25rem;
-  background-color: #345a62;
+  background-color: #e9e9e2;
   margin-bottom: 0.5rem;
 }
 @media (max-width: 48em) {
@@ -2786,7 +2821,7 @@ nav input {
 }
 
 .offers__content-heading {
-  color: #345a62;
+  color: #e9e9e2;
   font-size: 1.75rem;
   font-weight: 500;
   white-space: nowrap;
@@ -2795,7 +2830,7 @@ nav input {
 }
 
 .offers__content-subheading {
-  color: rgb(52, 75, 86);
+  color: #e9e9e2;
   font-size: 1rem;
 }
 
@@ -2812,7 +2847,7 @@ nav input {
 
 .offers__content-info-level, .offers__content-info-duration {
   flex: 1 1 50%;
-  color: #345a62;
+  color: #e9e9e2;
   text-align: center;
   padding-top: 1rem;
   padding-bottom: 1rem;
@@ -2825,12 +2860,12 @@ nav input {
 .offers__content-price-container {
   padding-top: 0.75rem;
   font-size: 1rem;
-  color: #345a62;
+  color: #e9e9e2;
 }
 
 .offers__content-price {
   display: block;
-  color: rgb(52, 75, 86);
+  color: #e9e9e2;
   font-weight: 500;
   font-size: 2rem;
   line-height: 0.9em;
@@ -2922,7 +2957,7 @@ nav input {
   display: block;
   width: 100%;
   height: 0.25rem;
-  background-color: #345a62;
+  background-color: #e9e9e2;
   box-shadow: #1a3b44 0 0 5rem;
   margin-bottom: 0.5rem;
 }
@@ -2965,7 +3000,7 @@ nav input {
   margin-bottom: 1.2rem;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
   background: #16232a;
-  border: 3px solid rgb(52, 75, 86);
+  border: 3px solid #e9e9e2;
 }
 
 .home-team__info {
@@ -2974,7 +3009,7 @@ nav input {
 }
 
 .home-team__name {
-  color: #345a62;
+  color: #e9e9e2;
   font-size: 1.25rem;
   font-weight: 600;
   margin-bottom: 0.3rem;
@@ -2988,14 +3023,14 @@ nav input {
 }
 
 .home-team__contact {
-  color: rgb(52, 75, 86);
+  color: #e9e9e2;
   font-weight: 500;
   text-decoration: underline;
   font-size: 0.98rem;
   transition: color 0.2s;
 }
 .home-team__contact:hover {
-  color: #345a62;
+  color: #e9e9e2;
   text-decoration: none;
 }
 
@@ -3081,7 +3116,7 @@ nav input {
   display: block;
   width: 100%;
   height: 0.25rem;
-  background-color: #345a62;
+  background-color: #e9e9e2;
   margin-bottom: 0.5rem;
 }
 @media (max-width: 48em) {
@@ -3418,7 +3453,7 @@ nav input {
   color: transparent;
   border-radius: 100000px;
   filter: drop-shadow(0 0 0.5rem rgba(0, 0, 0, 0.5));
-  background-image: linear-gradient(-45deg, transparent 44%, rgb(52, 75, 86) 45%, rgb(52, 75, 86) 55%, transparent 56%), linear-gradient(45deg, transparent 44%, rgb(52, 75, 86) 45%, rgb(52, 75, 86) 55%, transparent 56%);
+  background-image: linear-gradient(-45deg, transparent 44%, #e9e9e2 45%, #e9e9e2 55%, transparent 56%), linear-gradient(45deg, transparent 44%, #e9e9e2 45%, #e9e9e2 55%, transparent 56%);
 }
 .probefahrt-modal__close:hover {
   opacity: 0.8;
@@ -3482,8 +3517,8 @@ nav input {
 }
 .probefahrt-form__input:focus,
 .probefahrt-form__textarea:focus {
-  border-color: rgb(52, 75, 86);
-  box-shadow: 0 0 0 2px rgba(52, 75, 86, 0.15);
+  border-color: #e9e9e2;
+  box-shadow: 0 0 0 2px rgba(233, 233, 226, 0.15);
   outline: none;
 }
 
@@ -3524,7 +3559,7 @@ nav input {
 }
 
 .probefahrt-form__radio-item-radio {
-  accent-color: rgb(52, 75, 86);
+  accent-color: #e9e9e2;
   width: 1.1rem;
   height: 1.1rem;
 }
@@ -4110,7 +4145,7 @@ nav input {
   right: -0.0625rem;
   bottom: -0.0625rem;
   z-index: 2;
-  background-color: rgb(52, 75, 86);
+  background-color: #e9e9e2;
   background-repeat: no-repeat, no-repeat;
   background-position: center top, center center;
   background-size: 100% calc(50% - 4rem), 100% 100%;
@@ -4125,6 +4160,387 @@ nav input {
   opacity: 1;
 }
 
+.angebote {
+  position: relative;
+  padding: 3rem 0;
+}
+
+.angebote-stock-navigation {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.angebote-categories {
+  width: 100%;
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 2rem;
+}
+
+.angebote-nav {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  border-radius: 1rem;
+  height: 6rem;
+}
+@media (max-width: 62em) {
+  .angebote-nav {
+    gap: 0.6rem;
+    padding: 0.8rem;
+  }
+}
+@media (max-width: 48em) {
+  .angebote-nav {
+    gap: 0.4rem;
+    padding: 0.6rem;
+    margin-bottom: 1.5rem;
+  }
+}
+.angebote-nav .angebote-item {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 0.8rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+  min-width: 140px;
+  height: 80px;
+}
+@media (max-width: 62em) {
+  .angebote-nav .angebote-item {
+    padding: 0.6rem 0.8rem;
+    min-width: 80px;
+  }
+}
+@media (max-width: 48em) {
+  .angebote-nav .angebote-item {
+    padding: 0.5rem 0.6rem;
+    min-width: 70px;
+    flex: 1;
+  }
+}
+.angebote-nav .angebote-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.4), -6px -6px 12px rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+.angebote-nav .angebote-item.active {
+  background: linear-gradient(135deg, #e9e9e2 0%, rgb(193.4, 193.4, 173.8) 100%);
+  transform: translateY(-2px);
+  box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.4), -6px -6px 12px rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+.angebote-nav .angebote-item.active .nav-icon {
+  transform: scale(1.05);
+}
+.angebote-nav .angebote-item.active .nav-label {
+  font-weight: 600;
+  color: black;
+}
+.angebote-nav .angebote-item .nav-label {
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-align: center;
+  color: whitesmoke;
+  line-height: 1;
+  margin: 0;
+  padding: 0;
+  transition: all 0.25s;
+}
+@media (max-width: 62em) {
+  .angebote-nav .angebote-item .nav-label {
+    font-size: 0.75rem;
+  }
+}
+@media (max-width: 48em) {
+  .angebote-nav .angebote-item .nav-label {
+    font-size: 0.7rem;
+  }
+}
+
+.angebote-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding-top: 2rem;
+  border-radius: 1rem;
+  max-width: 1500px;
+  margin: 0 auto;
+  width: 95%;
+}
+@media (max-width: 62em) {
+  .angebote-grid {
+    width: 98%;
+  }
+}
+@media (max-width: 48em) {
+  .angebote-grid {
+    padding: 0 0 2rem 0;
+    width: 100%;
+  }
+}
+@media (max-width: 391px) {
+  .angebote-grid {
+    display: none;
+  }
+}
+
+.swiper-container-angebote {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 0.5rem;
+}
+@media (min-width: 392px) {
+  .swiper-container-angebote {
+    display: none;
+  }
+}
+
+.angebot-card {
+  width: calc(20% - 1.322rem);
+  margin: 0.8rem;
+  padding: 0 0 0.5rem 0;
+  border-radius: 0.7rem;
+  overflow: hidden;
+  font-size: 0.9rem;
+  background: rgb(22, 22, 29);
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3), -4px -4px 8px rgba(255, 255, 255, 0.05);
+  position: relative;
+}
+.angebot-card:hover {
+  box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.4), -6px -6px 12px rgba(255, 255, 255, 0.08);
+}
+@media (max-width: 62em) {
+  .angebot-card {
+    width: calc(31.25% - 1.321rem);
+    margin: 0.7rem;
+  }
+}
+@media (max-width: 48em) {
+  .angebot-card {
+    width: calc(55.5555555556% - 1.321rem);
+    margin: 0.6rem;
+  }
+}
+@media (max-width: 391px) {
+  .angebot-card {
+    width: calc(100% - 1.32rem);
+    margin: 0.5rem auto;
+  }
+}
+.angebot-card__wrapper {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.angebot-card__header {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 1rem 1.2rem 0.8rem 1.2rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+@media (max-width: 48em) {
+  .angebot-card__header {
+    padding: 0.8rem 1rem 0.6rem 1rem;
+    gap: 0.6rem;
+  }
+}
+.angebot-card__icon {
+  font-size: 1.8rem;
+  padding: 0.6rem;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 45px;
+  height: 45px;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3), -4px -4px 8px rgba(255, 255, 255, 0.05);
+}
+@media (max-width: 48em) {
+  .angebot-card__icon {
+    font-size: 1.5rem;
+    min-width: 40px;
+    height: 40px;
+    padding: 0.5rem;
+  }
+}
+.angebot-card__title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: whitesmoke;
+  line-height: 1.3;
+}
+@media (max-width: 48em) {
+  .angebot-card__title {
+    font-size: 0.9rem;
+  }
+}
+.angebot-card__content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 0.8rem 1.2rem 1.2rem 1.2rem;
+}
+@media (max-width: 48em) {
+  .angebot-card__content {
+    padding: 0.6rem 1rem 1rem 1rem;
+  }
+}
+.angebot-card__description {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.4;
+  margin-bottom: 1rem;
+}
+@media (max-width: 48em) {
+  .angebot-card__description {
+    font-size: 0.8rem;
+    margin-bottom: 0.8rem;
+  }
+}
+.angebot-card__features {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin-bottom: 1.5rem;
+}
+@media (max-width: 48em) {
+  .angebot-card__features {
+    gap: 0.5rem;
+    margin-bottom: 1.2rem;
+  }
+}
+.angebot-card__features .feature-item {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.4rem 0.6rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 0.5rem;
+  transition: background-color 0.25s;
+}
+.angebot-card__features .feature-item:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+.angebot-card__features .feature-item .feature-check {
+  color: #e9e9e2;
+  font-weight: bold;
+  font-size: 0.85rem;
+  min-width: 16px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@media (max-width: 48em) {
+  .angebot-card__features .feature-item .feature-check {
+    font-size: 0.8rem;
+  }
+}
+.angebot-card__features .feature-item .feature-text {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.3;
+}
+@media (max-width: 48em) {
+  .angebot-card__features .feature-item .feature-text {
+    font-size: 0.75rem;
+  }
+}
+.angebot-card__details {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 0.7rem;
+  padding: 1rem;
+  margin-top: auto;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+@media (max-width: 48em) {
+  .angebot-card__details {
+    padding: 0.8rem;
+  }
+}
+.angebot-card__details .detail-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.4rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+.angebot-card__details .detail-item:last-child {
+  border-bottom: none;
+}
+@media (max-width: 48em) {
+  .angebot-card__details .detail-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.2rem;
+    padding: 0.3rem 0;
+  }
+}
+.angebot-card__details .detail-item .detail-label {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 500;
+  line-height: 1.2;
+}
+@media (max-width: 48em) {
+  .angebot-card__details .detail-item .detail-label {
+    font-size: 0.7rem;
+  }
+}
+.angebot-card__details .detail-item .detail-value {
+  font-size: 0.85rem;
+  color: whitesmoke;
+  font-weight: 600;
+  text-align: right;
+  line-height: 1.2;
+}
+@media (max-width: 48em) {
+  .angebot-card__details .detail-item .detail-value {
+    font-size: 0.8rem;
+    text-align: left;
+    color: #e9e9e2;
+  }
+}
+
+.angebot-card-hover {
+  position: absolute;
+  top: -0.0625rem;
+  left: -0.0625rem;
+  right: -0.0625rem;
+  bottom: -0.0625rem;
+  z-index: 2;
+  background: linear-gradient(135deg, #e9e9e2 0%, rgb(193.4, 193.4, 173.8) 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 0.7rem;
+  opacity: 0;
+  transition: opacity 0.25s;
+}
+.angebot-card:hover .angebot-card-hover {
+  opacity: 1;
+}
+
+@media (max-width: 391px) {
+  .angebote-grid {
+    display: none;
+  }
+  .swiper-container-angebote {
+    display: flex;
+  }
+}
 .fzgdetails {
   position: relative;
   padding: 3rem 0;
@@ -4204,7 +4620,7 @@ nav input {
 
 .fzgdetails__price {
   font-size: 2.1rem;
-  color: rgb(52, 75, 86);
+  color: #e9e9e2;
   font-weight: 700;
   margin-bottom: 0.5rem;
   letter-spacing: 0.01em;
@@ -4245,7 +4661,7 @@ nav input {
   transition: background 0.2s;
 }
 .fzgdetails__keyfacts li:hover {
-  background: rgb(52, 75, 86);
+  background: #e9e9e2;
   color: whitesmoke;
 }
 
@@ -4260,13 +4676,13 @@ nav input {
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
 }
 .fzgdetails__location a {
-  color: rgb(52, 75, 86);
+  color: #e9e9e2;
   text-decoration: underline;
   margin-left: 0.2rem;
   transition: color 0.2s;
 }
 .fzgdetails__location a:hover {
-  color: #345a62;
+  color: #e9e9e2;
 }
 
 .fzgdetails__eco {
@@ -4284,7 +4700,7 @@ nav input {
 }
 
 .fzgdetails__eco-note {
-  color: rgb(52, 75, 86);
+  color: #e9e9e2;
   font-size: 0.95rem;
   font-style: italic;
 }
@@ -4299,7 +4715,7 @@ nav input {
 }
 
 .fzgdetails__section h2 {
-  color: rgb(52, 75, 86);
+  color: #e9e9e2;
   font-size: 1.15rem;
   font-weight: 600;
   margin-bottom: 0.7rem;
@@ -4348,15 +4764,15 @@ nav input {
   transition: box-shadow 0.2s, border-color 0.2s, transform 0.2s;
 }
 .fzgdetails__equipment-card:hover {
-  box-shadow: 0 0 2rem rgb(52, 75, 86);
-  border-color: rgb(52, 75, 86);
+  box-shadow: 0 0 2rem #e9e9e2;
+  border-color: #e9e9e2;
   transform: translateY(-4px) scale(1.02);
 }
 
 .fzgdetails__equipment-title {
   font-size: 1.08rem;
   font-weight: 600;
-  color: rgb(52, 75, 86);
+  color: #e9e9e2;
   margin-bottom: 0.7rem;
   display: flex;
   align-items: center;
@@ -4459,7 +4875,7 @@ nav input {
   position: relative;
   top: 10rem;
   padding: 3rem 0;
-  background: #202d35;
+  background: #e9e9e2;
   min-height: 100vh;
 }
 
@@ -4468,7 +4884,7 @@ nav input {
   margin: 0 auto;
   padding: 2rem;
   border-radius: 1.618rem;
-  background: #202d35;
+  background: #e9e9e2;
   box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.7), -8px -8px 16px rgba(255, 255, 255, 0.04);
 }
 
@@ -4480,7 +4896,7 @@ nav input {
 }
 
 .vergleichen__card {
-  background: #1a232b;
+  background: #e9e9e2;
   border-radius: 1rem;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   padding: 1.2rem 1.2rem 1rem 1.2rem;
@@ -4526,7 +4942,7 @@ nav input {
 }
 
 .vergleichen__card-row.is-hovered {
-  background: rgb(52, 75, 86);
+  background: #e9e9e2;
   color: #fff;
   border-radius: 0.5em;
   transition: background 0.2s, color 0.2s;
@@ -4542,7 +4958,7 @@ nav input {
   display: flex;
   align-items: stretch;
   justify-content: center;
-  background: #1a232b;
+  background: #e9e9e2;
   border-radius: 1rem;
   overflow: hidden;
   box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.25), -8px -8px 16px rgba(255, 255, 255, 0.08);
@@ -4731,7 +5147,7 @@ nav input {
   border-radius: 0.5rem;
   cursor: pointer;
   border: none;
-  background: rgb(52, 75, 86);
+  background: #e9e9e2;
   color: #e2e8ef;
 }
 
@@ -5629,7 +6045,7 @@ nav input {
   }
 }
 .mega-menu-car .mega-menu-car__name {
-  color: rgb(76.96, 133.2, 145.04);
+  color: rgb(237.4, 237.4, 231.8);
   font-size: 1.1rem;
   font-weight: 600;
   text-align: center;
@@ -5708,7 +6124,7 @@ nav input {
   }
 }
 .mega-menu-car .mega-menu-car__specs .mega-menu-car__spec .spec-value {
-  color: #345a62;
+  color: #e9e9e2;
   font-weight: 500;
 }
 @media (max-width: 970px) {
@@ -5719,7 +6135,7 @@ nav input {
 }
 .mega-menu-car .mega-menu-car__price {
   background: rgb(22, 22, 29);
-  color: #345a62;
+  color: #e9e9e2;
   padding: 0.5rem;
   border-radius: 0.5rem;
   font-size: 1rem;

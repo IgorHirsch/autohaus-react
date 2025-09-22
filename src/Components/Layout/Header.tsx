@@ -3,6 +3,7 @@ import "../../Styles/main.css";
 import StarBorder from "../Elements/StarBorder";
 import BrandNavigation from "../Page/BrandNavigation";
 import VehicleStockNavigation from "../Page/VehicleStockNavigation";
+import Angebote from "../Page/Angebote";
 import Kontakt from "../Page/Kontakt";
 
 function Header() {
@@ -30,20 +31,35 @@ function Header() {
     const menuIds = [
       "showMega",
       "showMega2",
+      "showMega3", // Neue ID für Angebote & Finanzierung
       "showDrop1",
       "showDrop2",
       "showDrop3",
       "showDrop4",
     ];
 
+    // Sanftes Schließen aller anderen Menus mit längerem Delay
     menuIds.forEach((id) => {
       if (id !== targetId) {
         const checkbox = document.getElementById(id) as HTMLInputElement;
-        if (checkbox) {
-          checkbox.checked = false;
+        if (checkbox && checkbox.checked) {
+          // Längeres Delay für smootheren Übergang
+          setTimeout(() => {
+            checkbox.checked = false;
+          }, 100);
         }
       }
     });
+
+    // Das neue Menu nach einem längeren Delay öffnen für smootheren Wechsel
+    setTimeout(() => {
+      const targetCheckbox = document.getElementById(
+        targetId
+      ) as HTMLInputElement;
+      if (targetCheckbox) {
+        targetCheckbox.checked = true;
+      }
+    }, 300);
   };
 
   return (
@@ -97,68 +113,30 @@ function Header() {
             </div>
           </li>
 
-          {/* Leistungen */}
+          {/* Angebote & Finanzierung */}
           <li>
             <a href="#" className="desktop-item">
-              Leistungen
+              Angebote & Finanzierung
             </a>
-            <input type="checkbox" id="showDrop1" />
+            <input type="checkbox" id="showMega3" />
             <label
-              htmlFor="showDrop1"
+              htmlFor="showMega3"
               className="mobile-item"
-              onClick={() => handleMenuToggle("showDrop1")}
+              onClick={() => handleMenuToggle("showMega3")}
             >
-              Leistungen
+              Angebote & Finanzierung
             </label>
-            <ul className="drop-menu">
-              <li>
-                <a href="sites/unternehmen/uberuns.html">
-                  Neu und Gebrauchtwagen
-                </a>
-              </li>
-              <li>
-                <a href="sites/unternehmen/anfahrt.html">Leasingsangebote</a>
-              </li>
-              <li>
-                <a href="sites/unternehmen/jobs.html">
-                  Ersatzwagen & Mietwagen
-                </a>
-              </li>
-              <li>
-                <a href="sites/unternehmen/jobs.html">Wartung & Reparatur</a>
-              </li>
-              <li>
-                <a href="sites/unternehmen/aktuelles.html">Reifenleistungen</a>
-              </li>
-              <li>
-                <a href="sites/unternehmen/aktuelles.html">Dialognahme</a>
-              </li>
-              <li>
-                <a href="sites/unternehmen/galerie.html">HU-Service</a>
-              </li>
-              <li>
-                <a href="sites/unternehmen/aktuelles.html">
-                  Werkstadt Leistungen
-                </a>
-              </li>
-              <li>
-                <a href="sites/unternehmen/anschprechpartner.html">
-                  Hol- und Bringservice
-                </a>
-              </li>
-              <li>
-                <a href="sites/unternehmen/galerie.html">Garantie</a>
-              </li>
-              <li>
-                <a href="sites/unternehmen/galerie.html">Teile und Zubehör</a>
-              </li>
-            </ul>
+            <div className="mega-box">
+              <div className="content">
+                <Angebote />
+              </div>
+            </div>
           </li>
 
           {/* Für Gewerbekunden */}
           <li>
             <a href="#" className="desktop-item">
-              Für Gewerbekunden
+              Gewerbekunden
             </a>
             <input type="checkbox" id="showDrop2" />
             <label
