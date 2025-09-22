@@ -1,10 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
 import "../../Styles/main.css";
 import StarBorder from "../Elements/StarBorder";
 import BrandNavigation from "../Page/BrandNavigation";
 import VehicleStockNavigation from "../Page/VehicleStockNavigation";
+import Kontakt from "../Page/Kontakt";
 
 function Header() {
+  const [isKontaktVisible, setIsKontaktVisible] = useState(false);
+
+  // Function to open contact modal
+  const handleKontaktOpen = () => {
+    setIsKontaktVisible(true);
+    // Close mobile menu if open
+    const menuToggle = document.getElementById(
+      "menu-toggle"
+    ) as HTMLInputElement;
+    if (menuToggle) {
+      menuToggle.checked = false;
+    }
+  };
+
+  // Function to close contact modal
+  const handleKontaktClose = () => {
+    setIsKontaktVisible(false);
+  };
+
   // Function to close all other menus when one is opened
   const handleMenuToggle = (targetId: string) => {
     const menuIds = [
@@ -243,6 +263,7 @@ function Header() {
               className="contact-button"
               color="red"
               speed="1s"
+              onClick={handleKontaktOpen}
             >
               Kontakt
             </StarBorder>
@@ -252,6 +273,9 @@ function Header() {
           <i className="fas fa-bars"></i>
         </label>
       </div>
+
+      {/* Kontakt Modal */}
+      <Kontakt isActive={isKontaktVisible} onClose={handleKontaktClose} />
     </nav>
   );
 }

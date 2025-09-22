@@ -123,6 +123,11 @@ nav .wrapper {
   border-radius: 0px;
 }
 
+// Mobile Menu Toggle (versteckte Checkbox)
+#menu-toggle {
+  display: none;
+}
+
 // Mobile Menu Button
 .wrapper .btn {
   color: $color-text;
