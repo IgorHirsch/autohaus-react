@@ -50,9 +50,6 @@ $-kontakt-modal-height: 40rem;
   padding-top: 15vh; /* Modal startet 15% vom oberen Bildschirmrand */
 }
 
-
-
-
 .kontakt-modal__content {
   position: relative;
   width: $-kontakt-modal-width;
@@ -63,6 +60,7 @@ $-kontakt-modal-height: 40rem;
 
   border-radius: 0.25rem;
   padding-left: calc(min(100vw, #{$-kontakt-modal-width}) * 0.375);
+  padding-right: 0.5rem; /* Mehr Abstand vom rechten Rand */
 
   $modal-content-bg: color.scale(rgb(0, 0, 0), $alpha: -15%);
 
@@ -98,7 +96,7 @@ $-kontakt-modal-height: 40rem;
 .kontakt-modal__close {
   display: block;
   position: absolute;
-  right: 1rem;
+  left: 1rem; // Nach links verschoben: von right auf left
   top: 1rem;
   width: 1.25rem;
   height: 1.25rem;
@@ -160,5 +158,3 @@ $-kontakt-modal-height: 40rem;
     padding-top: 5vh; /* Noch weniger Abstand auf sehr kleinen Bildschirmen */
   }
 }
-
-
