@@ -5,6 +5,7 @@ import BrandNavigation from "../Page/BrandNavigation";
 import VehicleStockNavigation from "../Page/VehicleStockNavigation";
 import Angebote from "../Page/Angebote";
 import Kontakt from "../Page/Kontakt";
+import Werkstatt from "../Page/Werkstatt";
 
 function Header() {
   const [isKontaktVisible, setIsKontaktVisible] = useState(false);
@@ -32,10 +33,10 @@ function Header() {
       "showMega",
       "showMega2",
       "showMega3", // Neue ID für Angebote & Finanzierung
+      "showMega4", // Neue ID für Werkstatt & Service
       "showDrop1",
       "showDrop2",
       "showDrop3",
-      "showDrop4",
     ];
 
     // Sanftes Schließen aller anderen Menus mit längerem Delay
@@ -133,32 +134,24 @@ function Header() {
             </div>
           </li>
 
-          {/* Für Gewerbekunden */}
+          {/* Werkstatt & Service */}
           <li>
             <a href="#" className="desktop-item">
-              Gewerbekunden
+              Werkstatt & Service
             </a>
-            <input type="checkbox" id="showDrop2" />
+            <input type="checkbox" id="showMega4" />
             <label
-              htmlFor="showDrop2"
+              htmlFor="showMega4"
               className="mobile-item"
-              onClick={() => handleMenuToggle("showDrop2")}
+              onClick={() => handleMenuToggle("showMega4")}
             >
-              Für Gewerbekunden
+              Werkstatt & Service
             </label>
-            <ul className="drop-menu">
-              <li>
-                <a href="sites/unternehmen/uberuns.html">Firmenkunden</a>
-              </li>
-              <li>
-                <a href="sites/unternehmen/anfahrt.html">Großkunden</a>
-              </li>
-              <li>
-                <a href="sites/unternehmen/jobs.html">
-                  Pflegedienste und Hebammen
-                </a>
-              </li>
-            </ul>
+            <div className="mega-box">
+              <div className="content">
+                <Werkstatt />
+              </div>
+            </div>
           </li>
 
           {/* Unternehmen */}
@@ -166,11 +159,11 @@ function Header() {
             <a href="#" className="desktop-item">
               Unternehmen
             </a>
-            <input type="checkbox" id="showDrop3" />
+            <input type="checkbox" id="showDrop2" />
             <label
-              htmlFor="showDrop3"
+              htmlFor="showDrop2"
               className="mobile-item"
-              onClick={() => handleMenuToggle("showDrop3")}
+              onClick={() => handleMenuToggle("showDrop2")}
             >
               Unternehmen
             </label>
@@ -205,11 +198,11 @@ function Header() {
             <a href="#" className="desktop-item">
               Onlineshop
             </a>
-            <input type="checkbox" id="showDrop4" />
+            <input type="checkbox" id="showDrop3" />
             <label
-              htmlFor="showDrop4"
+              htmlFor="showDrop3"
               className="mobile-item"
-              onClick={() => handleMenuToggle("showDrop4")}
+              onClick={() => handleMenuToggle("showDrop3")}
             >
               Onlineshop
             </label>
