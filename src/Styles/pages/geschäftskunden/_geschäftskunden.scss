@@ -1,0 +1,362 @@
+@use "sass:color";
+@use "sass:math";
+@use "../../abstracts/variables" as *;
+// Card spacing similar to Angebote
+$-margin: 0.66rem;
+$-width: math.div(100%, 5);
+// Geschäftskunden Mega-Menu Grundlayout
+.geschaeftskunden-megamenu {
+  padding: 2rem 1rem;
+  background: $color-eigengrau;
+  border-radius: 1rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  color: $color-text;
+}
+
+.geschaeftskunden-megamenu__title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  text-align: center;
+  color: $color-primary;
+}
+
+.geschaeftskunden-megamenu__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
+
+.geschaeftskunden-megamenu__category {
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 0.7rem;
+  padding: 1.2rem 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.geschaeftskunden-megamenu__category-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: $color-primary;
+}
+
+.geschaeftskunden-megamenu__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.geschaeftskunden-megamenu__item {
+  font-size: 1rem;
+  margin-bottom: 0.7rem;
+  color: $color-text;
+  padding-left: 0.2rem;
+  transition: color 0.2s;
+}
+
+.geschaeftskunden-megamenu__item:last-child {
+  margin-bottom: 0;
+}
+
+// Neue zwei-Level Navigation (analog VehicleStockNavigation)
+.geschaeftskunden-navigation {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  width: 100%;
+  justify-content: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 1rem;
+}
+
+.business-categories .category-nav {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.category-item {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 0.8rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+  min-width: 140px;
+  height: 80px;
+}
+
+.category-item:hover {
+  transform: translateY(-2px);
+  border-color: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+
+  @media (max-width: 970px) {
+    box-shadow: none;
+    transform: none;
+  }
+}
+
+.category-item.active {
+  background: rgba($color-primary, 0.1);
+  border-color: rgba($color-primary, 0.35);
+}
+
+.category-item h3 {
+  font-size: 1rem;
+  margin: 0 0 0.25rem;
+  color: $color-primary;
+}
+
+.category-item p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: rgba($color-text, 0.8);
+}
+
+.business-grid-container .grid-title {
+  display: block;
+  width: 100%;
+  padding: 1rem 2rem;
+  font-size: 1.6rem;
+  line-height: 1.25;
+  text-align: center;
+}
+
+@media (max-width: 970px) {
+  .business-grid-container .grid-title {
+    font-size: 1.4rem;
+    padding: 0.8rem 1.2rem;
+  }
+}
+
+// Make the content container wider and centered (like Angebote)
+.business-grid-container {
+  width: 100%;
+  margin: 0 auto;
+  padding-top: 0.5rem;
+}
+
+@media (max-width: 970px) {
+  .business-grid-container {
+    width: 100%;
+  }
+}
+
+.business-subcategories-grid {
+  display: grid;
+  grid-auto-flow: column;
+  // Width like .angebot-card (5 per Zeile minus margins)
+  grid-auto-columns: calc(#{$-width} - #{($-margin * 2 + 0.002rem)});
+  gap: 0; // spacing handled by item margins for parity with Angebote
+  width: 100%;
+  justify-content: center; // center cards when there is leftover space
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: 0.25rem 0;
+}
+
+.subcategory-card {
+  // Visual parity with .angebot-card
+  background: $color-eigengrau;
+  border-radius: 0.7rem;
+  overflow: hidden;
+  font-size: 0.9rem;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3),
+    -4px -4px 8px rgba(255, 255, 255, 0.05);
+  position: relative;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.subcategory-card:hover {
+  box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.4),
+    -6px -6px 12px rgba(255, 255, 255, 0.08);
+
+  @media (max-width: 970px) {
+    box-shadow: none;
+    transform: none;
+  }
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.card-header-left {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.card-icon {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba($color-primary, 0.12);
+  color: $color-primary;
+  border-radius: 0.4rem;
+}
+
+.subcategory-name {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin: 0 0 0.5rem;
+  color: $color-primary;
+}
+
+.badge {
+  font-size: 0.75rem;
+  line-height: 1;
+  padding: 0.25rem 0.45rem;
+  background: rgba($color-primary, 0.15);
+  color: $color-primary;
+  border: 1px solid rgba($color-primary, 0.35);
+  border-radius: 0.4rem;
+  white-space: nowrap;
+}
+
+.summary {
+  margin: 0;
+  color: rgba($color-text, 0.9);
+  font-size: 0.95rem;
+}
+
+// Feature list styling like Angebote cards
+.feature-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin-bottom: 1rem;
+}
+
+.feature-item {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.4rem 0.6rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 0.5rem;
+  transition: background-color 0.25s;
+}
+.feature-item:hover {
+  background: rgba(255, 255, 255, 0.08);
+  @media (max-width: 970px) {
+    background: rgba(255, 255, 255, 0.05);
+  }
+}
+.feature-check {
+  color: $color-primary;
+  font-weight: bold;
+  font-size: 0.85rem;
+  min-width: 16px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.feature-text {
+  font-size: 0.8rem;
+  color: rgba($color-text, 0.9);
+  line-height: 1.3;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.tag {
+  font-size: 0.75rem;
+  line-height: 1;
+  padding: 0.25rem 0.5rem;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 0.4rem;
+  color: $color-text;
+}
+
+.business-subcategories-grid > .subcategory-section {
+  scroll-snap-align: start;
+  margin: 0.8rem; // same spacing approach as .angebot-card
+}
+
+.card-footer {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: $color-text;
+  background: $color-eigengrau; // same as card
+  border: 1px solid $color-eigengrau; // same as card
+  border-radius: 0.5rem;
+  padding: 0.45rem 0.8rem;
+  text-decoration: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+  transition: box-shadow 0.2s ease;
+}
+
+.btn-cta:hover {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.45),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+}
+
+@media (max-width: 970px) {
+  .btn-cta:hover {
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+  }
+}
+
+// Mobile tweaks
+@media (max-width: 970px) {
+  // adjust auto column width like angebot-card breakpoints
+  $-width-md: math.div(100%, 2.2);
+  .business-subcategories-grid {
+    grid-auto-columns: calc(#{$-width-md} - #{($-margin * 2 + 0.001rem)});
+  }
+  .business-categories .category-nav {
+    grid-template-columns: 1fr 1fr;
+  }
+  .business-subcategories-grid {
+    grid-template-columns: 1fr;
+  }
+  .swiper-container-categories,
+  .swiper-container-subcategories {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 94%;
+    overflow-x: auto;
+    gap: 0.75rem;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 0.25rem;
+  }
+  .swiper-container-categories > *,
+  .swiper-container-subcategories > * {
+    scroll-snap-align: start;
+  }
+}
+
+@media (max-width: 391px) {
+  $-width-sm: math.div(100%, 1.8);
+  .business-subcategories-grid {
+    grid-auto-columns: calc(100% - #{($-margin * 2)});
+  }
+}

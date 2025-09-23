@@ -3,6 +3,7 @@ import "../../Styles/main.css";
 import StarBorder from "../Elements/StarBorder";
 import BrandNavigation from "../Page/BrandNavigation";
 import VehicleStockNavigation from "../Page/VehicleStockNavigation";
+import Geschäftskunden from "../Page/Geschäftskunden";
 import Angebote from "../Page/Angebote";
 import Kontakt from "../Page/Kontakt";
 import Werkstatt from "../Page/Werkstatt";
@@ -110,6 +111,26 @@ function Header() {
             <div className="mega-box">
               <div className="content">
                 <VehicleStockNavigation />
+              </div>
+            </div>
+          </li>
+
+          {/* Geschäftskunden */}
+          <li>
+            <a href="#" className="desktop-item">
+              Geschäftskunden
+            </a>
+            <input type="checkbox" id="showMega2" />
+            <label
+              htmlFor="showMega2"
+              className="mobile-item"
+              onClick={() => handleMenuToggle("")}
+            >
+              Geschäftskunden
+            </label>
+            <div className="mega-box">
+              <div className="content">
+                <Geschäftskunden />
               </div>
             </div>
           </li>
