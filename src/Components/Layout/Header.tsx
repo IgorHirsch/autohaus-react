@@ -8,6 +8,7 @@ import Angebote from "../Page/Angebote";
 import Kontakt from "../Page/Kontakt";
 import Werkstatt from "../Page/Werkstatt";
 import OnlineShop from "../Page/OnlineShop";
+import Unternehmen from "../Page/Unternehmen";
 
 function Header() {
   const [isKontaktVisible, setIsKontaktVisible] = useState(false);
@@ -36,6 +37,8 @@ function Header() {
       "showMega2",
       "showMega3", // Neue ID für Angebote & Finanzierung
       "showMega4", // Neue ID für Werkstatt & Service
+      "showMega5", // Neue ID für Onlineshop
+      "showMega6", // Neue ID für Unternehmen
       "showDrop1",
       "showDrop2",
       "showDrop3",
@@ -181,14 +184,19 @@ function Header() {
             <a href="#" className="desktop-item">
               Unternehmen
             </a>
-            <input type="checkbox" id="showDrop2" />
+            <input type="checkbox" id="showMega6" />
             <label
-              htmlFor="showDrop2"
+              htmlFor="showMega6"
               className="mobile-item"
-              onClick={() => handleMenuToggle("showDrop2")}
+              onClick={() => handleMenuToggle("showMega6")}
             >
               Unternehmen
             </label>
+            <div className="mega-box">
+              <div className="content">
+                <Unternehmen />
+              </div>
+            </div>
           </li>
 
           {/* Onlineshop */}

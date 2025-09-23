@@ -1,0 +1,55 @@
+@use "sass:math";
+@use "../../abstracts" as *;
+
+.unternehmen {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  width: 95%;
+
+  @media (max-width: $breakpoint-md) {
+    width: 98%;
+    padding: 2rem 0;
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    width: 100%;
+    padding: 1.5rem 0;
+  }
+}
+
+.unternehmen__header {
+  text-align: center;
+  padding: 0 2rem;
+
+  @media (max-width: $breakpoint-sm) {
+    margin-bottom: 2rem;
+    padding: 0 1rem;
+  }
+}
+
+.unternehmen__title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: whitesmoke;
+  margin-bottom: 1rem;
+}
+
+.unternehmen__subtitle {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.8);
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+$-margin: 0.8rem;
+.unternehmen__grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: $-margin;
+  margin-bottom: 2rem;
+}
+
+// Cards reuse .service-card styles from Werkstatt

@@ -6,6 +6,7 @@ import Angebote from "./Angebote";
 import Werkstatt from "./Werkstatt";
 import Geschäfttskunden from "./Geschäftskunden";
 import OnlineShop from "./OnlineShop";
+import Unternehmen from "./Unternehmen";
 
 export {
   MegaMenuCar,
@@ -16,4 +17,5 @@ export {
   Werkstatt,
   Geschäfttskunden,
   OnlineShop,
+  Unternehmen,
 };

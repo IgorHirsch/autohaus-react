@@ -6458,6 +6458,59 @@ nav input {
     grid-auto-columns: calc(100% - 1.32rem);
   }
 }
+.unternehmen {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  width: 95%;
+}
+@media (max-width: 62em) {
+  .unternehmen {
+    width: 98%;
+    padding: 2rem 0;
+  }
+}
+@media (max-width: 48em) {
+  .unternehmen {
+    width: 100%;
+    padding: 1.5rem 0;
+  }
+}
+
+.unternehmen__header {
+  text-align: center;
+  padding: 0 2rem;
+}
+@media (max-width: 48em) {
+  .unternehmen__header {
+    margin-bottom: 2rem;
+    padding: 0 1rem;
+  }
+}
+
+.unternehmen__title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: whitesmoke;
+  margin-bottom: 1rem;
+}
+
+.unternehmen__subtitle {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.8);
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.unternehmen__grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.8rem;
+  margin-bottom: 2rem;
+}
+
 .star-border-container.contact-button,
 .star-border-container .contact-button,
 .star-border-container button.contact-button {
