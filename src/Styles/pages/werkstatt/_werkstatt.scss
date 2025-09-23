@@ -5,9 +5,10 @@
 $-margin: 0.8rem;
 
 .werkstatt {
-  position: relative;
-  max-width: 1500px;
-  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
   width: 95%;
 
   @media (max-width: $breakpoint-md) {
@@ -70,8 +71,8 @@ $-margin: 0.8rem;
   flex-wrap: wrap;
   justify-content: center;
   gap: $-margin;
-  margin-top: 0.5rem;
-  margin-bottom: 3rem;
+  margin-top: 0;
+  margin-bottom: 2rem;
 
   @media (max-width: $breakpoint-sm) {
     gap: math.div($-margin, 1.5);
@@ -81,13 +82,13 @@ $-margin: 0.8rem;
 
 // 6 Cards pro Reihe auf Desktop
 .service-card {
-  $-width: math.div(100%, 4); // 4 Cards pro Reihe auf Desktop
+  $-width: math.div(100%, 7); // 6 Cards pro Reihe auf Desktop
   width: calc(#{$-width} - #{($-margin * 2)});
   margin: $-margin;
   padding: 0 0 0.5rem 0;
-  height: 420px; // Etwas höhere, flexiblere Cards
-  min-height: 370px;
-  max-height: 480px;
+  height: 550px;
+  min-height: 350px;
+  max-height: 700px;
   border-radius: 0.8rem;
   overflow: hidden;
   font-size: 0.9rem;
@@ -154,8 +155,6 @@ $-margin: 0.8rem;
     justify-content: center;
     min-width: 55px;
     height: 55px;
-    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3),
-      -4px -4px 8px rgba(255, 255, 255, 0.05);
 
     @media (max-width: $breakpoint-sm) {
       font-size: 1.8rem;
@@ -203,7 +202,7 @@ $-margin: 0.8rem;
     display: flex;
     flex-direction: column;
     gap: 0.8rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 0.5rem;
 
     @media (max-width: $breakpoint-sm) {
       gap: 0.6rem;
@@ -254,7 +253,7 @@ $-margin: 0.8rem;
   &__details {
     background: rgba(255, 255, 255, 0.05);
     border-radius: 0.7rem;
-    padding: 1.2rem;
+    padding: 0.3rem 0.5rem;
     margin-top: auto;
     border: 1px solid rgba(255, 255, 255, 0.1);
 
@@ -266,7 +265,7 @@ $-margin: 0.8rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 0.5rem 0;
+      padding: 0.25rem 0;
       border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 
       &:last-child {
@@ -281,7 +280,7 @@ $-margin: 0.8rem;
       }
 
       .detail-label {
-        font-size: 0.8rem;
+        font-size: 0.65rem;
         color: rgba(255, 255, 255, 0.7);
         font-weight: 500;
         line-height: 1.2;
@@ -292,7 +291,7 @@ $-margin: 0.8rem;
       }
 
       .detail-value {
-        font-size: 0.9rem;
+        font-size: 0.7rem;
         color: whitesmoke;
         font-weight: 600;
         text-align: right;
@@ -361,7 +360,7 @@ $-margin: 0.8rem;
 .werkstatt__contact {
   background: rgba(255, 255, 255, 0.05);
   border-radius: 1rem;
-  padding: 2.5rem;
+  padding: 1.2rem 0.8rem;
   text-align: center;
   border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3),
@@ -372,9 +371,9 @@ $-margin: 0.8rem;
   }
 
   h3 {
-    font-size: 1.5rem;
+    font-size: 1.1rem;
     color: whitesmoke;
-    margin-bottom: 1.5rem;
+    margin-bottom: 0.7rem;
     font-weight: 600;
 
     @media (max-width: $breakpoint-sm) {
@@ -387,7 +386,7 @@ $-margin: 0.8rem;
 .contact-details {
   display: flex;
   justify-content: center;
-  gap: 3rem;
+  gap: 1.2rem;
   flex-wrap: wrap;
 
   @media (max-width: $breakpoint-md) {
@@ -404,7 +403,7 @@ $-margin: 0.8rem;
   display: flex;
   align-items: center;
   gap: 0.8rem;
-  font-size: 1rem;
+  font-size: 0.85rem;
   color: rgba(255, 255, 255, 0.9);
 
   @media (max-width: $breakpoint-sm) {
@@ -413,8 +412,8 @@ $-margin: 0.8rem;
   }
 
   .contact-icon {
-    font-size: 1.2rem;
-    min-width: 24px;
+    font-size: 1rem;
+    min-width: 18px;
 
     @media (max-width: $breakpoint-sm) {
       font-size: 1.1rem;

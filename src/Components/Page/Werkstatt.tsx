@@ -64,11 +64,10 @@ function Werkstatt() {
       icon: "💬",
       description: "Persönliche Beratung und transparente Kostenvoranschläge",
       features: [
-        "Ausführliche Fahrzeugdiagnose",
-        "Transparente Kostenaufstellung",
-        "Terminplanung nach Ihren Wünschen",
-        "Regelmäßige Updates zum Fortschritt",
-        "Persönlicher Ansprechpartner",
+  "Ausführliche Fahrzeugdiagnose",
+  "Transparente Kostenaufstellung",
+  "Terminplanung nach Ihren Wünschen",
+  "Regelmäßige Updates zum Fortschritt",
       ],
       details: {
         duration: "15-30 Min",
