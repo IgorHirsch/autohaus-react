@@ -7,6 +7,7 @@ import Geschäftskunden from "../Page/Geschäftskunden";
 import Angebote from "../Page/Angebote";
 import Kontakt from "../Page/Kontakt";
 import Werkstatt from "../Page/Werkstatt";
+import OnlineShop from "../Page/OnlineShop";
 
 function Header() {
   const [isKontaktVisible, setIsKontaktVisible] = useState(false);
@@ -188,30 +189,6 @@ function Header() {
             >
               Unternehmen
             </label>
-            <ul className="drop-menu">
-              <li>
-                <a href="sites/unternehmen/uberuns.html">Uber uns</a>
-              </li>
-              <li>
-                <a href="sites/unternehmen/jobs.html">Jobs</a>
-              </li>
-              <li>
-                <a href="sites/unternehmen/aktuelles.html">Aktuelles</a>
-              </li>
-              <li>
-                <a href="sites/unternehmen/anschprechpartner.html">
-                  Anschprechpartner
-                </a>
-              </li>
-              <li>
-                <a href="sites/unternehmen/anfahrt.html">
-                  Anfart & Öffnungszeiten
-                </a>
-              </li>
-              <li>
-                <a href="sites/unternehmen/galerie.html">Galerie</a>
-              </li>
-            </ul>
           </li>
 
           {/* Onlineshop */}
@@ -219,33 +196,19 @@ function Header() {
             <a href="#" className="desktop-item">
               Onlineshop
             </a>
-            <input type="checkbox" id="showDrop3" />
+            <input type="checkbox" id="showMega5" />
             <label
-              htmlFor="showDrop3"
+              htmlFor="showMega5"
               className="mobile-item"
-              onClick={() => handleMenuToggle("showDrop3")}
+              onClick={() => handleMenuToggle("showMega5")}
             >
               Onlineshop
             </label>
-            <ul className="drop-menu">
-              <li>
-                <a href="sites/onlineshop/onlineshop.html">
-                  Ersatzteile & Komponenten
-                </a>
-              </li>
-              <li>
-                <a href="sites/">Autozubehör & Tuning</a>
-              </li>
-              <li>
-                <a href="sites/">Reifen & Räder</a>
-              </li>
-              <li>
-                <a href="sites/">Lifestyle & Merchandise</a>
-              </li>
-              <li>
-                <a href="sites/">Elektronik & Gadgets</a>
-              </li>
-            </ul>
+            <div className="mega-box">
+              <div className="content">
+                <OnlineShop />
+              </div>
+            </div>
           </li>
 
           {/* Kontakt */}

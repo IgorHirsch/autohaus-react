@@ -116,7 +116,11 @@ nav .wrapper {
   top: 80px;
   opacity: 1;
   visibility: visible;
-  transform: perspective(800px) rotateX(0deg) translateY(0px) scale(1);
+}
+
+// Desktop: simple, soft transition (fade + small slide)
+.nav-links li:hover .mega-box {
+  transform: translateY(0);
 }
 
 .drop-menu li a {
@@ -157,9 +161,10 @@ nav .wrapper {
   z-index: 888;
   background: $color-eigengrau;
   border-radius: 0 0 1rem 1rem;
-  transform: perspective(800px) rotateX(-45deg) translateY(-20px) scale(0.9);
-  transform-origin: top center;
-  transition: all 0.3s ease; // Vereinfachte Animation
+  transform: translateY(6px);
+  // Warten mit "visibility" beim Schließen, damit Kinder sichtbar ausblenden können
+  transition: opacity 0.18s ease, transform 0.22s ease,
+    visibility 0s linear 0.5s;
   transition-property: opacity, visibility, transform;
   will-change: transform, opacity;
 
@@ -188,16 +193,74 @@ nav .wrapper {
     0 32px 64px -16px rgba(0, 0, 0, 0.22);
   z-index: 500;
   border-radius: 0 0 1rem 1rem;
-  transform: translateY(30px) scale(0.95);
-  opacity: 0;
-  transition: all 0.25s ease; // Vereinfachte Animation
-  transition-delay: 0.1s; // Kürzere Verzögerung
-  will-change: transform, opacity;
+  transform: none;
+  opacity: 1; // Container bleibt stabil sichtbar; nur innere Items animieren
+  will-change: auto;
 }
 
-.nav-links li:hover .mega-box .content {
-  transform: translateY(0) scale(1);
+// Sanfte, gestaffelte Animation der direkten Kinder im Mega-Menu-Inhalt
+.mega-box .content > * {
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.18s ease, transform 0.22s ease;
+}
+
+// Exit-Delays (wirken beim Schließen, da Basiszustand aktiv ist)
+.mega-box .content > *:nth-child(1) {
+  transition-delay: 0.1s;
+}
+.mega-box .content > *:nth-child(2) {
+  transition-delay: 0.12s;
+}
+.mega-box .content > *:nth-child(3) {
+  transition-delay: 0.14s;
+}
+.mega-box .content > *:nth-child(4) {
+  transition-delay: 0.16s;
+}
+.mega-box .content > *:nth-child(5) {
+  transition-delay: 0.18s;
+}
+.mega-box .content > *:nth-child(6) {
+  transition-delay: 0.2s;
+}
+.mega-box .content > *:nth-child(7) {
+  transition-delay: 0.22s;
+}
+.mega-box .content > *:nth-child(8) {
+  transition-delay: 0.24s;
+}
+
+// Desktop Hover: Kinder einblenden
+.nav-links li:hover .mega-box .content > * {
   opacity: 1;
+  transform: none;
+}
+
+// Dezente Staffelung (bis 8 Elemente abgedeckt)
+.nav-links li:hover .mega-box .content > *:nth-child(1) {
+  transition-delay: 0.02s;
+}
+.nav-links li:hover .mega-box .content > *:nth-child(2) {
+  transition-delay: 0.05s;
+}
+.nav-links li:hover .mega-box .content > *:nth-child(3) {
+  transition-delay: 0.08s;
+}
+.nav-links li:hover .mega-box .content > *:nth-child(4) {
+  transition-delay: 0.11s;
+}
+.nav-links li:hover .mega-box .content > *:nth-child(5) {
+  transition-delay: 0.14s;
+}
+.nav-links li:hover .mega-box .content > *:nth-child(6) {
+  transition-delay: 0.17s;
+}
+.nav-links li:hover .mega-box .content > *:nth-child(7) {
+  transition-delay: 0.2s;
+}
+.nav-links li:hover .mega-box .content > *:nth-child(8) {
+  transition-delay: 0.23s;
 }
 
 // Backdrop-Effekt entfernt für einheitliche Navigation
@@ -284,7 +347,6 @@ nav input {
   .wrapper .btn {
     display: block;
   }
-
   .wrapper .nav-links {
     position: fixed;
     height: 100vh;
@@ -415,6 +477,89 @@ nav input {
     transform: translateY(0) scale(1);
     opacity: 1;
     transition: all 1s cubic-bezier(0.25, 0.8, 0.25, 1);
+  }
+
+  // Mobile: sanfte, gestaffelte Anzeige der Kinder
+  #showMega:checked ~ .mega-box .content > *,
+  #showMega2:checked ~ .mega-box .content > *,
+  #showMega3:checked ~ .mega-box .content > * {
+    opacity: 1;
+    transform: none;
+  }
+
+  #showMega:checked ~ .mega-box .content > *:nth-child(1) {
+    transition-delay: 0.02s;
+  }
+  #showMega:checked ~ .mega-box .content > *:nth-child(2) {
+    transition-delay: 0.05s;
+  }
+  #showMega:checked ~ .mega-box .content > *:nth-child(3) {
+    transition-delay: 0.08s;
+  }
+  #showMega:checked ~ .mega-box .content > *:nth-child(4) {
+    transition-delay: 0.11s;
+  }
+  #showMega:checked ~ .mega-box .content > *:nth-child(5) {
+    transition-delay: 0.14s;
+  }
+  #showMega:checked ~ .mega-box .content > *:nth-child(6) {
+    transition-delay: 0.17s;
+  }
+  #showMega:checked ~ .mega-box .content > *:nth-child(7) {
+    transition-delay: 0.2s;
+  }
+  #showMega:checked ~ .mega-box .content > *:nth-child(8) {
+    transition-delay: 0.23s;
+  }
+
+  #showMega2:checked ~ .mega-box .content > *:nth-child(1) {
+    transition-delay: 0.02s;
+  }
+  #showMega2:checked ~ .mega-box .content > *:nth-child(2) {
+    transition-delay: 0.05s;
+  }
+  #showMega2:checked ~ .mega-box .content > *:nth-child(3) {
+    transition-delay: 0.08s;
+  }
+  #showMega2:checked ~ .mega-box .content > *:nth-child(4) {
+    transition-delay: 0.11s;
+  }
+  #showMega2:checked ~ .mega-box .content > *:nth-child(5) {
+    transition-delay: 0.14s;
+  }
+  #showMega2:checked ~ .mega-box .content > *:nth-child(6) {
+    transition-delay: 0.17s;
+  }
+  #showMega2:checked ~ .mega-box .content > *:nth-child(7) {
+    transition-delay: 0.2s;
+  }
+  #showMega2:checked ~ .mega-box .content > *:nth-child(8) {
+    transition-delay: 0.23s;
+  }
+
+  #showMega3:checked ~ .mega-box .content > *:nth-child(1) {
+    transition-delay: 0.02s;
+  }
+  #showMega3:checked ~ .mega-box .content > *:nth-child(2) {
+    transition-delay: 0.05s;
+  }
+  #showMega3:checked ~ .mega-box .content > *:nth-child(3) {
+    transition-delay: 0.08s;
+  }
+  #showMega3:checked ~ .mega-box .content > *:nth-child(4) {
+    transition-delay: 0.11s;
+  }
+  #showMega3:checked ~ .mega-box .content > *:nth-child(5) {
+    transition-delay: 0.14s;
+  }
+  #showMega3:checked ~ .mega-box .content > *:nth-child(6) {
+    transition-delay: 0.17s;
+  }
+  #showMega3:checked ~ .mega-box .content > *:nth-child(7) {
+    transition-delay: 0.2s;
+  }
+  #showMega3:checked ~ .mega-box .content > *:nth-child(8) {
+    transition-delay: 0.23s;
   }
 
   .nav-links .desktop-item {

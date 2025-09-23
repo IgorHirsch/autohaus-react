@@ -4,7 +4,8 @@ import VehicleStockNavigation from "./VehicleStockNavigation";
 import Kontakt from "./Kontakt";
 import Angebote from "./Angebote";
 import Werkstatt from "./Werkstatt";
-import Geschäfttskunden from "./Geschäfttskunden";
+import Geschäfttskunden from "./Geschäftskunden";
+import OnlineShop from "./OnlineShop";
 
 export {
   MegaMenuCar,
@@ -14,4 +15,5 @@ export {
   Angebote,
   Werkstatt,
   Geschäfttskunden,
+  OnlineShop,
 };
