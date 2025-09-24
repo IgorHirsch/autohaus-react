@@ -8,55 +8,14 @@ $-offers-card-border-color: rgba(0, 0, 0, 0.038);
 $-offers-card-margin: 0.66rem;
 $-half-pixel-width: math.div(1rem, 32);
 
+
+
 .bestand {
   position: relative;
   padding: 3rem 0;
 }
 
-/*///////////////////////////////////////////////////////////Tame the wild*/
 
-// %offers__before-and-after {
-//   top: 7rem;
-//   left: 0;
-//   right: 0;
-//   position: absolute;
-//   content: "Tame the wild";
-//   text-transform: uppercase;
-//   color: rgb(37, 74, 81);
-//   font-size: min(calc(100vw / 1), 7rem);
-//   font-weight: bold;
-//   text-shadow: 0 0 1px white;
-//   text-align: center;
-//   z-index: 0;
-//   overflow: hidden;
-//   white-space: nowrap;
-
-//   @media (max-width: $breakpoint-sm) {
-//     font-size: min(calc(100vw / 1), 3rem);
-//     top: 5rem;
-//     }
-// }
-
-// @mixin -offers__before-and-after-stroke($color) {
-//   @supports (-webkit-text-stroke: 2px #{$color}) or (text-stroke: 2px #{$color}) {
-//     -webkit-text-stroke: 2px #{$color};
-//     text-stroke: 2px #{$color};
-//     text-shadow: none;
-//   }
-// }
-
-// .offers::before {
-//   @extend %offers__before-and-after;
-
-//   @include -offers__before-and-after-stroke(rgba(255, 255, 255, 0.2));
-// }
-
-// .offers::after {
-//   @extend %offers__before-and-after;
-
-//   @include -offers__before-and-after-stroke(transparent);
-// }
-/*/////////////////////////////////////////////////////////////Tame the wild*/
 
 .bestand__column-text {
   float: top;

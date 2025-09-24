@@ -8,13 +8,31 @@ $-offers-card-border-color: rgba(0, 0, 0, 0.038);
 $-offers-card-margin: 0.66rem;
 $-half-pixel-width: math.div(1rem, 32);
 
+.offers-container {
+  @include make-container();
+
+  & {
+    flex-wrap: wrap;
+    border-radius: 1rem;
+    margin: 0 auto;
+  }
+
+  @media (max-width: 391px) {
+    max-width: 99%;
+    padding-top: 0rem;
+    margin: 0 auto;
+    z-index: 1;
+  }
+}
+
 .offers {
   position: relative;
-  padding: 10rem 2rem;
-  max-width: 95%;
-  margin: 0 auto;
-
+  padding: 12rem 0;
   z-index: 10;
+
+  @media (max-width: 391px) {
+    padding: 7rem 0 6rem 0;
+  }
 }
 
 .glass-offers {
@@ -192,7 +210,7 @@ $-half-pixel-width: math.div(1rem, 32);
 }
 
 // Kontainer für Kards
-.offers__container {
+.offers__card-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -211,13 +229,13 @@ $-half-pixel-width: math.div(1rem, 32);
 }
 
 .offers__card {
-  $-width: math.div(100%, 4.5);
+  $-width: math.div(100%, 3.5);
 
   width: calc(#{$-width} - #{($-offers-card-margin * 2 + 0.002rem)});
 
   margin: ($-offers-card-margin) $-offers-card-margin 0 $-offers-card-margin;
   padding: 0 0 1rem 0;
-  margin: 1.5rem;
+  margin: 2rem;
   border-left: $-offers-card-border-width;
   border-right: $-offers-card-border-width;
   border-top: $-offers-card-border-width;
@@ -236,12 +254,14 @@ $-half-pixel-width: math.div(1rem, 32);
   }
 
   @media (max-width: $breakpoint-md) {
-    $-width-md: (100% * 0.5);
+    $-width-md: (100% * 0.46);
     width: calc(#{$-width-md} - #{($-offers-card-margin * 2 + 0.001rem)});
+    margin: 1.5rem;
   }
 
   @media (max-width: $breakpoint-sm) {
     width: calc(100% - #{($-offers-card-margin * 2 + 0.001rem)});
+    margin: 1rem;
   }
   @media (max-width: 391px) {
     margin-top: 1rem;

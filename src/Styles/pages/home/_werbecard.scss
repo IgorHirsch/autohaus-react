@@ -15,10 +15,10 @@ $-werbecard-text: #f5f5f5;
 @use "../../abstracts" as *;
 
 .werbecard {
-  $-width: math.div(100%, 4.5);
+  $-width: math.div(100%, 3.5);
 
   width: calc(#{$-width} - #{($-werbecard-margin * 2 + 0.002rem)});
-  margin: 1.5rem;
+  margin: 2rem;
   padding: 0 0 1rem 0;
   border: $-werbecard-border-width solid $-werbecard-border-color;
   border-radius: 1rem;
@@ -34,12 +34,14 @@ $-werbecard-text: #f5f5f5;
   }
 
   @media (max-width: $breakpoint-md) {
-    $-width-md: (100% * 0.5);
+    $-width-md: (100% * 0.46);
     width: calc(#{$-width-md} - #{($-werbecard-margin * 2 + 0.001rem)});
+    margin: 1.5rem;
   }
 
   @media (max-width: $breakpoint-sm) {
     width: calc(100% - #{($-werbecard-margin * 2 + 0.001rem)});
+    margin: 1rem;
   }
   @media (max-width: 391px) {
     margin-top: 1rem;

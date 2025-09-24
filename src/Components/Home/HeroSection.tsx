@@ -45,6 +45,26 @@ function HeroSection() {
         </a>
       </div>
 
+      <div className="home-hero__content-overlay">
+        <div className="home-hero__text-content">
+          <h1 className="home-hero__title">
+            Premium Fahrzeuge für jeden Anspruch
+          </h1>
+          <p className="home-hero__subtitle">
+            Entdecken Sie unsere exklusive Auswahl an Cupra, SEAT und Nissan
+            Fahrzeugen
+          </p>
+          <div className="home-hero__cta-buttons">
+            <button className="home-hero__cta-primary">
+              Fahrzeuge entdecken
+            </button>
+            <button className="home-hero__cta-secondary">
+              Beratung vereinbaren
+            </button>
+          </div>
+        </div>
+      </div>
+
       <div className="home-hero__media">
         <Swiper
           className="home-hero__swiper"

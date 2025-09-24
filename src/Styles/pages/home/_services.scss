@@ -22,11 +22,11 @@ $-services-animation-duration: 0.25s;
 
 .services {
   position: relative;
-  padding: 2rem 0;
+  padding: 10rem 0;
   z-index: 10;
 
   @media (max-width: 391px) {
-    padding-top: 1.5rem;
+    padding: 6rem 0 5rem 0;
   }
 }
 
@@ -225,7 +225,7 @@ $-offers-card-margin: 0.66rem;
   color: $color-text;
   padding: 3rem 1rem 0 1rem;
   text-shadow: 0 0 0.125rem black;
- 
+
   transform: translate(0, calc(100% - 7.25rem));
   transition: transform $-services-animation-duration ease-in-out;
 

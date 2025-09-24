@@ -8,10 +8,10 @@ $-team-card-margin: 0.66rem;
 
 .home-team {
   position: relative;
-  padding: 3rem 0;
+  padding: 10rem 0;
 
   @media (max-width: 391px) {
-    padding-top: 2rem;
+    padding: 6rem 0 5rem 0;
   }
 }
 .glass-team {
@@ -22,7 +22,7 @@ $-team-card-margin: 0.66rem;
     left: 900px;
     width: 320px;
     height: 420px;
-   background: linear-gradient(120deg, #ff973c 50%, #efe150 40%, #6a5acd 100%);
+    background: linear-gradient(120deg, #ff973c 50%, #efe150 40%, #6a5acd 100%);
     clip-path: polygon(0 0, 100% 10, 100% 100%, 20 90%);
     opacity: 0.4;
     filter: blur(150px);
