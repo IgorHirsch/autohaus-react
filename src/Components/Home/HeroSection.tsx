@@ -58,28 +58,35 @@ function HeroSection() {
           <SwiperSlide>
             <img
               className="home-hero__image"
-              src="https://images.unsplash.com/photo-1687942640889-b713c8e3f599?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              src="https://www.hdcarwallpapers.com/download/cupra_formentor_ehybrid_2024_5k-1920x1080.jpg"
               alt="Cupra Hero"
             />
           </SwiperSlide>
           <SwiperSlide>
             <img
               className="home-hero__image"
-              src="https://images.unsplash.com/photo-1692204621769-e77d24e25b12?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              src="https://www.cupraofficial.ch/content/dam/public/cupra-website/cars/terramar/automatic-gallery/cupra-terramar-front-view-timanfaya-grey.jpg"
               alt="SEAT Hero"
             />
           </SwiperSlide>
           <SwiperSlide>
             <img
               className="home-hero__image"
-              src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?q=80&w=1920&auto=format&fit=crop"
+              src="https://www.photoscar.fr/wp-content/uploads/2023/04/Cupra-Tavascan-2024-04.jpg"
               alt="Auto Emotion"
             />
           </SwiperSlide>
           <SwiperSlide>
             <img
               className="home-hero__image"
-              src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?q=80&w=1920&auto=format&fit=crop"
+              src="https://content.presspage.com/uploads/2534/d6f6294c-3456-4fd1-8eef-60134f3f2a0e/1920_cupra-leon-01.jpg?10000"
+              alt="Nissan Hero"
+            />
+          </SwiperSlide>
+          <SwiperSlide>
+            <img
+              className="home-hero__image"
+              src="https://www.razaoautomovel.com/wp-content/uploads/2024/07/cupra-leon-scaled.jpg.webp"
               alt="Nissan Hero"
             />
           </SwiperSlide>
