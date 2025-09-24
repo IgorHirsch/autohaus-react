@@ -5,7 +5,6 @@ $-services-background-color: $color-secondary-dark;
 $-services-icon-size: 0rem;
 $-services-animation-duration: 0.25s;
 
-
 .glass-services {
   &::before {
     content: "";
@@ -14,24 +13,20 @@ $-services-animation-duration: 0.25s;
     left: 1550px;
     width: 320px;
     height: 420px;
-   background: linear-gradient(120deg, #ffa73c 50%, #efe150 40%, #6a5acd 100%);
+    background: linear-gradient(120deg, #ffa73c 50%, #efe150 40%, #6a5acd 100%);
     clip-path: polygon(0 0, 100% 10, 100% 100%, 20 90%);
     opacity: 0.4;
     filter: blur(150px);
   }
 }
 
-
-
 .services {
   position: relative;
-  padding: 3rem 0;
+  padding: 2rem 0;
   z-index: 10;
 
-
-
   @media (max-width: 391px) {
-    padding-top: 2rem;
+    padding-top: 1.5rem;
   }
 }
 
@@ -180,97 +175,46 @@ $-offers-card-margin: 0.66rem;
 
 // Einzelne Card
 .services__card {
-  flex: 0 0 (71rem * 0.3);
+  flex: 0 0 calc(33.333% - 4rem);
   position: relative;
-  margin: 2.5rem;
-  height: 25rem;
+  margin: 2rem;
+  height: 20rem;
   border-radius: 0.5rem;
   overflow: hidden;
-  box-shadow: 0 0 2rem;
-  transform: scale(1);
-  transition: transform $-services-animation-duration ease-in-out,
-    box-shadow $-services-animation-duration ease-in-out,
-    z-index $-services-animation-duration linear;
   box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.5),
     -8px -8px 16px rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 
   &:hover {
-    transition: transform $-services-animation-duration ease-in-out,
-      box-shadow $-services-animation-duration ease-in-out, z-index 0s linear;
-    box-shadow: 10px 10px 18px rgba(0, 0, 0, 0.5),
-      -10px -10px 18px rgba(255, 255, 255, 0.1);
-  }
-
-  @media (max-width: $breakpoint-md) {
-    $-width-md: (100% * 0.5);
-    width: calc(#{$-width-md} - #{($-offers-card-margin * 2 + 0.001rem)});
-  }
-
-  @media (max-width: $breakpoint-sm) {
-    margin: 1rem;
-    margin-left: 3rem;
-    margin-right: 3rem;
-    width: calc(100% - #{($-offers-card-margin * 2 + 0.001rem)});
-  }
-
-  @media (max-width: 391px) {
-    margin: 0px auto;
-    height: 30rem;
-    margin-top: 3rem;
-    &:hover {
-      transform: scale(1.01);
-      box-shadow: 0 0 1rem black;
-      transition: transform $-services-animation-duration ease-in-out,
-        box-shadow $-services-animation-duration ease-in-out, z-index 0s linear;
-      z-index: 1000;
-    }
+    transform: scale(1.02);
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.6),
+      -10px -10px 20px rgba(255, 255, 255, 0.1);
   }
 }
 
 .services__card-icon-background {
-  background-color: $color-eigengrau-transparent-light;
+  background-color: transparent;
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%; // immer vollflächig
+  height: 100%;
   box-shadow: 0 0 0.125rem rgba(0, 0, 0, 0.5);
-  filter: blur(3px);
-  transition: filter 0.3s; // nur Blur animieren
-
-  // Kein transform, keine height-Animation mehr!
+  transition: background-color 0.4s ease-in-out, filter 0.4s ease-in-out;
 
   .services__card:hover & {
-    filter: blur(10px); // Blur wird beim Hover stärker
+    background-color: $color-eigengrau-transparent-light;
+    filter: blur(2px);
   }
 }
 
 .services__card-img {
   width: 100%;
+  height: 100%;
   position: absolute;
   top: 0;
   left: 0;
-  filter: brightness(100%);
-}
-
-.services__card-icon-container {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  transform: translate(0, 0);
-  transition: transform $-services-animation-duration ease-in-out;
-
-  .services__card:hover & {
-    transform: translate(calc(50% - #{$-services-icon-size * 0.5}), 0);
-  }
-}
-
-.services__card-icon {
-  width: $-services-icon-size;
-  color: white;
-  display: block;
-  filter: drop-shadow(0 0 0.5rem rgba(0, 0, 0, 0.5));
+  object-fit: cover;
 }
 
 .services__card-content {
@@ -281,11 +225,7 @@ $-offers-card-margin: 0.66rem;
   color: $color-text;
   padding: 3rem 1rem 0 1rem;
   text-shadow: 0 0 0.125rem black;
-  background-image: linear-gradient(
-    180deg,
-    transparent 0%,
-    rgba(0, 0, 0, 0.25) 20%
-  );
+ 
   transform: translate(0, calc(100% - 7.25rem));
   transition: transform $-services-animation-duration ease-in-out;
 
