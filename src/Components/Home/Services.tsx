@@ -5,7 +5,12 @@ function Services() {
     <section className="glass-services services">
       <div className="services__container">
         <div className="services__column-text">
-          <h2 className="services__heading">Unsere Serviceleistungen</h2>
+          <div className="services__text-subline">
+            <span className="services__text-subline-item">Premium</span>
+            <span className="services__text-subline-item">Qualität</span>
+            <span className="services__text-subline-item">Vertrauen</span>
+          </div>
+          <h2 className="services__text-heading">Unsere Serviceleistungen</h2>
         </div>
         <div className="services__cards">
           <div className="services__card">
@@ -27,8 +32,10 @@ function Services() {
                 </span>
               </p>
               <p className="services__card-desc">
-                Neuwagen und Gebrauchtwagen – Ihre Fahrt in die Zukunft beginnt
-                bei uns!
+                Entdecken Sie unsere exklusive Auswahl an Neu- und
+                Gebrauchtwagen. Von modernsten Technologien bis hin zu bewährten
+                Klassikern – hier finden Sie Ihr perfektes Fahrzeug für jeden
+                Anspruch und jedes Budget.
               </p>
             </div>
           </div>
@@ -51,12 +58,10 @@ function Services() {
                 </span>
               </p>
               <p className="services__card-desc">
-                Bleiben Sie mobil, auch wenn Ihr Auto in der Werkstatt ist. Mit
-                unserem Ersatz- und Mietwagenservice stellen wir sicher, dass
-                Sie jederzeit flexibel unterwegs bleiben. Ob kurzer
-                Werkstattaufenthalt oder längere Reparatur – wir bieten Ihnen
-                moderne Fahrzeuge zu fairen Konditionen, damit Ihr Alltag ohne
-                Unterbrechung weiterläuft.
+                Maximale Flexibilität für Ihren Alltag! Unser erstklassiger
+                Ersatz- und Mietwagenservice sorgt dafür, dass Sie auch bei
+                Werkstattaufenthalten oder Reparaturen immer mobil bleiben.
+                Premium-Fahrzeuge zu fairen Konditionen – für jede Situation.
               </p>
             </div>
           </div>
@@ -77,10 +82,11 @@ function Services() {
                 </span>
               </p>
               <p className="services__card-desc">
-                Ihr Fahrzeug in besten Händen – mit unserem Werkstattservice für
-                Inspektionen, Reparaturen und Wartung sorgen wir für maximale
-                Sicherheit und Fahrspaß. Schnelligkeit, Kompetenz und Qualität
-                für jedes Auto.
+                Meisterhafte Präzision trifft auf modernste Technologie. Unsere
+                zertifizierten Experten bieten Ihnen erstklassigen
+                Werkstattservice für alle Marken – von routinemäßigen
+                Inspektionen bis hin zu komplexen Reparaturen. Ihr Vertrauen,
+                unsere Leidenschaft.
               </p>
             </div>
           </div>
@@ -101,9 +107,10 @@ function Services() {
                 </span>
               </p>
               <p className="services__card-desc">
-                Unser Hol- und Bringservice ermöglicht es Ihnen, Ihr Fahrzeug
-                bequem von Zuhause oder dem Arbeitsplatz abholen und nach der
-                Wartung oder Reparatur wieder zurückbringen zu lassen.
+                Komfort neu definiert! Lehnen Sie sich zurück, während wir uns
+                um alles kümmern. Unser exklusiver Hol- und Bringservice bringt
+                den Premium-Service direkt zu Ihnen – ob zu Hause oder am
+                Arbeitsplatz. Zeit ist wertvoll, wir respektieren das.
               </p>
             </div>
           </div>
@@ -124,9 +131,10 @@ function Services() {
                 </span>
               </p>
               <p className="services__card-desc">
-                Flexibel und smart – mit unserem Leasingangebot fahren Sie immer
-                das neueste Modell, ohne sich langfristig zu binden. Günstige
-                Raten, maßgeschneiderte Laufzeiten und exzellenter Service.
+                Die Zukunft des Autobesitzens! Erleben Sie maximale Flexibilität
+                mit unseren maßgeschneiderten Leasingangeboten. Fahren Sie stets
+                die neuesten Modelle mit modernster Ausstattung – ohne
+                Langzeitbindung, mit voller Kostenkontrolle.
               </p>
             </div>
           </div>
@@ -147,9 +155,10 @@ function Services() {
                 </span>
               </p>
               <p className="services__card-desc">
-                Verleihen Sie Ihrem Fahrzeug das gewisse Extra – mit unserem
-                umfangreichen Zubehörsortiment für Komfort, Sicherheit und Stil.
-                Alles, was Ihr Auto braucht, um noch besser zu werden.
+                Individualisierung auf höchstem Niveau! Entdecken Sie unser
+                exklusives Zubehörsortiment und verwandeln Sie Ihr Fahrzeug in
+                ein Unikat. Von Performance-Upgrades bis hin zu
+                Luxus-Ausstattung – wir machen Ihre Vision zur Realität.
               </p>
             </div>
           </div>

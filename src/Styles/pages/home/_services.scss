@@ -47,28 +47,132 @@ $-services-animation-duration: 0.25s;
   }
 }
 
-.services__heading {
-  color: $color-text;
-  font-weight: 500;
-  font-size: 2rem;
-  margin-bottom: 1rem;
+// Kleine Texte mit Skizzen-Checkmarks oberhalb
+.services__text-subline {
+  position: absolute;
+  top: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 2rem;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.8);
+  font-family: "Comic Sans MS", "Marker Felt", cursive, sans-serif;
+  z-index: 2;
 
-  &::before {
-    content: "";
-    display: block;
-    width: 100%;
-    height: 0.25rem;
-    background-color: $color-secondary;
-    margin-bottom: 0.5rem;
+  .services__text-subline-item {
+    position: relative;
+    transform: rotate(1deg);
 
-    @media (max-width: $breakpoint-sm) {
-      width: 100%;
-      background-color: #5f632c;
+    &:nth-child(2) {
+      transform: rotate(-0.5deg);
+    }
+
+    &:nth-child(3) {
+      transform: rotate(1.5deg);
+    }
+
+    // Sketchy checkmark/swoosh before each word
+    &::before {
+      content: "✓";
+      position: absolute;
+      left: -1.2rem;
+      top: -0.2rem;
+      font-size: 1rem;
+      color: rgba(255, 255, 255, 0.6);
+      transform: rotate(-15deg);
+      font-weight: bold;
+      text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.3);
+    }
+
+    &:nth-child(2)::before {
+      content: "✓";
+      transform: rotate(10deg);
+      left: -1.2rem;
+    }
+
+    &:nth-child(3)::before {
+      content: "✓";
+      transform: rotate(-20deg);
     }
   }
 
   @media (max-width: $breakpoint-sm) {
+    gap: 1rem;
+    font-size: 0.8rem;
+    top: -1.5rem;
+  }
+}
+
+.services__text-heading {
+  color: $color-text;
+  font-weight: 500;
+  font-size: 2rem;
+  margin: auto;
+  margin-bottom: 3rem;
+  position: relative;
+  text-align: center;
+  transform: rotate(-1.5deg);
+  padding: 2rem 0 1.5rem 0;
+  font-family: "Century Gothic", "CenturyGothic", "AppleGothic", sans-serif;
+
+  // Elegante schmale weiße Linie
+  &::before {
+    content: "";
+    position: absolute;
+    top: calc(50% + 0.3rem);
+    left: 5%;
+    right: 5%;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.4) 15%,
+      rgba(255, 255, 255, 0.7) 50%,
+      rgba(255, 255, 255, 0.4) 85%,
+      transparent 100%
+    );
+    transform: translateY(-50%);
+    z-index: -1;
+
+    @media (max-width: $breakpoint-sm) {
+      left: 0%;
+      right: 0%;
+    }
+  }
+
+  // Stark verblurte atmosphärische Linie in der Mitte
+  &::after {
+    content: "";
+    position: absolute;
+    top: calc(50% + 0.3rem);
+    left: 15%;
+    right: 15%;
+    height: 12px;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.4) 15%,
+      rgba(255, 255, 255, 0.7) 50%,
+      rgba(255, 255, 255, 0.4) 85%,
+      transparent 100%
+    );
+    filter: blur(10px);
+    transform: translateY(-50%);
+    z-index: -2;
+
+    @media (max-width: $breakpoint-sm) {
+      left: 15%;
+      right: 15%;
+      top: calc(50% + 0.2rem);
+      filter: blur(8px);
+    }
+  }
+
+  @media (max-width: 391px) {
     font-size: 1.4rem;
+    transform: rotate(-1deg);
+    width: 100%;
   }
 }
 

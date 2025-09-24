@@ -4,7 +4,12 @@ function Team() {
   return (
     <section className="home-team glass-team">
       <div className="home-team__container">
-        <h3 className="home-team__heading">Unser Team</h3>
+        <div className="home-team__text-subline">
+          <span className="home-team__text-subline-item">Erfahren</span>
+          <span className="home-team__text-subline-item">Kompetent</span>
+          <span className="home-team__text-subline-item">Zuverlässig</span>
+        </div>
+        <h3 className="home-team__text-heading">Unser Team</h3>
         <div className="home-team__grid">
           <div className="home-team__card">
             <img

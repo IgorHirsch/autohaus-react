@@ -45,7 +45,7 @@ $-half-pixel-width: math.div(1rem, 32);
     left: 110px;
     width: 320px;
     height: 420px;
-    background: linear-gradient(120deg, #02fdba 50%, #ff0080 40%, #6a5acd 100%);
+    background: linear-gradient(120deg, #ff0000 50%, #ff0000 40%, #ff0000 100%);
     clip-path: polygon(0 0, 100% 10, 100% 100%, 20 90%);
     opacity: 0.6;
     filter: blur(150px);
@@ -87,51 +87,6 @@ $-half-pixel-width: math.div(1rem, 32);
   }
 }
 
-/*///////////////////////////////////////////////////////////Tame the wild*/
-
-// %offers__before-and-after {
-//   top: 7rem;
-//   left: 0;
-//   right: 0;
-//   position: absolute;
-//   content: "Tame the wild";
-//   text-transform: uppercase;
-//   color: rgb(37, 74, 81);
-//   font-size: min(calc(100vw / 1), 7rem);
-//   font-weight: bold;
-//   text-shadow: 0 0 1px white;
-//   text-align: center;
-//   z-index: 0;
-//   overflow: hidden;
-//   white-space: nowrap;
-
-//   @media (max-width: $breakpoint-sm) {
-//     font-size: min(calc(100vw / 1), 3rem);
-//     top: 5rem;
-//     }
-// }
-
-// @mixin -offers__before-and-after-stroke($color) {
-//   @supports (-webkit-text-stroke: 2px #{$color}) or (text-stroke: 2px #{$color}) {
-//     -webkit-text-stroke: 2px #{$color};
-//     text-stroke: 2px #{$color};
-//     text-shadow: none;
-//   }
-// }
-
-// .offers::before {
-//   @extend %offers__before-and-after;
-
-//   @include -offers__before-and-after-stroke(rgba(255, 255, 255, 0.2));
-// }
-
-// .offers::after {
-//   @extend %offers__before-and-after;
-
-//   @include -offers__before-and-after-stroke(transparent);
-// }
-/*/////////////////////////////////////////////////////////////Tame the wild*/
-
 .offers__column-text {
   float: top;
   border-radius: 1.618rem;
@@ -163,30 +118,130 @@ $-half-pixel-width: math.div(1rem, 32);
     }
   }
 }
+// Kleine Texte mit Skizzen-Checkmarks oberhalb
+.offers__text-subline {
+  position: absolute;
+  top: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 2rem;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.8);
+  font-family: "Comic Sans MS", "Marker Felt", cursive, sans-serif;
+  z-index: 2;
+
+  .offers__text-subline-item {
+    position: relative;
+    transform: rotate(1deg);
+
+    &:nth-child(2) {
+      transform: rotate(-0.5deg);
+    }
+
+    &:nth-child(3) {
+      transform: rotate(1.5deg);
+    }
+
+    // Sketchy checkmark/swoosh before each word
+    &::before {
+      content: "✓";
+      position: absolute;
+      left: -1.2rem;
+      top: -0.2rem;
+      font-size: 1rem;
+      color: rgba(255, 255, 255, 0.6);
+      transform: rotate(-15deg);
+      font-weight: bold;
+      text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.3);
+    }
+
+    &:nth-child(2)::before {
+      content: "✓";
+      transform: rotate(10deg);
+      left: -1.2rem;
+    }
+
+    &:nth-child(3)::before {
+      content: "✓";
+      transform: rotate(-20deg);
+    }
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    gap: 1rem;
+    font-size: 0.8rem;
+    top: -1.5rem;
+  }
+}
+
 .offers__text-heading {
   color: $color-text;
   font-weight: 500;
   font-size: 2rem;
   margin: auto;
-  margin-bottom: 1rem;
+  margin-bottom: 3rem;
+  position: relative;
+  text-align: center;
+  transform: rotate(-1.5deg);
+  padding: 2rem 0 1.5rem 0;
+  font-family: "Century Gothic", "CenturyGothic", "AppleGothic", sans-serif;
 
+  // Elegante schmale weiße Linie
   &::before {
     content: "";
-    display: block;
-    width: 100%;
-    height: 0.25rem;
-    background-color: #447785;
-    box-shadow: #1a3b44, 5rem;
-    margin-bottom: 0.5rem;
+    position: absolute;
+    top: calc(50% + 0.3rem);
+    left: 5%;
+    right: 5%;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.3) 20%,
+      rgba(255, 255, 255, 0.6) 50%,
+      rgba(255, 255, 255, 0.3) 80%,
+      transparent 100%
+    );
+    transform: translateY(-50%);
+    z-index: -1;
 
     @media (max-width: $breakpoint-sm) {
-      width: 100%;
+      left: 0%;
+      right: 0%;
+    }
+  }
+
+  // Stark verblurte Linie in der Mitte
+  &::after {
+    content: "";
+    position: absolute;
+    top: calc(50% + 0.3rem);
+    left: 20%;
+    right: 20%;
+    height: 8px;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.3) 20%,
+      rgba(255, 255, 255, 0.6) 50%,
+      rgba(255, 255, 255, 0.3) 80%,
+      transparent 100%
+    );
+    filter: blur(6px);
+    transform: translateY(-50%);
+    z-index: -2;
+
+    @media (max-width: $breakpoint-sm) {
+      left: 15%;
+      right: 15%;
+      top: calc(50% + 0.2rem);
     }
   }
 
   @media (max-width: 391px) {
     font-size: 1.4rem;
-
+    transform: rotate(-1deg);
     width: 100%;
   }
 }

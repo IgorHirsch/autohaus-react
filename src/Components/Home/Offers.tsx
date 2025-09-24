@@ -6,6 +6,20 @@ function Offers() {
       <div className="offers-container">
         <div className="offers__column-text">
           <h2 className="offers__text-heading">
+            <div className="offers__text-subline">
+              <span className="offers__text-subline-item">
+                Nur für kurze Zeit
+              </span>
+              <span className="offers__text-subline-item">
+                Mit Garantie & Service
+              </span>
+              <span className="offers__text-subline-item">
+                Fahrspaß erleben
+              </span>
+              <span className="offers__text-subline-item">
+                Exklusiv & modern
+              </span>
+            </div>
             Topangebote aus unserem Bestand
           </h2>
         </div>
