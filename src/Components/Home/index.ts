@@ -1,5 +1,6 @@
 import HeroSection from "./HeroSection";
 import Offers from "./Offers";
+import Team from "./Team"
 
 
-export { HeroSection, Offers };
+export { HeroSection, Offers, Team };
