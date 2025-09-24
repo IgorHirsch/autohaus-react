@@ -10,7 +10,9 @@ $-half-pixel-width: math.div(1rem, 32);
 
 .offers {
   position: relative;
-  padding: 3rem 0;
+  padding: 10rem 2rem;
+  max-width: 95%;
+  margin: 0 auto;
 
   z-index: 10;
 }
@@ -194,7 +196,7 @@ $-half-pixel-width: math.div(1rem, 32);
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  padding-top: 2rem;
+  padding: 3rem 0;
 
   border-radius: 1rem;
 
@@ -209,13 +211,13 @@ $-half-pixel-width: math.div(1rem, 32);
 }
 
 .offers__card {
-  $-width: math.div(100%, 3.5);
+  $-width: math.div(100%, 4.5);
 
   width: calc(#{$-width} - #{($-offers-card-margin * 2 + 0.002rem)});
 
   margin: ($-offers-card-margin) $-offers-card-margin 0 $-offers-card-margin;
   padding: 0 0 1rem 0;
-  margin: 2rem;
+  margin: 1.5rem;
   border-left: $-offers-card-border-width;
   border-right: $-offers-card-border-width;
   border-top: $-offers-card-border-width;
@@ -420,5 +422,21 @@ $-half-pixel-width: math.div(1rem, 32);
   transition: opacity 0.25s ease-in-out;
   .offers__card:hover & {
     opacity: 1;
+  }
+
+  // Button Styling innerhalb der Hover-Karte
+  .contact-button {
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.2);
+      border-color: rgba(255, 255, 255, 0.4);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    }
   }
 }

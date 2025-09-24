@@ -1,3 +1,5 @@
 import HeroSection from "./HeroSection";
+import Offers from "./Offers";
 
-export {HeroSection} ;
+
+export { HeroSection, Offers };

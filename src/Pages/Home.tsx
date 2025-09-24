@@ -1,10 +1,11 @@
 import React from "react";
-import { HeroSection } from "../Components/Home";
+import { HeroSection, Offers } from "../Components/Home";
 
 function Home() {
   return (
     <>
       <HeroSection />
+      <Offers/>
     </>
   );
 }

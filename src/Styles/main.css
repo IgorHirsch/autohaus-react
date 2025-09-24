@@ -2728,7 +2728,9 @@ nav input {
 
 .offers {
   position: relative;
-  padding: 3rem 0;
+  padding: 10rem 2rem;
+  max-width: 95%;
+  margin: 0 auto;
   z-index: 10;
 }
 
@@ -2864,7 +2866,7 @@ nav input {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  padding-top: 2rem;
+  padding: 3rem 0;
   border-radius: 1rem;
 }
 @media (max-width: 48em) {
@@ -2880,10 +2882,10 @@ nav input {
 }
 
 .offers__card {
-  width: calc(28.5714285714% - 1.322rem);
+  width: calc(22.2222222222% - 1.322rem);
   margin: 0.66rem 0.66rem 0 0.66rem;
   padding: 0 0 1rem 0;
-  margin: 2rem;
+  margin: 1.5rem;
   border-left: 0.0625rem;
   border-right: 0.0625rem;
   border-top: 0.0625rem;
@@ -3030,6 +3032,20 @@ nav input {
 }
 .offers__card:hover .offers__card-hover {
   opacity: 1;
+}
+.offers__card-hover .contact-button {
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+.offers__card-hover .contact-button:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.4);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
 }
 
 .home-team {
@@ -3894,8 +3910,8 @@ nav input {
   }
 }
 .werbecard {
-  width: calc(28.5714285714% - 1.322rem);
-  margin: 2rem;
+  width: calc(22.2222222222% - 1.322rem);
+  margin: 1.5rem;
   padding: 0 0 1rem 0;
   border: 0.0625rem solid rgba(255, 0, 0, 0.13);
   border-radius: 1rem;
@@ -4051,6 +4067,20 @@ nav input {
 .werbecard:hover .werbecard__card-hover {
   opacity: 1;
   background-color: #3a2632;
+}
+.werbecard__card-hover .werbung-contact-button {
+  background: rgba(255, 0, 51, 0.2);
+  border: 2px solid rgba(255, 0, 51, 0.4);
+  color: white;
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+.werbecard__card-hover .werbung-contact-button:hover {
+  background: rgba(255, 0, 51, 0.3);
+  border-color: #ff0033;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(255, 0, 51, 0.5);
 }
 
 .bestand {
@@ -7068,7 +7098,7 @@ nav input {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background-color: aliceblue;
+  background-color: rgb(0, 0, 0);
 }
 
 .app-container > main {
