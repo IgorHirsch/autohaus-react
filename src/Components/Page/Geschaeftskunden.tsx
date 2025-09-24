@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import "../../Styles/pages/geschäftskunden/_geschäftskunden.scss";
+// import "../../Styles/pages/geschäftskunden/_geschäftskunden.scss"; // Temporarily disabled due to path issueport React, { useEffect, useState } from "react";
+import "../../Styles/pages/geschaeftskunden/_geschaeftskunden.scss";
 
 type Subcategory = {
   name: string;

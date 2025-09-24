@@ -26,7 +26,7 @@ body {
   background: black;
   color: aliceblue;
   padding-top: 85px;
-  padding-bottom: 200px;
+  padding-bottom: 0;
   font-family: "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -1693,12 +1693,12 @@ nav input {
 }
 
 .footer {
-  position: fixed !important;
-  bottom: 0 !important;
-  left: 0 !important;
-  right: 0 !important;
+  position: static !important;
+  bottom: auto !important;
+  left: auto !important;
+  right: auto !important;
   width: 100% !important;
-  z-index: 1000 !important;
+  z-index: 10 !important;
   background-image: linear-gradient(to right bottom, rgba(22, 22, 29, 0.95), rgba(22, 22, 29, 0.85), rgba(22, 22, 29, 0.7), rgba(22, 22, 29, 0.5), rgba(22, 22, 29, 0.3));
   padding: 3rem 0 0.5rem 0;
   display: flex;
@@ -1709,25 +1709,16 @@ nav input {
 }
 @media screen and (max-width: 970px) {
   .footer {
-    position: static !important;
-    bottom: auto !important;
-    z-index: 10 !important;
     padding: 2rem 0 1rem 0;
   }
 }
 @media screen and (max-width: 768px) {
   .footer {
-    position: static !important;
-    bottom: auto !important;
-    z-index: 10 !important;
     padding: 1.5rem 0 1rem 0;
   }
 }
 @media screen and (max-width: 480px) {
   .footer {
-    position: static !important;
-    bottom: auto !important;
-    z-index: 10 !important;
     padding: 1rem 0 1rem 0;
   }
 }
@@ -3722,27 +3713,7 @@ nav input {
   font-size: 1.1rem;
 }
 
-.glass-futuristic::before {
-  content: "";
-  position: absolute;
-  top: 120px;
-  left: 610px;
-  width: 1100px;
-  height: 700px;
-  background: linear-gradient(120deg, #ff8c00 50%, #f095c3 40%, #9287df 100%);
-  clip-path: polygon(0 0, 100% 10, 100% 100%, 20 90%);
-  opacity: 0.6;
-  filter: blur(150px);
-  z-index: 0;
-}
-
-.aktuelles-futuristic {
-  padding: 0;
-  margin: 0;
-  overflow-x: hidden;
-}
-
-.futuristic-container {
+.home-hero {
   width: 100vw;
   max-width: 100vw;
   margin: 5rem auto;
@@ -3756,74 +3727,80 @@ nav input {
   text-align: center;
   overflow: visible;
 }
-.futuristic-container .futuristic-image-wrapper {
+
+.home-hero--glass {
+  position: relative;
+}
+.home-hero--glass::before {
+  content: "";
+  position: absolute;
+  top: 120px;
+  left: 610px;
+  width: 1100px;
+  height: 700px;
+  background: linear-gradient(120deg, #ff8c00 50%, #f095c3 40%, #9287df 100%);
+  clip-path: polygon(0 0, 100% 10, 100% 100%, 20 90%);
+  opacity: 0.6;
+  filter: blur(150px);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.home-hero--no-overflow {
+  padding: 0;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+.home-hero__media {
   width: 100vw;
   max-width: 100vw;
   height: 70vh;
   max-height: 70vh;
   overflow: hidden;
-  z-index: 1;
+  position: relative;
+  z-index: 10;
   display: flex;
   justify-content: center;
   background: #181f23;
 }
-.futuristic-container .futuristic-image-wrapper .swiper {
+.home-hero__media .swiper {
   width: 100vw;
   height: 70vh;
   max-width: 100vw;
   max-height: 70vh;
 }
-.futuristic-container .futuristic-image-wrapper .swiper-wrapper {
+.home-hero__media .swiper-wrapper {
   width: 100%;
   height: 100%;
 }
-.futuristic-container .futuristic-image-wrapper .swiper-slide {
+.home-hero__media .swiper-slide {
   width: 100%;
   height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.futuristic-container .futuristic-image-wrapper .swiper-slide .futuristic-image {
+.home-hero__media .home-hero__image {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+  transform: scale(1);
+  transition: transform 5s ease;
 }
-.futuristic-container .futuristic-logos {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 4rem;
-  width: 100%;
-  margin-top: 3rem;
-  margin-bottom: 3rem;
-  z-index: 2;
-  position: relative;
-  background: none;
+.home-hero__media .swiper-slide-active .home-hero__image {
+  transform: scale(1.03);
 }
-.futuristic-container .futuristic-logo {
-  height: 64px;
-  width: auto;
-  filter: none;
-  background: transparent;
-  transition: transform 0.2s;
-}
-.futuristic-container .futuristic-logo:hover {
-  transform: scale(1.1);
-}
-.futuristic-container .futuristic-logo[alt*=SEAT] {
-  filter: brightness(0) saturate(100%);
-}
-.futuristic-container .swiper-pagination {
+.home-hero__media .swiper-pagination {
   position: absolute;
   bottom: 1rem;
   left: 0;
   width: 100%;
   text-align: center;
-  z-index: 10;
+  z-index: 25;
 }
-.futuristic-container .swiper-pagination .swiper-pagination-bullet {
+.home-hero__media .swiper-pagination .swiper-pagination-bullet {
   width: 8px;
   height: 8px;
   background: #fff;
@@ -3832,11 +3809,11 @@ nav input {
   border-radius: 50%;
   transition: background 0.2s;
 }
-.futuristic-container .swiper-pagination .swiper-pagination-bullet-active {
+.home-hero__media .swiper-pagination .swiper-pagination-bullet-active {
   opacity: 1;
 }
-.futuristic-container .swiper-button-next,
-.futuristic-container .swiper-button-prev {
+.home-hero__media .swiper-button-next,
+.home-hero__media .swiper-button-prev {
   color: #fff;
   width: 32px;
   height: 32px;
@@ -3844,52 +3821,75 @@ nav input {
   background: rgba(32, 45, 53, 0.25);
   top: 50%;
   transform: translateY(-50%);
-  z-index: 1;
+  z-index: 30;
   font-size: 1.2rem;
   transition: background 0.2s;
 }
-.futuristic-container .swiper-button-next:hover,
-.futuristic-container .swiper-button-prev:hover {
+.home-hero__media .swiper-button-next:hover,
+.home-hero__media .swiper-button-prev:hover {
   color: #fff;
 }
-.futuristic-container .swiper-button-next {
+.home-hero__media .swiper-button-next {
   right: 1rem;
 }
-.futuristic-container .swiper-button-prev {
+.home-hero__media .swiper-button-prev {
   left: 1rem;
 }
-.futuristic-container .swiper-slide img {
-  transform: scale(1);
-  transition: transform 5s ease; /* länger für smooth Effekt */
+
+.home-hero__brands {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4rem;
+  width: 100%;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+  z-index: 2;
+  pointer-events: none;
+  position: relative;
+  background: none;
 }
-.futuristic-container .swiper-slide-active img {
-  transform: scale(1.03); /* sanft reinzoomen */
+
+.home-hero__brand {
+  height: 64px;
+  width: auto;
+  filter: none;
+  background: transparent;
+  transition: transform 0.2s;
+  pointer-events: auto;
+}
+.home-hero__brand:hover {
+  transform: scale(1.1);
+}
+
+.home-hero__brand[alt*=SEAT] {
+  filter: brightness(0) saturate(100%);
 }
 
 @media (max-width: 900px) {
-  .futuristic-container .futuristic-image-wrapper {
+  .home-hero .home-hero__media {
     height: 32vh;
     max-height: 32vh;
   }
-  .futuristic-container .futuristic-image-wrapper .futuristic-logos {
+  .home-hero .home-hero__media .home-hero__brands {
     top: 1.2rem;
     gap: 1.2rem;
   }
-  .futuristic-container .futuristic-logo {
+  .home-hero .home-hero__brand {
     height: 48px;
   }
 }
 @media (max-width: 600px) {
-  .futuristic-container .futuristic-image-wrapper {
+  .home-hero .home-hero__media {
     height: 22vh;
     max-height: 22vh;
     border-radius: 0.7rem;
   }
-  .futuristic-container .futuristic-image-wrapper .futuristic-logos {
+  .home-hero .home-hero__media .home-hero__brands {
     top: 0.5rem;
     gap: 0.7rem;
   }
-  .futuristic-container .futuristic-logo {
+  .home-hero .home-hero__brand {
     height: 36px;
   }
 }
@@ -7062,5 +7062,29 @@ nav input {
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: aliceblue;
+}
+
+.app-container > main {
+  display: block;
+  width: 100%;
+  flex: 1 0 auto;
+  padding-top: 0;
+}
+
+@media (max-width: 900px) {
+  .app-container > main {
+    padding-bottom: 1.25rem;
+  }
+}
+@media (max-width: 600px) {
+  .app-container > main {
+    padding-bottom: 1rem;
   }
 }/*# sourceMappingURL=main.css.map */

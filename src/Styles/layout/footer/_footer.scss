@@ -2,12 +2,12 @@
 @use "sass:color";
 
 .footer {
-  position: fixed !important;
-  bottom: 0 !important;
-  left: 0 !important;
-  right: 0 !important;
+  position: static !important;
+  bottom: auto !important;
+  left: auto !important;
+  right: auto !important;
   width: 100% !important;
-  z-index: 1000 !important;
+  z-index: 10 !important;
   background-image: linear-gradient(
     to right bottom,
     rgba(22, 22, 29, 0.95),
@@ -24,25 +24,16 @@
   overflow-x: hidden;
   max-width: 100%;
 
-  // Mobile: Footer wird scrollbar und bleibt am Ende des Contents
+  // Mobile spacing adjustments only
   @media screen and (max-width: 970px) {
-    position: static !important; // Nicht mehr fixed
-    bottom: auto !important;
-    z-index: 10 !important; // Niedrigere z-index
     padding: 2rem 0 1rem 0;
   }
 
   @media screen and (max-width: 768px) {
-    position: static !important;
-    bottom: auto !important;
-    z-index: 10 !important;
     padding: 1.5rem 0 1rem 0;
   }
 
   @media screen and (max-width: 480px) {
-    position: static !important;
-    bottom: auto !important;
-    z-index: 10 !important;
     padding: 1rem 0 1rem 0;
   }
 }

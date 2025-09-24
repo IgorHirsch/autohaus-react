@@ -15,7 +15,6 @@ html {
   select {
     font-family: inherit;
   }
-  
 }
 
 body {
@@ -23,9 +22,9 @@ body {
   background: black;
   color: aliceblue;
 
-  // Space for fixed header and footer
+  // Space for fixed header only
   padding-top: 85px; // Height of header
-  padding-bottom: 200px; // Space for footer
+  padding-bottom: 0; // No reservation for fixed footer
 
   font-family: "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
     "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;

@@ -1,0 +1,34 @@
+// App container layout and aesthetics
+// Keeps footer after content (sticky footer via flex) and adds a subtle background
+
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  // Soft ambient background fitting the dark theme
+  background-color: aliceblue;
+}
+
+// Let the main content grow to push the footer to the bottom on short pages
+.app-container > main {
+  display: block;
+  width: 100%;
+  flex: 1 0 auto; // Grows to fill space, pushes footer down
+  padding-top: 0; // No extra padding since hero has margin-top
+}
+
+// Responsive fine-tuning
+@media (max-width: 900px) {
+  .app-container > main {
+    padding-bottom: 1.25rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .app-container > main {
+    padding-bottom: 1rem;
+  }
+}
+
+// Ensure footer is appended after content (no overlay)
