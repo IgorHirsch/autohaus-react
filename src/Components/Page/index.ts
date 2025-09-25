@@ -1,6 +1,6 @@
-import MegaMenuCar from "./MegaMenuCar";
-import BrandNavigation from "./BrandNavigation";
-import VehicleStockNavigation from "./VehicleStockNavigation";
+
+import Neuwagen from "./Neuwagen";
+import Fahrzeugbestand from "./Fahrzeugbestand";
 import Kontakt from "./Kontakt";
 import Angebote from "./Angebote";
 import Werkstatt from "./Werkstatt";
@@ -9,13 +9,12 @@ import OnlineShop from "./OnlineShop";
 import Unternehmen from "./Unternehmen";
 
 export {
-  MegaMenuCar,
-  BrandNavigation,
-  VehicleStockNavigation,
-  Kontakt,
-  Angebote,
-  Werkstatt,
+  Neuwagen,
+  Fahrzeugbestand,
   Geschaeftskunden,
-  OnlineShop,
+  Angebote,
+  Kontakt,
+  Werkstatt,
   Unternehmen,
+  OnlineShop,
 };

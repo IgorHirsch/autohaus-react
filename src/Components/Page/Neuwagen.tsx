@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import MegaMenuCar from "./MegaMenuCar";
 
-const BrandNavigation: React.FC = () => {
+const Neuwagen: React.FC = () => {
   const [activeBrand, setActiveBrand] = useState<"seat" | "cupra" | "nissan">(
     "seat"
   );
@@ -348,4 +348,4 @@ const BrandNavigation: React.FC = () => {
   );
 };
 
-export default BrandNavigation;
+export default Neuwagen;

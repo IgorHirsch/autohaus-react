@@ -1,23 +1,22 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
+import { useNavigate } from "react-router-dom";
+
+interface VehicleInfo {
+  brand: string;
+}
 
 interface VehicleCategory {
   id: string;
   name: string;
   description: string;
   icon: string;
-  vehicles: {
-    brand: string;
-    model: string;
-    price: string;
-    image: string;
-    year?: number;
-    mileage?: string;
-  }[];
+  vehicles: VehicleInfo[];
 }
 
-const VehicleStockNavigation: React.FC = () => {
+const Fahrzeugbestand: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState<string>("neuwagen");
   const [isMobile, setIsMobile] = useState<boolean>(false);
+  const navigate = useNavigate();
 
   // Check if device is mobile
   useEffect(() => {
@@ -40,38 +39,18 @@ const VehicleStockNavigation: React.FC = () => {
       vehicles: [
         {
           brand: "CUPRA",
-          model: "Formentor VZ",
-          price: "ab 45.990 €",
-          image:
-            "https://logos-world.net/wp-content/uploads/2021/03/Cupra-Logo.png",
         },
         {
           brand: "SEAT",
-          model: "Leon FR",
-          price: "ab 28.990 €",
-          image:
-            "https://logos-world.net/wp-content/uploads/2021/10/SEAT-Logo.png",
         },
         {
           brand: "NISSAN",
-          model: "Qashqai",
-          price: "ab 32.990 €",
-          image:
-            "https://logos-world.net/wp-content/uploads/2020/04/Nissan-Logo.png",
         },
         {
           brand: "PORSCHE",
-          model: "911 Carrera",
-          price: "ab 125.990 €",
-          image:
-            "https://logos-world.net/wp-content/uploads/2021/06/Porsche-Logo.png",
         },
         {
           brand: "AUDI",
-          model: "A4 Avant",
-          price: "ab 42.990 €",
-          image:
-            "https://logos-world.net/wp-content/uploads/2021/03/Audi-Logo.png",
         },
       ],
     },
@@ -83,30 +62,12 @@ const VehicleStockNavigation: React.FC = () => {
       vehicles: [
         {
           brand: "SEAT",
-          model: "Ibiza Style",
-          price: "18.990 €",
-          year: 2022,
-          mileage: "35.000 km",
-          image:
-            "https://logos-world.net/wp-content/uploads/2021/10/SEAT-Logo.png",
         },
         {
           brand: "AUDI",
-          model: "A3 Sportback",
-          price: "24.990 €",
-          year: 2021,
-          mileage: "45.000 km",
-          image:
-            "https://logos-world.net/wp-content/uploads/2021/03/Audi-Logo.png",
         },
         {
           brand: "NISSAN",
-          model: "Juke",
-          price: "19.990 €",
-          year: 2022,
-          mileage: "28.000 km",
-          image:
-            "https://logos-world.net/wp-content/uploads/2020/04/Nissan-Logo.png",
         },
       ],
     },
@@ -118,21 +79,9 @@ const VehicleStockNavigation: React.FC = () => {
       vehicles: [
         {
           brand: "CUPRA",
-          model: "Born VZ",
-          price: "38.990 €",
-          year: 2024,
-          mileage: "8.500 km",
-          image:
-            "https://logos-world.net/wp-content/uploads/2021/03/Cupra-Logo.png",
         },
         {
           brand: "SEAT",
-          model: "Leon Sportstourer",
-          price: "31.990 €",
-          year: 2024,
-          mileage: "12.000 km",
-          image:
-            "https://logos-world.net/wp-content/uploads/2021/10/SEAT-Logo.png",
         },
       ],
     },
@@ -144,21 +93,9 @@ const VehicleStockNavigation: React.FC = () => {
       vehicles: [
         {
           brand: "SEAT",
-          model: "Arona FR",
-          price: "26.990 €",
-          year: 2023,
-          mileage: "12.000 km",
-          image:
-            "https://logos-world.net/wp-content/uploads/2021/10/SEAT-Logo.png",
         },
         {
           brand: "AUDI",
-          model: "Q3 Sportback",
-          price: "35.990 €",
-          year: 2023,
-          mileage: "15.000 km",
-          image:
-            "https://logos-world.net/wp-content/uploads/2021/03/Audi-Logo.png",
         },
       ],
     },
@@ -170,21 +107,9 @@ const VehicleStockNavigation: React.FC = () => {
       vehicles: [
         {
           brand: "PORSCHE",
-          model: "Macan",
-          price: "89.990 €",
-          year: 2023,
-          mileage: "25.000 km",
-          image:
-            "https://logos-world.net/wp-content/uploads/2021/06/Porsche-Logo.png",
         },
         {
           brand: "AUDI",
-          model: "A6 Avant",
-          price: "48.990 €",
-          year: 2023,
-          mileage: "22.000 km",
-          image:
-            "https://logos-world.net/wp-content/uploads/2021/03/Audi-Logo.png",
         },
       ],
     },
@@ -196,39 +121,15 @@ const VehicleStockNavigation: React.FC = () => {
       vehicles: [
         {
           brand: "SEAT",
-          model: "Ibiza",
-          price: "ab 35 €/Tag",
-          year: 2023,
-          mileage: "15.000 km",
-          image:
-            "https://logos-world.net/wp-content/uploads/2021/10/SEAT-Logo.png",
         },
         {
           brand: "CUPRA",
-          model: "Formentor",
-          price: "ab 55 €/Tag",
-          year: 2024,
-          mileage: "8.000 km",
-          image:
-            "https://logos-world.net/wp-content/uploads/2021/03/Cupra-Logo.png",
         },
         {
           brand: "VOLKSWAGEN",
-          model: "Golf",
-          price: "ab 45 €/Tag",
-          year: 2023,
-          mileage: "12.000 km",
-          image:
-            "https://logos-world.net/wp-content/uploads/2021/04/Volkswagen-Logo-700x394.png",
         },
         {
           brand: "AUDI",
-          model: "A3",
-          price: "ab 65 €/Tag",
-          year: 2024,
-          mileage: "5.000 km",
-          image:
-            "https://logos-world.net/wp-content/uploads/2021/03/Audi-Logo.png",
         },
       ],
     },
@@ -236,6 +137,83 @@ const VehicleStockNavigation: React.FC = () => {
 
   const currentCategory = vehicleCategories.find(
     (cat) => cat.id === activeCategory
+  );
+
+  const brandLogos: Record<string, string> = {
+    CUPRA: "https://upload.wikimedia.org/wikipedia/commons/7/70/Cupra.svg",
+    SEAT: "https://upload.wikimedia.org/wikipedia/commons/f/fc/SEAT_Logo_from_2017.svg",
+    NISSAN:
+      "https://upload.wikimedia.org/wikipedia/commons/2/23/Nissan_2020_logo.svg",
+    PORSCHE:
+      "https://upload.wikimedia.org/wikipedia/de/thumb/7/70/Porsche_Logo.svg/960px-Porsche_Logo.svg.png?20250407095904",
+    AUDI: "https://upload.wikimedia.org/wikipedia/de/thumb/1/15/Audi_logo.svg/1199px-Audi_logo.svg.png?20061124002954",
+    VOLKSWAGEN:
+      "https://companieslogo.com/img/orig/VOW3.DE-672bac7c.png?t=1720244494",
+  };
+
+  const groupedBrands = currentCategory
+    ? Object.values(
+        currentCategory.vehicles.reduce<
+          Record<
+            string,
+            { brand: string; image: string; vehicles: VehicleInfo[] }
+          >
+        >((acc, vehicle) => {
+          const brandKey = vehicle.brand;
+          if (!acc[brandKey]) {
+            const normalizedBrand = brandKey.toUpperCase();
+            const fallbackLogo = `https://via.placeholder.com/160x80?text=${encodeURIComponent(
+              brandKey
+            )}`;
+
+            acc[brandKey] = {
+              brand: brandKey,
+              image: brandLogos[normalizedBrand] ?? fallbackLogo,
+              vehicles: [],
+            };
+          }
+
+          acc[brandKey].vehicles.push(vehicle);
+          return acc;
+        }, {})
+      )
+    : [];
+
+  const closeNavigationOverlays = useCallback(() => {
+    const overlayIds = ["showMega2", "menu-toggle"];
+
+    overlayIds.forEach((id) => {
+      const element = document.getElementById(id) as HTMLInputElement | null;
+
+      if (element) {
+        element.checked = false;
+      }
+    });
+  }, []);
+
+  const handleBrandNavigate = useCallback(
+    (brandName: string) => {
+      const searchParams = new URLSearchParams();
+      searchParams.set("category", activeCategory);
+      searchParams.set("brand", brandName);
+
+      closeNavigationOverlays();
+      navigate({
+        pathname: "/fahrzeugbestand",
+        search: searchParams.toString(),
+      });
+    },
+    [activeCategory, closeNavigationOverlays, navigate]
+  );
+
+  const handleBrandKeyDown = useCallback(
+    (event: React.KeyboardEvent<HTMLDivElement>, brandName: string) => {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        handleBrandNavigate(brandName);
+      }
+    },
+    [handleBrandNavigate]
   );
 
   return (
@@ -290,28 +268,26 @@ const VehicleStockNavigation: React.FC = () => {
             {isMobile ? (
               // Mobile Swiper Structure for Brands
               <div className="swiper-container-brands">
-                {Object.entries(
-                  currentCategory.vehicles.reduce((acc, vehicle) => {
-                    if (!acc[vehicle.brand]) {
-                      acc[vehicle.brand] = {
-                        brand: vehicle.brand,
-                        image: vehicle.image,
-                        vehicles: [],
-                      };
-                    }
-                    acc[vehicle.brand].vehicles.push(vehicle);
-                    return acc;
-                  }, {} as Record<string, { brand: string; image: string; vehicles: any[] }>)
-                ).map(([brand, data]) => (
-                  <div key={brand} className="brand-section">
-                    <div className="brand-card">
+                {groupedBrands.map((data) => (
+                  <div key={data.brand} className="brand-section">
+                    <div
+                      className="brand-card brand-card--interactive"
+                      role="button"
+                      tabIndex={0}
+                      aria-label={`${data.brand} auswählen`}
+                      style={{ cursor: "pointer" }}
+                      onClick={() => handleBrandNavigate(data.brand)}
+                      onKeyDown={(event) =>
+                        handleBrandKeyDown(event, data.brand)
+                      }
+                    >
                       <img
                         src={data.image}
-                        alt={`${brand} Logo`}
+                        alt={`${data.brand} Logo`}
                         className="brand-image"
                       />
                       <div className="brand-info">
-                        <h4 className="brand-name">{brand}</h4>
+                        <h4 className="brand-name">{data.brand}</h4>
                         <span className="vehicle-count">
                           {data.vehicles.length} Fahrzeug
                           {data.vehicles.length !== 1 ? "e" : ""} verfügbar
@@ -323,28 +299,24 @@ const VehicleStockNavigation: React.FC = () => {
               </div>
             ) : (
               // Desktop Structure for Brands
-              Object.entries(
-                currentCategory.vehicles.reduce((acc, vehicle) => {
-                  if (!acc[vehicle.brand]) {
-                    acc[vehicle.brand] = {
-                      brand: vehicle.brand,
-                      image: vehicle.image,
-                      vehicles: [],
-                    };
-                  }
-                  acc[vehicle.brand].vehicles.push(vehicle);
-                  return acc;
-                }, {} as Record<string, { brand: string; image: string; vehicles: any[] }>)
-              ).map(([brand, data]) => (
-                <div key={brand} className="brand-section">
-                  <div className="brand-card">
+              groupedBrands.map((data) => (
+                <div key={data.brand} className="brand-section">
+                  <div
+                    className="brand-card brand-card--interactive"
+                    role="button"
+                    tabIndex={0}
+                    aria-label={`${data.brand} auswählen`}
+                    style={{ cursor: "pointer" }}
+                    onClick={() => handleBrandNavigate(data.brand)}
+                    onKeyDown={(event) => handleBrandKeyDown(event, data.brand)}
+                  >
                     <img
                       src={data.image}
-                      alt={`${brand} Logo`}
+                      alt={`${data.brand} Logo`}
                       className="brand-image"
                     />
                     <div className="brand-info">
-                      <h4 className="brand-name">{brand}</h4>
+                      <h4 className="brand-name">{data.brand}</h4>
                       <span className="vehicle-count">
                         {data.vehicles.length} Fahrzeug
                         {data.vehicles.length !== 1 ? "e" : ""} verfügbar
@@ -361,4 +333,4 @@ const VehicleStockNavigation: React.FC = () => {
   );
 };
 
-export default VehicleStockNavigation;
+export default Fahrzeugbestand;

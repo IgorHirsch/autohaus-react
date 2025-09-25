@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import "../../Styles/main.css";
 import StarBorder from "../Elements/StarBorder";
-import BrandNavigation from "../Page/BrandNavigation";
-import VehicleStockNavigation from "../Page/VehicleStockNavigation";
-import Geschäftskunden from "../Page/Geschaeftskunden";
+import BrandNavigation from "../Page/Neuwagen";
+import VehicleStockNavigation from "../Page/Fahrzeugbestand";
+import Geschaeftskunden from "../Page/Geschaeftskunden";
 import Angebote from "../Page/Angebote";
 import Kontakt from "../Page/Kontakt";
 import Werkstatt from "../Page/Werkstatt";
@@ -134,7 +134,7 @@ function Header() {
             </label>
             <div className="mega-box">
               <div className="content">
-                <Geschäftskunden />
+                <Geschaeftskunden />
               </div>
             </div>
           </li>
