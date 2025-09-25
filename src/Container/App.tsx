@@ -2,7 +2,7 @@ import React from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { Footer, Header } from "../Components/Layout";
 import Home from "../Pages/Home";
-import Fahrzeugbestand from "../Pages/Fahrzeugbestand";
+import FahrzeugbestandList from "../Pages/FahrzeugbestandList";
 
 function App() {
   return (
@@ -11,7 +11,7 @@ function App() {
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/fahrzeugbestand" element={<Fahrzeugbestand />} />
+          <Route path="/fahrzeugbestand" element={<FahrzeugbestandList />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </main>

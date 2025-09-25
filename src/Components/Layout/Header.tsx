@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
+import { useLocation } from "react-router-dom";
 import "../../Styles/main.css";
 import StarBorder from "../Elements/StarBorder";
 import BrandNavigation from "../Page/Neuwagen";
@@ -12,6 +13,62 @@ import Unternehmen from "../Page/Unternehmen";
 
 function Header() {
   const [isKontaktVisible, setIsKontaktVisible] = useState(false);
+  const location = useLocation();
+  const openTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  // Close all mega menus when route changes
+  useEffect(() => {
+    const menuIds = [
+      "showMega",
+      "showMega2",
+      "showMega3",
+      "showMega4",
+      "showMega5",
+      "showMega6",
+      "showDrop1",
+      "showDrop2",
+      "showDrop3",
+      "menu-toggle",
+    ];
+
+    // Add class to disable hover effects temporarily
+    const navElement = document.querySelector("nav");
+    if (navElement) {
+      navElement.classList.add("force-close-menus");
+    }
+
+    menuIds.forEach((id) => {
+      const checkbox = document.getElementById(id) as HTMLInputElement;
+      if (checkbox && checkbox.checked) {
+        checkbox.checked = false;
+      }
+    });
+
+    // Force blur all navigation elements to remove hover states
+    const navLinks = document.querySelectorAll(
+      ".nav-links li a, .nav-links li label"
+    );
+    navLinks.forEach((element) => {
+      if (element instanceof HTMLElement) {
+        element.blur();
+      }
+    });
+
+    // Clear any pending timeout when route changes
+    if (openTimeoutRef.current) {
+      clearTimeout(openTimeoutRef.current);
+      openTimeoutRef.current = null;
+    }
+
+    // Remove the force-close class after a short delay
+    const removeClassTimeout = setTimeout(() => {
+      if (navElement) {
+        navElement.classList.remove("force-close-menus");
+      }
+    }, 500);
+
+    return () => clearTimeout(removeClassTimeout);
+  }, [location]);
 
   // Function to open contact modal
   const handleKontaktOpen = () => {
@@ -32,6 +89,12 @@ function Header() {
 
   // Function to close all other menus when one is opened
   const handleMenuToggle = (targetId: string) => {
+    // Clear any pending timeout first
+    if (openTimeoutRef.current) {
+      clearTimeout(openTimeoutRef.current);
+      openTimeoutRef.current = null;
+    }
+
     const menuIds = [
       "showMega",
       "showMega2",
@@ -58,13 +121,14 @@ function Header() {
     });
 
     // Das neue Menu nach einem längeren Delay öffnen für smootheren Wechsel
-    setTimeout(() => {
+    openTimeoutRef.current = setTimeout(() => {
       const targetCheckbox = document.getElementById(
         targetId
       ) as HTMLInputElement;
       if (targetCheckbox) {
         targetCheckbox.checked = true;
       }
+      openTimeoutRef.current = null;
     }, 300);
   };
 

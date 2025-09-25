@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 type VehicleSpecGroup = {
   left: React.ReactNode;
@@ -247,7 +247,29 @@ const inventorySections: InventorySection[] = [
   },
 ];
 
-const Fahrzeugbestand: React.FC = () => {
+const FahrzeugbestandList: React.FC = () => {
+  useEffect(() => {
+    const overlayIds = [
+      "showMega",
+      "showMega2",
+      "showMega3",
+      "showMega4",
+      "showMega5",
+      "showMega6",
+      "showDrop1",
+      "showDrop2",
+      "showDrop3",
+      "menu-toggle",
+    ];
+
+    overlayIds.forEach((id) => {
+      const element = document.getElementById(id) as HTMLInputElement | null;
+      if (element) {
+        element.checked = false;
+      }
+    });
+  }, []);
+
   return (
     <section className="bestand" aria-label="Fahrzeugbestand">
       {inventorySections.map((section) => {
@@ -339,4 +361,4 @@ const Fahrzeugbestand: React.FC = () => {
   );
 };
 
-export default Fahrzeugbestand;
+export default FahrzeugbestandList;
