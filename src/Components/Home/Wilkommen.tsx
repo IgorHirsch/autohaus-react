@@ -2,85 +2,125 @@ import React from "react";
 
 function Wilkommen() {
   return (
-    <section className="wilkommen glass-wilkommen">
-      <div className="wilkommen__container">
-        <div className="wilkommen__text-subline">
-          <span className="wilkommen__text-subline-item">
-            Herzlich Willkommen bei uns
-          </span>
-        </div>
-        <h2 className="wilkommen__text-heading">
-          Willkommen bei Ihrem Autohaus
-        </h2>
+    <section className="home-welcome" aria-labelledby="home-welcome-heading">
+      {/* --- Decorative backdrop and spacing wrapper --- */}
+      <div className="home-welcome__background" aria-hidden="true">
+        <span className="home-welcome__glow home-welcome__glow--left" />
+        <span className="home-welcome__glow home-welcome__glow--right" />
+      </div>
 
-        <div className="wilkommen__content">
-          <div className="wilkommen__text-section">
-            <p className="wilkommen__text">
-              Seit über 20 Jahren sind wir Ihr vertrauensvoller Partner rund um
-              das Thema Mobilität. Als autorisierter Händler für Cupra, SEAT und
-              Nissan bieten wir Ihnen nicht nur erstklassige Fahrzeuge, sondern
-              auch einen umfassenden Service, der keine Wünsche offen lässt.
+      {/* --- Content container aligns with hero grid rhythm --- */}
+      <div className="home-welcome__container">
+        <div className="home-welcome__content">
+          {/* --- Intro copy: greeting, USP and CTA --- */}
+          <div className="home-welcome__intro">
+            <span className="home-welcome__badge">
+              Willkommen bei Auto Emotion
+              <span className="home-welcome__badge-dot" aria-hidden="true" />
+            </span>
+            <h2 id="home-welcome-heading" className="home-welcome__title">
+              Ankommen, durchatmen, Fahrgefühl neu entdecken.
+            </h2>
+            <p className="home-welcome__lead">
+              Wir empfangen Sie mit offenen Türen, klaren Antworten und
+              Fahrzeugen, die Performance, Komfort und Stil in Einklang bringen.
+              Cupra Dynamik, SEAT Vielseitigkeit und Nissan Zuverlässigkeit –
+              kuratiert für Ihren Alltag.
             </p>
-            <p className="wilkommen__text">
-              Unser erfahrenes Team steht Ihnen mit Kompetenz und Leidenschaft
-              zur Seite – von der ersten Beratung über den Fahrzeugkauf bis hin
-              zur professionellen Wartung und Pflege Ihres Autos. Entdecken Sie,
-              was echte Kundenbetreuung bedeutet.
+            <p className="home-welcome__description">
+              Von der ersten Inspiration bis zur Übergabe begleiten wir Sie
+              persönlich und transparent. Probefahrten, digitale Services und
+              unsere Meisterwerkstatt machen Ihren Besuch zum Erlebnis ohne
+              Hektik.
             </p>
-
-            <div className="wilkommen__highlights">
-              <div className="wilkommen__highlight-item">
-                <div className="wilkommen__highlight-content">
-                  <h4 className="wilkommen__highlight-title">
-                    Große Fahrzeugauswahl
-                  </h4>
-                  <p className="wilkommen__highlight-desc">
-                    Über 200 Neu- und Gebrauchtwagen auf Lager
-                  </p>
-                </div>
-              </div>
-
-              <div className="wilkommen__highlight-item">
-                <div className="wilkommen__highlight-content">
-                  <h4 className="wilkommen__highlight-title">
-                    Meisterwerkstatt
-                  </h4>
-                  <p className="wilkommen__highlight-desc">
-                    Zertifizierte Techniker für alle Marken
-                  </p>
-                </div>
-              </div>
-
-              <div className="wilkommen__highlight-item">
-                <div className="wilkommen__highlight-content">
-                  <h4 className="wilkommen__highlight-title">
-                    20+ Jahre Erfahrung
-                  </h4>
-                  <p className="wilkommen__highlight-desc">
-                    Vertrauen durch Kompetenz und Zuverlässigkeit
-                  </p>
-                </div>
-              </div>
+            <div className="home-welcome__actions">
+              <button
+                type="button"
+                className="home-welcome__cta"
+                aria-label="Showroom entdecken"
+              >
+                Showroom entdecken
+                <svg
+                  className="home-welcome__cta-icon"
+                  viewBox="0 0 20 20"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M5 10h10m0 0-3.5-3.5M15 10l-3.5 3.5"
+                    stroke="currentColor"
+                    strokeWidth="1.6"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </button>
             </div>
           </div>
 
-          <div className="wilkommen__image-section">
-            <div className="wilkommen__image-container">
+          {/* --- Media + service promise card --- */}
+          <div className="home-welcome__media">
+            <figure className="home-welcome__media-frame">
               <img
-                className="wilkommen__image"
-                src="https://www.seat-mediacenter.de/content/dam/seat-media-center/Img/de/2022/06/20220610_fuenf-spannende-fakten-ueber-cupra/F%C3%BCnf%20Fakten_CUPRA_04.jpg/jcr:content/renditions/cq5dam.web.1280.1280.jpeg"
-                alt="Modernes Autohaus Showroom"
+                className="home-welcome__media-image"
+                src="https://images.pexels.com/photos/4489730/pexels-photo-4489730.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                alt="Showroom mit beleuchteten Cupra Fahrzeugen"
+                loading="lazy"
               />
-              <div className="wilkommen__image-overlay">
-                <div className="wilkommen__image-text">
-                  <h3>Ihr Traumauto wartet auf Sie</h3>
-                  <p>
-                    Besuchen Sie uns und lassen Sie sich von unserer Auswahl
-                    begeistern
-                  </p>
-                </div>
+              <figcaption className="home-welcome__media-caption">
+                Atmosphärischer Blick in unseren Cupra Showroom
+              </figcaption>
+            </figure>
+
+            <aside
+              className="home-welcome__card"
+              aria-label="Auto Emotion Service Versprechen"
+            >
+              <div className="home-welcome__card-icon">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M20 7.5 10.75 16 6 11.5"
+                    stroke="currentColor"
+                    strokeWidth="1.8"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
               </div>
-            </div>
+              <div className="home-welcome__card-copy">
+                <p className="home-welcome__card-kicker">Premium Betreuung</p>
+                <p className="home-welcome__card-title">
+                  Beratung mit Weitsicht &amp; Service zum Durchatmen
+                </p>
+                <p className="home-welcome__card-text">
+                  Persönliche Fahrzeug-Checks, flexible Terminplanung und
+                  Updates in Echtzeit halten Sie mobil – ganz ohne Stress.
+                </p>
+              </div>
+              <span className="home-welcome__card-link">
+                Mehr erfahren
+                <svg
+                  viewBox="0 0 20 20"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M5 10h10m0 0-3.5-3.5M15 10l-3.5 3.5"
+                    stroke="currentColor"
+                    strokeWidth="1.6"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </span>
+            </aside>
           </div>
         </div>
       </div>

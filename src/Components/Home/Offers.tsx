@@ -2,41 +2,50 @@ import React from "react";
 
 function Offers() {
   return (
-    <section className="glass-offers offers">
-      <div className="offers-container">
-        <div className="offers__column-text">
-          <h2 className="offers__text-heading">
-            <div className="offers__text-subline">
-              <span className="offers__text-subline-item">
-                Nur für kurze Zeit
-              </span>
-              <span className="offers__text-subline-item">
-                Mit Garantie & Service
-              </span>
-              <span className="offers__text-subline-item">
-                Fahrspaß erleben
-              </span>
-              <span className="offers__text-subline-item">
-                Exklusiv & modern
-              </span>
-            </div>
-            Topangebote aus unserem Bestand
-          </h2>
-        </div>
+    <section className="home-offers" aria-labelledby="home-offers-title">
+      {/* --- Ambient layer trennt die Offers von der Hero-Section --- */}
+      <div className="home-offers__background" aria-hidden="true">
+        <span className="home-offers__glow home-offers__glow--left" />
+        <span className="home-offers__glow home-offers__glow--right" />
+      </div>
 
-        {/* Container für drei karten */}
-        <div className="offers__card-container ">
-          {/* Erste karte */}
-          <div className="offers__card">
+      {/* --- Hauptcontainer folgt dem Layout der Willkommen-Section --- */}
+      <div className="home-offers__container">
+        {/* --- Section-Kopf mit Titel und USP --- */}
+        <div className="home-offers__badge-row">
+          <span className="home-offers__badge">
+            Aktuelle Angebote
+            <span className="home-offers__badge-dot" aria-hidden="true" />
+          </span>
+        </div>
+        <header className="home-offers__header">
+          <div className="home-offers__header-shell">
+            <div className="home-offers__copy">
+              <h2 id="home-offers-title" className="home-offers__title">
+                Entdecken Sie unsere aktuellen Fahrzeug-Highlights
+              </h2>
+              <p className="home-offers__lead">
+                Täglich kuratierte Modelle, sofort verfügbar und mit
+                persönlicher Beratung – damit die Suche nach Ihrem nächsten
+                Fahrzeug inspirierend und einfach bleibt.
+              </p>
+            </div>
+          </div>
+        </header>
+
+        {/* --- Grid behält bestehende Card-Klassen und reagiert flexibel --- */}
+        <div className="home-offers__grid" role="list">
+          <article className="offers__card home-offers__card" role="listitem">
             <div className="offers__image-container">
               <img
                 className="offers__image"
-                src="https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?q=75&w=300&h=200&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                alt="Cupra Formentor"
+                src="https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?q=75&w=1080&auto=format&fit=crop"
+                alt="Cupra Formentor VZ Extreme 2.0 TSI"
+                loading="lazy"
               />
             </div>
             <div className="offers__content">
-              <h4 className="offers__content-heading">Cupra Formentor</h4>
+              <h3 className="offers__content-heading">Cupra Formentor</h3>
               <p className="offers__content-subheading">VZ Extreme 2.0 TSI</p>
               <div className="offers__content-info">
                 <div className="offers__content-info-duration">
@@ -46,41 +55,40 @@ function Offers() {
                 </div>
                 <div className="offers__content-info-level">
                   <span className="offers__content-info-duration-text">
-                    8,9 L/100km
+                    8,9 L/100 km
                   </span>
                 </div>
               </div>
               <div className="offers__content-price-container">
-                jetzt nur:
-                <strong className="offers__content-price">299,00 €</strong>
+                Monatsrate ab
+                <strong className="offers__content-price">299 €</strong>
               </div>
             </div>
-
-            {/* Card Hover */}
             <div className="offers__card-hover">
-              {/* Button */}
               <a
-                href="#"
+                href="/kontakt"
                 className="button contact-button button--slim button--secondary"
                 data-probefahrt-open="true"
               >
-                Jetzt Probefahrt buchen
+                Probefahrt anfragen
               </a>
             </div>
-          </div>
+          </article>
 
-          {/* Zweite karte */}
-          <div className="offers__card">
+          <article className="offers__card home-offers__card" role="listitem">
             <div className="offers__image-container">
               <img
                 className="offers__image"
-                src="https://images.unsplash.com/photo-1560958089-b8a1929cea89?q=75&w=300&h=200&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                alt="Nissan Ariya"
+                src="https://images.unsplash.com/photo-1560958089-b8a1929cea89?q=75&w=1080&auto=format&fit=crop"
+                alt="Nissan Ariya Evolve Pack Elektro"
+                loading="lazy"
               />
             </div>
             <div className="offers__content">
-              <h4 className="offers__content-heading">Nissan Ariya</h4>
-              <p className="offers__content-subheading">Elektro</p>
+              <h3 className="offers__content-heading">Nissan Ariya</h3>
+              <p className="offers__content-subheading">
+                Evolve Pack | Elektro
+              </p>
               <div className="offers__content-info">
                 <div className="offers__content-info-duration">
                   <span className="offers__content-info-duration-text">
@@ -89,38 +97,43 @@ function Offers() {
                 </div>
                 <div className="offers__content-info-level">
                   <span className="offers__content-info-duration-text">
-                    63-kWh
+                    63 kWh Akku
                   </span>
                 </div>
               </div>
               <div className="offers__content-price-container">
-                jetzt nur:
-                <strong className="offers__content-price">249,00 €</strong>
+                Leasing ab
+                <strong className="offers__content-price">249 €</strong>
               </div>
             </div>
             <div className="offers__card-hover">
               <a
-                href="#"
+                href="/kontakt"
                 className="button contact-button button--slim button--secondary"
                 data-probefahrt-open="true"
               >
-                Jetzt Probefahrt buchen
+                Beratung sichern
               </a>
             </div>
-          </div>
+          </article>
 
-          {/* dritte Karte */}
-          <div className="werbecard">
+          {/* <article
+            className="werbecard home-offers__card home-offers__card--accent"
+            role="listitem"
+          >
             <div className="werbecard__image-container">
               <img
                 className="werbecard__image"
-                src="https://images.unsplash.com/photo-1692204621769-e77d24e25b12?q=75&w=300&h=200&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                alt="Cupra Tavascan"
+                src="https://images.unsplash.com/photo-1692204621769-e77d24e25b12?q=75&w=1080&auto=format&fit=crop"
+                alt="Cupra Tavascan Launch Edition"
+                loading="lazy"
               />
             </div>
             <div className="werbecard__content">
-              <h4 className="werbecard__content-heading">Cupra Tavascan</h4>
-              <p className="werbecard__content-subheading">Elektro</p>
+              <h3 className="werbecard__content-heading">Cupra Tavascan</h3>
+              <p className="werbecard__content-subheading">
+                Launch Edition | Elektro
+              </p>
               <div className="werbecard__content-info">
                 <div className="werbecard__content-info-duration">
                   <span className="werbecard__content-info-duration-text">
@@ -129,26 +142,94 @@ function Offers() {
                 </div>
                 <div className="werbecard__content-info-level">
                   <span className="werbecard__content-info-duration-text">
-                    569 km
+                    569 km Reichweite
                   </span>
                 </div>
               </div>
               <div className="werbecard__content-price-container">
-                jetzt nur:
-                <strong className="werbecard__content-price">225,00 €</strong>
+                Sonderleasing ab
+                <strong className="werbecard__content-price">225 €</strong>
               </div>
             </div>
             <div className="werbecard__card-hover">
               <a
-                href="#"
+                href="/kontakt"
                 className="button contact-button werbung-contact-button button--slim button--secondary"
                 data-probefahrt-open="true"
               >
-                Jetzt Probefahrt buchen
+                Probefahrt sichern
               </a>
             </div>
-          </div>
+          </article> */}
+
+          <article className="offers__card home-offers__card" role="listitem">
+            <div className="offers__image-container">
+              <img
+                className="offers__image"
+                src="https://images.unsplash.com/photo-1560958089-b8a1929cea89?q=75&w=1080&auto=format&fit=crop"
+                alt="Nissan Ariya Evolve Pack Elektro"
+                loading="lazy"
+              />
+            </div>
+            <div className="offers__content">
+              <h3 className="offers__content-heading">Nissan Ariya</h3>
+              <p className="offers__content-subheading">
+                Evolve Pack | Elektro
+              </p>
+              <div className="offers__content-info">
+                <div className="offers__content-info-duration">
+                  <span className="offers__content-info-duration-text">
+                    <strong>160</strong> kW
+                  </span>
+                </div>
+                <div className="offers__content-info-level">
+                  <span className="offers__content-info-duration-text">
+                    63 kWh Akku
+                  </span>
+                </div>
+              </div>
+              <div className="offers__content-price-container">
+                Leasing ab
+                <strong className="offers__content-price">249 €</strong>
+              </div>
+            </div>
+            <div className="offers__card-hover">
+              <a
+                href="/kontakt"
+                className="button contact-button button--slim button--secondary"
+                data-probefahrt-open="true"
+              >
+                Beratung sichern
+              </a>
+            </div>
+          </article>
         </div>
+
+        {/* --- Optionaler CTA leitet zu weiteren Bestandsangeboten weiter --- */}
+        <footer className="home-offers__footer">
+          <a
+            href="/fahrzeugbestand"
+            className="home-offers__cta"
+            aria-label="Alle Fahrzeuge im Bestand ansehen"
+          >
+            Alle Angebote entdecken
+            <svg
+              className="home-offers__cta-icon"
+              viewBox="0 0 20 20"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
+            >
+              <path
+                d="M5 10h10m0 0-3.5-3.5M15 10l-3.5 3.5"
+                stroke="currentColor"
+                strokeWidth="1.6"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </a>
+        </footer>
       </div>
     </section>
   );

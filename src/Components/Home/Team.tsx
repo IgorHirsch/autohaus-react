@@ -2,15 +2,34 @@ import React from "react";
 
 function Team() {
   return (
-    <section className="home-team glass-team">
+    <section className="home-team" aria-labelledby="home-team-title">
+      {/* --- Ambient backdrop creates a soft visual separation --- */}
+      <div className="home-team__background" aria-hidden="true">
+        <span className="home-team__glow home-team__glow--left" />
+        <span className="home-team__glow home-team__glow--right" />
+      </div>
+
       <div className="home-team__container">
-        <div className="home-team__text-subline">
-          <span className="home-team__text-subline-item">Erfahren</span>
-          <span className="home-team__text-subline-item">Kompetent</span>
-          <span className="home-team__text-subline-item">Zuverlässig</span>
-        </div>
-        <h3 className="home-team__text-heading">Unser Team</h3>
-        <div className="home-team__grid">
+        {/* --- Section intro mirrors Willkommen spacing and tone --- */}
+        <header className="home-team__header">
+          <span className="home-team__badge">
+            Menschen bei Autohaus Hirsch
+            <span className="home-team__badge-dot" aria-hidden="true" />
+          </span>
+          <div className="home-team__copy">
+            <h2 id="home-team-title" className="home-team__title">
+              Unser Team, Ihr persönlicher Vorsprung.
+            </h2>
+            <p className="home-team__lead">
+              Lernen Sie die Menschen kennen, die jede Beratung, jedes Angebot
+              und jede Probefahrt mit Expertise und echter Leidenschaft
+              begleiten.
+            </p>
+          </div>
+        </header>
+
+        {/* --- Team grid keeps card markup intact while modernizing layout --- */}
+        <div className="home-team__grid" role="list">
           <div className="home-team__card">
             <img
               className="home-team__photo"
@@ -130,6 +149,31 @@ function Team() {
               </a>
             </div>
           </div>
+        </div>
+
+        {/* --- Optional call-to-action keeps engagement lightweight --- */}
+        <div className="home-team__cta-wrapper">
+          <a
+            className="home-team__cta"
+            href="/kontakt"
+            aria-label="Team kontaktieren"
+          >
+            Team kennenlernen
+            <svg
+              viewBox="0 0 20 20"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
+            >
+              <path
+                d="M5 10h10m0 0-3.5-3.5M15 10l-3.5 3.5"
+                stroke="currentColor"
+                strokeWidth="1.6"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </a>
         </div>
       </div>
     </section>

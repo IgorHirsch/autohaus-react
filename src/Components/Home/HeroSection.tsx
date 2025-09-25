@@ -78,27 +78,6 @@ function HeroSection() {
           <SwiperSlide>
             <img
               className="home-hero__image"
-              src="https://www.hdcarwallpapers.com/download/cupra_formentor_ehybrid_2024_5k-1920x1080.jpg"
-              alt="Cupra Hero"
-            />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img
-              className="home-hero__image"
-              src="https://www.cupraofficial.ch/content/dam/public/cupra-website/cars/terramar/automatic-gallery/cupra-terramar-front-view-timanfaya-grey.jpg"
-              alt="SEAT Hero"
-            />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img
-              className="home-hero__image"
-              src="https://www.photoscar.fr/wp-content/uploads/2023/04/Cupra-Tavascan-2024-04.jpg"
-              alt="Auto Emotion"
-            />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img
-              className="home-hero__image"
               src="https://content.presspage.com/uploads/2534/d6f6294c-3456-4fd1-8eef-60134f3f2a0e/1920_cupra-leon-01.jpg?10000"
               alt="Nissan Hero"
             />
@@ -110,6 +89,7 @@ function HeroSection() {
               alt="Nissan Hero"
             />
           </SwiperSlide>
+         
         </Swiper>
       </div>
     </section>

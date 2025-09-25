@@ -2,21 +2,39 @@ import React from "react";
 
 function Services() {
   return (
-    <section className="glass-services services">
-      <div className="services__container">
-        <div className="services__column-text">
-          <div className="services__text-subline">
-            <span className="services__text-subline-item">Premium</span>
-            <span className="services__text-subline-item">Qualität</span>
-            <span className="services__text-subline-item">Vertrauen</span>
+    <section className="home-services" aria-labelledby="home-services-title">
+      {/* --- Ambient background softly separates the section from darker areas --- */}
+      <div className="home-services__background" aria-hidden="true">
+        <span className="home-services__glow home-services__glow--left" />
+        <span className="home-services__glow home-services__glow--right" />
+      </div>
+
+      {/* --- Layout container keeps spacing consistent with welcome section --- */}
+      <div className="home-services__container">
+        {/* --- Section header with badge, title and USP copy --- */}
+        <header className="home-services__header">
+          <span className="home-services__badge">
+            Service mit Haltung
+            <span className="home-services__badge-dot" aria-hidden="true" />
+          </span>
+          <div className="home-services__copy">
+            <h2 id="home-services-title" className="home-services__title">
+              Services, die bewegen und Vertrauen schaffen.
+            </h2>
+            <p className="home-services__lead">
+              Von persönlicher Beratung bis zur flexiblen Mobilität begleiten
+              wir Sie transparent, nahbar und immer mit Blick auf Ihr
+              Fahrerlebnis von morgen.
+            </p>
           </div>
-          <h2 className="services__text-heading">Unsere Serviceleistungen</h2>
-        </div>
-        <div className="services__cards">
-          <div className="services__card">
+        </header>
+
+        {/* --- Grid keeps existing service cards and arranges them responsively --- */}
+        <div className="home-services__grid services__cards" role="list">
+          <div className="services__card" role="listitem">
             <img
               className="services__card-img"
-              src="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?q=75&w=400&h=500&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              src="https://automieten.at/wp-content/uploads/2021/05/jahres-aktion-cover.jpg"
               alt="Neu und Gebrauchtwagenverkauf"
             />
             <div className="services__card-icon-background"></div>
@@ -39,10 +57,10 @@ function Services() {
               </p>
             </div>
           </div>
-          <div className="services__card">
+          <div className="services__card" role="listitem">
             <img
               className="services__card-img"
-              src="https://images.unsplash.com/photo-1502877338535-766e1452684a?q=75&w=400&h=500&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              src="https://t3.ftcdn.net/jpg/06/32/96/70/360_F_632967072_2w4fh1YJtZnKPljgQ96jt2fCgH9UXJIj.jpg"
               alt="Ersatzwagen / Mietwagen"
             />
             <div className="services__card-icon-background"></div>
@@ -65,7 +83,7 @@ function Services() {
               </p>
             </div>
           </div>
-          <div className="services__card">
+          <div className="services__card" role="listitem">
             <img
               className="services__card-img"
               src="https://images.unsplash.com/photo-1530046339160-ce3e530c7d2f?q=75&w=400&h=500&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
@@ -90,10 +108,10 @@ function Services() {
               </p>
             </div>
           </div>
-          <div className="services__card">
+          <div className="services__card" role="listitem">
             <img
               className="services__card-img"
-              src="https://images.unsplash.com/photo-1544717297-fa95b6ee9643?q=75&w=400&h=500&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              src="https://auto-wiegmann.de/wp-content/uploads/2015/03/Schl%C3%BCssel%C3%BCbergabe.jpg"
               alt="Hol und Bringservice"
             />
             <div className="services__card-icon-background"></div>
@@ -114,10 +132,10 @@ function Services() {
               </p>
             </div>
           </div>
-          <div className="services__card">
+          <div className="services__card" role="listitem">
             <img
               className="services__card-img"
-              src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?q=75&w=400&h=500&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              src="https://img.freepik.com/premium-photo/tiny-modern-sports-car-car-keys-table-generative-ai_893571-6270.jpg"
               alt="Leasingangebote"
             />
             <div className="services__card-icon-background"></div>
@@ -138,7 +156,7 @@ function Services() {
               </p>
             </div>
           </div>
-          <div className="services__card">
+          <div className="services__card" role="listitem">
             <img
               className="services__card-img"
               src="https://images.unsplash.com/photo-1486754735734-325b5831c3ad?q=75&w=400&h=500&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
@@ -162,6 +180,31 @@ function Services() {
               </p>
             </div>
           </div>
+        </div>
+
+        {/* --- Optional CTA encourages deeper engagement without overpowering --- */}
+        <div className="home-services__cta-wrapper">
+          <a
+            className="home-services__cta"
+            href="/kontakt"
+            aria-label="Servicetermin vereinbaren"
+          >
+            Servicetermin anfragen
+            <svg
+              viewBox="0 0 20 20"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
+            >
+              <path
+                d="M5 10h10m0 0-3.5-3.5M15 10l-3.5 3.5"
+                stroke="currentColor"
+                strokeWidth="1.6"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </a>
         </div>
       </div>
     </section>
