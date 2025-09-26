@@ -7,6 +7,7 @@ import FahrzeugdetailsPage from "../Pages/Fahrzeugbestand/FahrzeugdetailsPage";
 import UeberUns from "../Pages/Unternehmen/UeberUns";
 import Karriere from "../Pages/Unternehmen/Karriere";
 import Ansprechpartner from "../Pages/Unternehmen/Ansprechpartner";
+import Presse from "../Pages/Unternehmen/Presse";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
             path="/unternehmen/ansprechpartner"
             element={<Ansprechpartner />}
           />
+          <Route path="/unternehmen/presse" element={<Presse />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </main>

@@ -93,6 +93,8 @@ function Unternehmen() {
         info3Label: "Aktualisiert:",
         info3: "Monatlich",
       },
+      ctaHref: "/unternehmen/presse",
+      ctaLabel: "News lesen",
     },
     {
       id: "nachhaltigkeit",
