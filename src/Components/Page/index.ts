@@ -1,6 +1,5 @@
-
 import Neuwagen from "./Neuwagen";
-import Fahrzeugbestand from "./Fahrzeugbestand";
+import Fahrzeugbestand from "../../Pages/Fahrzeugbestand";
 import Kontakt from "./Kontakt";
 import Angebote from "./Angebote";
 import Werkstatt from "./Werkstatt";

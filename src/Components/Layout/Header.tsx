@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import "../../Styles/main.css";
 import StarBorder from "../Elements/StarBorder";
 import BrandNavigation from "../Page/Neuwagen";
-import VehicleStockNavigation from "../Page/Fahrzeugbestand";
+import VehicleStockNavigation from "../../Pages/Fahrzeugbestand";
 import Geschaeftskunden from "../Page/Geschaeftskunden";
 import Angebote from "../Page/Angebote";
 import Kontakt from "../Page/Kontakt";
@@ -32,7 +32,7 @@ function Header() {
 
   // Close all mega menus when route changes
   useEffect(() => {
-  const menuIds = [...MENU_CHECKBOX_IDS, MENU_TOGGLE_ID];
+    const menuIds = [...MENU_CHECKBOX_IDS, MENU_TOGGLE_ID];
 
     // Add class to disable hover effects temporarily
     const navElement = document.querySelector("nav");
@@ -98,7 +98,7 @@ function Header() {
       openTimeoutRef.current = null;
     }
 
-  const menuIds = MENU_CHECKBOX_IDS;
+    const menuIds = MENU_CHECKBOX_IDS;
 
     // Sanftes Schließen aller anderen Menus mit längerem Delay
     menuIds.forEach((id) => {

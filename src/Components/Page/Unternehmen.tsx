@@ -68,6 +68,8 @@ function Unternehmen() {
         info3Label: "Aktualisiert:",
         info3: "Laufend",
       },
+      ctaHref: "/karriere",
+      ctaLabel: "Jetzt bewerben",
     },
     {
       id: "news-presse",

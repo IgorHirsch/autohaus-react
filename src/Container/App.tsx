@@ -5,6 +5,7 @@ import Home from "../Pages/Home";
 import FahrzeugbestandList from "../Pages/FahrzeugbestandList";
 import FahrzeugdetailsPage from "../Pages/FahrzeugdetailsPage";
 import UeberUns from "../Pages/Unternehmen/UeberUns";
+import Karriere from "../Pages/Unternehmen/Karriere";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
             element={<FahrzeugdetailsPage />}
           />
           <Route path="/ueber-uns" element={<UeberUns />} />
+          <Route path="/karriere" element={<Karriere />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </main>
