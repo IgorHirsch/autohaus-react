@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import MegaMenuCar from "./MegaMenuCar";
+import MegaMenuCar from "../Page/MegaMenuCar";
 
 const Neuwagen: React.FC = () => {
   const [activeBrand, setActiveBrand] = useState<"seat" | "cupra" | "nissan">(

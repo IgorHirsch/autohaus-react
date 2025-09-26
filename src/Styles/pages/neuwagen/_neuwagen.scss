@@ -1,0 +1,51 @@
+@use "../../abstracts/variables" as *;
+
+.neuwagen {
+  padding: 2rem;
+  background-color: var(--color-bg-dark);
+  color: var(--color-text-primary);
+
+  &__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+
+  &__title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--color-accent-blue);
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+
+  &__content {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+
+  &__card {
+    background-color: var(--color-bg-secondary);
+    border-radius: 8px;
+    padding: 1.5rem;
+    border-left: 4px solid var(--color-accent-blue);
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: translateY(-4px);
+    }
+  }
+
+  &__card-title {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    margin-bottom: 1rem;
+  }
+
+  &__card-text {
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+  }
+}
