@@ -8,6 +8,7 @@ import UeberUns from "../Pages/Unternehmen/UeberUns";
 import Karriere from "../Pages/Unternehmen/Karriere";
 import Ansprechpartner from "../Pages/Unternehmen/Ansprechpartner";
 import Presse from "../Pages/Unternehmen/Presse";
+import Nachhaltigkeit from "../Pages/Unternehmen/Nachhaltigkeit";
 
 function App() {
   return (
@@ -28,6 +29,10 @@ function App() {
             element={<Ansprechpartner />}
           />
           <Route path="/unternehmen/presse" element={<Presse />} />
+          <Route
+            path="/unternehmen/nachhaltigkeit"
+            element={<Nachhaltigkeit />}
+          />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </main>

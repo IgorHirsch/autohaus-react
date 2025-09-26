@@ -116,6 +116,8 @@ function Unternehmen() {
         info3Label: "Aktualisiert:",
         info3: "Quartalsweise",
       },
+      ctaHref: "/unternehmen/nachhaltigkeit",
+      ctaLabel: "Mehr erfahren",
     },
     {
       id: "standorte-kontakt",
