@@ -11,6 +11,20 @@ import Werkstatt from "../Page/Werkstatt";
 import OnlineShop from "../Page/OnlineShop";
 import Unternehmen from "../Page/Unternehmen";
 
+const MENU_CHECKBOX_IDS = [
+  "showMega",
+  "showMega2",
+  "showMega3",
+  "showMega4",
+  "showMega5",
+  "showMega6",
+  "showDrop1",
+  "showDrop2",
+  "showDrop3",
+];
+
+const MENU_TOGGLE_ID = "menu-toggle";
+
 function Header() {
   const [isKontaktVisible, setIsKontaktVisible] = useState(false);
   const location = useLocation();
@@ -18,18 +32,7 @@ function Header() {
 
   // Close all mega menus when route changes
   useEffect(() => {
-    const menuIds = [
-      "showMega",
-      "showMega2",
-      "showMega3",
-      "showMega4",
-      "showMega5",
-      "showMega6",
-      "showDrop1",
-      "showDrop2",
-      "showDrop3",
-      "menu-toggle",
-    ];
+  const menuIds = [...MENU_CHECKBOX_IDS, MENU_TOGGLE_ID];
 
     // Add class to disable hover effects temporarily
     const navElement = document.querySelector("nav");
@@ -65,7 +68,7 @@ function Header() {
       if (navElement) {
         navElement.classList.remove("force-close-menus");
       }
-    }, 500);
+    }, 1500);
 
     return () => clearTimeout(removeClassTimeout);
   }, [location]);
@@ -95,17 +98,7 @@ function Header() {
       openTimeoutRef.current = null;
     }
 
-    const menuIds = [
-      "showMega",
-      "showMega2",
-      "showMega3", // Neue ID für Angebote & Finanzierung
-      "showMega4", // Neue ID für Werkstatt & Service
-      "showMega5", // Neue ID für Onlineshop
-      "showMega6", // Neue ID für Unternehmen
-      "showDrop1",
-      "showDrop2",
-      "showDrop3",
-    ];
+  const menuIds = MENU_CHECKBOX_IDS;
 
     // Sanftes Schließen aller anderen Menus mit längerem Delay
     menuIds.forEach((id) => {
@@ -130,6 +123,36 @@ function Header() {
       }
       openTimeoutRef.current = null;
     }, 300);
+  };
+
+  const closeAllMenusImmediately = () => {
+    if (openTimeoutRef.current) {
+      clearTimeout(openTimeoutRef.current);
+      openTimeoutRef.current = null;
+    }
+
+    MENU_CHECKBOX_IDS.forEach((id) => {
+      const checkbox = document.getElementById(id) as HTMLInputElement | null;
+      if (checkbox && checkbox.checked) {
+        checkbox.checked = false;
+      }
+    });
+
+    const menuToggle = document.getElementById(
+      MENU_TOGGLE_ID
+    ) as HTMLInputElement | null;
+    if (menuToggle && menuToggle.checked) {
+      menuToggle.checked = false;
+    }
+
+    const navLinks = document.querySelectorAll(
+      ".nav-links li a, .nav-links li label"
+    );
+    navLinks.forEach((element) => {
+      if (element instanceof HTMLElement) {
+        element.blur();
+      }
+    });
   };
 
   return (
@@ -164,9 +187,13 @@ function Header() {
           </li>
 
           <li>
-            <a href="#" className="desktop-item">
+            <Link
+              to="/fahrzeugbestand"
+              className="desktop-item"
+              onClick={closeAllMenusImmediately}
+            >
               Fahrzeugbestand
-            </a>
+            </Link>
             <input type="checkbox" id="showMega2" />
             <label
               htmlFor="showMega2"

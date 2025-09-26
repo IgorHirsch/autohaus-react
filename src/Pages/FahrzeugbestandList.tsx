@@ -130,7 +130,7 @@ const FahrzeugbestandList: React.FC = () => {
           "🔓 Removed force-close-menus class - mega menus can hover again"
         );
       }
-    }, 300);
+    }, 1500);
 
     return () => clearTimeout(removeClassTimeout);
   }, [location]);
