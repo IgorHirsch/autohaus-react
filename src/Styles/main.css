@@ -4110,6 +4110,7 @@ nav input {
   position: relative;
   text-align: center;
   overflow: visible;
+  background-color: rgb(22, 22, 29);
 }
 
 .home-hero--glass {
@@ -4215,7 +4216,7 @@ nav input {
   font-size: clamp(2.5rem, 5vw, 4rem);
   font-weight: 700;
   margin-bottom: 1.5rem;
-  color: #1a1a1a;
+  color: #d3d3d3;
   line-height: 1.2;
   text-shadow: none;
 }
