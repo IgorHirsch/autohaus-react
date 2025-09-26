@@ -1,12 +1,12 @@
 import React, { useEffect, useMemo } from "react";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
-import "../Styles/pages/Fahrzeugdetails/_fahrzeugdetails.scss";
+import "../../Styles/pages/fahrzeugbestand/_fahrzeugdetails.scss";
 
 import {
   getRelatedVehicles,
   getVehicleById,
   VEHICLE_CATEGORY_LABELS,
-} from "../Data/vehicles";
+} from "../../Data/vehicles";
 
 const FahrzeugdetailsPage: React.FC = () => {
   const { id } = useParams<{ id: string }>();

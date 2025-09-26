@@ -1,12 +1,12 @@
 import React, { useCallback, useEffect, useMemo } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import "../Styles/pages/fahrzeugbestand/_fahrzeugbestand.scss";
+import "../../Styles/pages/fahrzeugbestand/_fahrzeugbestand.scss";
 
 import {
   allVehicles,
   Vehicle,
   VEHICLE_CATEGORY_LABELS,
-} from "../Data/vehicles";
+} from "../../Data/vehicles";
 
 type VehicleCategoryKey = keyof typeof VEHICLE_CATEGORY_LABELS;
 type UrlParams = {

@@ -2,8 +2,8 @@ import React from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { Footer, Header } from "../Components/Layout";
 import Home from "../Pages/Home";
-import FahrzeugbestandList from "../Pages/FahrzeugbestandList";
-import FahrzeugdetailsPage from "../Pages/FahrzeugdetailsPage";
+import FahrzeugbestandList from "../Pages/Fahrzeugbestand/FahrzeugbestandList";
+import FahrzeugdetailsPage from "../Pages/Fahrzeugbestand/FahrzeugdetailsPage";
 import UeberUns from "../Pages/Unternehmen/UeberUns";
 import Karriere from "../Pages/Unternehmen/Karriere";
 

@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import "../../Styles/main.css";
 import StarBorder from "../Elements/StarBorder";
 import BrandNavigation from "../Page/Neuwagen";
-import VehicleStockNavigation from "../../Pages/Fahrzeugbestand";
+import VehicleStockNavigation from "../../Pages/Fahrzeugbestand/Fahrzeugbestand";
 import Geschaeftskunden from "../Page/Geschaeftskunden";
 import Angebote from "../Page/Angebote";
 import Kontakt from "../Page/Kontakt";
