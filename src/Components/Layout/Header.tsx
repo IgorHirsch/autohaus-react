@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import "../../Styles/main.css";
 import StarBorder from "../Elements/StarBorder";
 import BrandNavigation from "../Page/Neuwagen";
@@ -137,10 +137,9 @@ function Header() {
       <div className="wrapper">
         <div className="logo-container"></div>
         <div className="logo">
-          <a href="./index.html">
-            {" "}
+          <Link to="/" aria-label="Zur Startseite">
             <span className="logo__accent">AUTO EMOTION</span>
-          </a>
+          </Link>
         </div>
         <input type="checkbox" id="menu-toggle" title="Menü umschalten" />
         <ul className="nav-links">

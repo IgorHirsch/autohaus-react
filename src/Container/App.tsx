@@ -3,6 +3,7 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import { Footer, Header } from "../Components/Layout";
 import Home from "../Pages/Home";
 import FahrzeugbestandList from "../Pages/FahrzeugbestandList";
+import FahrzeugdetailsPage from "../Pages/FahrzeugdetailsPage";
 
 function App() {
   return (
@@ -12,6 +13,10 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/fahrzeugbestand" element={<FahrzeugbestandList />} />
+          <Route
+            path="/fahrzeugbestand/:id"
+            element={<FahrzeugdetailsPage />}
+          />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </main>
