@@ -23,7 +23,7 @@ body {
   color: aliceblue;
 
   // Space for fixed header only
-  padding-top: 85px; // Height of header
+  padding-top: $nav-height-desktop; // Height of header
   padding-bottom: 0; // No reservation for fixed footer
 
   font-family: "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
@@ -34,17 +34,17 @@ body {
 
   // Mobile responsive body padding
   @media screen and (max-width: 970px) {
-    padding-top: 70px; // Smaller header on tablet
+    padding-top: $nav-height-tablet; // Smaller header on tablet
     padding-bottom: 0; // Kein Footer-Padding, da Footer nicht mehr fixed
   }
 
   @media screen and (max-width: 768px) {
-    padding-top: 70px; // Smaller header on tablet
+    padding-top: $nav-height-tablet; // Smaller header on tablet
     padding-bottom: 0; // Kein Footer-Padding
   }
 
   @media screen and (max-width: 480px) {
-    padding-top: 60px; // Mobile header height
+    padding-top: $nav-height-mobile; // Mobile header height
     padding-bottom: 0; // Kein Footer-Padding
     overflow-x: hidden; // Prevent horizontal scroll
   }

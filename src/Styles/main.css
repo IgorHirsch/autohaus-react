@@ -25,7 +25,7 @@ body {
   margin: 0;
   background: black;
   color: aliceblue;
-  padding-top: 85px;
+  padding-top: 80px;
   padding-bottom: 0;
   font-family: "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -470,7 +470,6 @@ nav {
   left: 0;
   right: 0;
   z-index: 1100;
-  width: 100%;
   background: rgb(22, 22, 29);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
   border-radius: 0 0 -1rem -1rem;
@@ -485,7 +484,7 @@ nav .wrapper {
   max-width: 100%;
   padding: 0px 30px;
   height: 80px;
-  line-height: 5rem;
+  line-height: 80px;
   margin: auto;
   display: flex;
   justify-content: space-between;
@@ -797,6 +796,10 @@ nav input {
 }
 
 @media screen and (max-width: 970px) {
+  nav .wrapper {
+    height: 70px;
+    line-height: 70px;
+  }
   .wrapper .btn {
     display: block;
   }
@@ -887,7 +890,7 @@ nav input {
   .nav-links .drop-menu {
     position: static;
     opacity: 1;
-    top: 65px;
+    top: 70px;
     visibility: visible;
     padding: 8px;
     width: 100%;
@@ -1063,6 +1066,12 @@ nav input {
     padding: 0px;
     max-width: 100%;
     width: 100%;
+  }
+}
+@media screen and (max-width: 480px) {
+  nav .wrapper {
+    height: 60px;
+    line-height: 60px;
   }
 }
 .brand-navigation {
@@ -8436,4 +8445,8 @@ nav input {
   .app-container > main {
     padding-bottom: 1rem;
   }
+}
+.home-page {
+  display: flex;
+  flex-direction: column;
 }/*# sourceMappingURL=main.css.map */

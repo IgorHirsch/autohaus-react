@@ -19,6 +19,10 @@ $color-secondary-light: color.scale($color-secondary, $lightness: 20%) !default;
 
 $slope-incline: math.asin(0.1);
 
+$nav-height-desktop: 80px !default;
+$nav-height-tablet: 70px !default;
+$nav-height-mobile: 60px !default;
+
 /** 1200px oder schmaler */
 $breakpoint-lg: 1280px !default;
 

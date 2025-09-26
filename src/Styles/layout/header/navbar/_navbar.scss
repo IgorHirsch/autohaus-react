@@ -7,7 +7,6 @@ nav {
   left: 0;
   right: 0;
   z-index: 1100;
-  width: 100%;
   background: $color-eigengrau;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
   border-radius: 0 0 -1rem -1rem;
@@ -21,8 +20,8 @@ nav .wrapper {
   position: relative;
   max-width: 100%;
   padding: 0px 30px;
-  height: 80px;
-  line-height: 5rem;
+  height: $nav-height-desktop;
+  line-height: $nav-height-desktop;
   margin: auto;
   display: flex;
   justify-content: space-between;
@@ -102,7 +101,7 @@ nav .wrapper {
   border-radius: 0 0 1rem 1rem;
   width: 300px;
   line-height: 45px;
-  top: 80px;
+  top: $nav-height-desktop;
   opacity: 0;
   visibility: hidden;
   transition: all 0.3s ease; // Vereinfachte und schnellere Animation
@@ -113,7 +112,7 @@ nav .wrapper {
 .nav-links li:hover .mega-box {
   transition: all 0.25s ease; // Vereinfachte Animation ohne bounce-Effekt
   transition-delay: 0.1s; // Kürzere Verzögerung
-  top: 80px;
+  top: $nav-height-desktop;
   opacity: 1;
   visibility: visible;
 }
@@ -155,7 +154,7 @@ nav .wrapper {
   position: absolute;
   left: 0;
   width: 100%;
-  top: 80px;
+  top: $nav-height-desktop;
   opacity: 0;
   visibility: hidden;
   z-index: 888;
@@ -344,6 +343,11 @@ nav input {
 
 // Mobile Responsive Styles
 @media screen and (max-width: 970px) {
+  nav .wrapper {
+    height: $nav-height-tablet;
+    line-height: $nav-height-tablet;
+  }
+
   .wrapper .btn {
     display: block;
   }
@@ -448,7 +452,7 @@ nav input {
   .nav-links .drop-menu {
     position: static;
     opacity: 1;
-    top: 65px;
+    top: $nav-height-tablet;
     visibility: visible;
     padding: 8px; // Kompakteres Padding
     width: 100%;
@@ -646,6 +650,13 @@ nav input {
     padding: 0px;
     max-width: 100%;
     width: 100%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  nav .wrapper {
+    height: $nav-height-mobile;
+    line-height: $nav-height-mobile;
   }
 }
 
