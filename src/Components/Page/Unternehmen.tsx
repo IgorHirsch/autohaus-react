@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "../../Styles/pages/unternehmen/_unternehmen.scss";
 
 function Unternehmen() {
@@ -23,6 +24,8 @@ function Unternehmen() {
         info3Label: "Aktualisiert:",
         info3: "09/2025",
       },
+      ctaHref: "/ueber-uns",
+      ctaLabel: "Zur Story",
     },
     {
       id: "team-ansprechpartner",
@@ -183,10 +186,17 @@ function Unternehmen() {
             </div>
 
             <div className="service-card-hover">
-              <button className="service-card__button">
-                <span>Mehr erfahren</span>
-                <span>→</span>
-              </button>
+              {sec.ctaHref ? (
+                <Link to={sec.ctaHref} className="service-card__button">
+                  <span>{sec.ctaLabel ?? "Mehr erfahren"}</span>
+                  <span>→</span>
+                </Link>
+              ) : (
+                <button type="button" className="service-card__button">
+                  <span>Mehr erfahren</span>
+                  <span>→</span>
+                </button>
+              )}
             </div>
           </div>
         ))}

@@ -4,6 +4,7 @@ import { Footer, Header } from "../Components/Layout";
 import Home from "../Pages/Home";
 import FahrzeugbestandList from "../Pages/FahrzeugbestandList";
 import FahrzeugdetailsPage from "../Pages/FahrzeugdetailsPage";
+import UeberUns from "../Pages/Unternehmen/UeberUns";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
             path="/fahrzeugbestand/:id"
             element={<FahrzeugdetailsPage />}
           />
+          <Route path="/ueber-uns" element={<UeberUns />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </main>
