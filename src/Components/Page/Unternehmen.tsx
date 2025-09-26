@@ -47,6 +47,8 @@ function Unternehmen() {
         info3Label: "Aktualisiert:",
         info3: "Wöchentlich",
       },
+      ctaHref: "/unternehmen/ansprechpartner",
+      ctaLabel: "Team kennenlernen",
     },
     {
       id: "karriere",

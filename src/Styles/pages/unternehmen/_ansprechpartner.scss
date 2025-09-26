@@ -1,0 +1,545 @@
+@use "sass:color";
+@use "../../abstracts" as *;
+
+$ansprechpartner-background: $color-eigengrau;
+$ansprechpartner-surface: rgba(255, 255, 255, 0.04);
+$ansprechpartner-border: rgba(255, 255, 255, 0.12);
+$ansprechpartner-border-strong: rgba(255, 255, 255, 0.2);
+$ansprechpartner-text-primary: rgba($color-text, 0.88);
+$ansprechpartner-text-muted: rgba($color-text, 0.7);
+$ansprechpartner-accent: #e86838;
+
+// Category color themes - using color variables
+$color-gf: #ff6b6b;
+$color-verkauf: #4ecdc4;
+$color-service: #45b7d1;
+$color-admin: #96ceb4;
+
+.ansprechpartner {
+  position: relative;
+  padding-block: clamp(5rem, 12vw, 8rem);
+  background: $ansprechpartner-background;
+  color: $ansprechpartner-text-primary;
+  overflow: hidden;
+  isolation: isolate;
+
+  @media (max-width: $breakpoint-sm) {
+    padding-block: clamp(4rem, 18vw, 6rem);
+  }
+}
+
+.ansprechpartner__background {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: -2;
+}
+
+.ansprechpartner__glow {
+  position: absolute;
+  width: clamp(18rem, 42vw, 32rem);
+  aspect-ratio: 1 / 1;
+  background: radial-gradient(
+    circle,
+    rgba($ansprechpartner-accent, 0.18) 0%,
+    rgba($ansprechpartner-accent, 0.06) 58%,
+    transparent 82%
+  );
+  filter: blur(44px);
+  opacity: 0.8;
+  animation: ansprechpartner-glow 20s ease-in-out infinite;
+
+  &--left {
+    top: -20%;
+    left: -12%;
+  }
+
+  &--right {
+    bottom: -18%;
+    right: -10%;
+    animation-delay: 7s;
+  }
+}
+
+@keyframes ansprechpartner-glow {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.75;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.95;
+  }
+}
+
+.ansprechpartner__hero {
+  margin-bottom: clamp(4rem, 8vw, 6rem);
+}
+
+.ansprechpartner__hero-container {
+  @include make-container();
+  max-width: min(1320px, 94vw);
+  margin: 0 auto;
+  padding-inline: clamp(1.5rem, 5vw, 3.5rem);
+  display: grid;
+  gap: clamp(1.8rem, 4vw, 2.6rem);
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  align-items: start;
+
+  @media (max-width: $breakpoint-md) {
+    grid-template-columns: repeat(8, minmax(0, 1fr));
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.ansprechpartner__hero-content {
+  grid-column: span 7;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+
+  @media (max-width: $breakpoint-md) {
+    grid-column: span 8;
+  }
+}
+
+.ansprechpartner__hero-card {
+  grid-column: span 5;
+  background: rgba(10, 18, 26, 0.72);
+  border: 1px solid $ansprechpartner-border;
+  border-radius: clamp(1rem, 2.4vw, 1.4rem);
+  padding: clamp(1.2rem, 2.6vw, 1.6rem);
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  box-shadow: 0 26px 55px rgba(10, 18, 26, 0.32);
+
+  @media (max-width: $breakpoint-md) {
+    grid-column: span 8;
+    margin-top: 1rem;
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    margin-top: 1.5rem;
+  }
+}
+
+.ansprechpartner__badge {
+  align-self: flex-start;
+  padding: 0.35rem 0.85rem;
+  border-radius: 999px;
+  background: rgba($ansprechpartner-accent, 0.12);
+  color: rgba($ansprechpartner-accent, 0.92);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.ansprechpartner__badge-dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: linear-gradient(
+    135deg,
+    $ansprechpartner-accent 0%,
+    lighten($ansprechpartner-accent, 10%) 100%
+  );
+  box-shadow: 0 0 8px rgba($ansprechpartner-accent, 0.6);
+
+  @media (max-width: $breakpoint-sm) {
+    width: 0.4rem;
+    height: 0.4rem;
+  }
+}
+
+.ansprechpartner__hero-title {
+  margin: 0;
+  font-size: clamp(2.5rem, 5vw, 3.2rem);
+  color: $color-text;
+  letter-spacing: 0.015em;
+}
+
+.ansprechpartner__hero-lead {
+  margin: 0;
+  font-size: clamp(1.05rem, 2.4vw, 1.28rem);
+  color: $ansprechpartner-text-primary;
+  max-width: 50ch;
+}
+
+.ansprechpartner__hero-description {
+  margin: 0;
+  font-size: 1rem;
+  color: $ansprechpartner-text-muted;
+  max-width: 62ch;
+}
+
+.ansprechpartner__content {
+  padding-block: clamp(2rem, 4vw, 3rem);
+}
+
+.ansprechpartner__container {
+  @include make-container();
+  max-width: min(1320px, 94vw);
+  margin: 0 auto;
+  padding-inline: clamp(1.5rem, 5vw, 3.5rem);
+}
+
+.ansprechpartner__category {
+  margin-bottom: clamp(3rem, 6vw, 4rem);
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.ansprechpartner__category {
+  &[data-category="geschaeftsfuehrung"]
+    .ansprechpartner__category-title::after {
+    background: linear-gradient(90deg, transparent, $color-gf, transparent);
+  }
+  &[data-category="verkauf"] .ansprechpartner__category-title::after {
+    background: linear-gradient(
+      90deg,
+      transparent,
+      $color-verkauf,
+      transparent
+    );
+  }
+  &[data-category="service"] .ansprechpartner__category-title::after {
+    background: linear-gradient(
+      90deg,
+      transparent,
+      $color-service,
+      transparent
+    );
+  }
+  &[data-category="administration"] .ansprechpartner__category-title::after {
+    background: linear-gradient(90deg, transparent, $color-admin, transparent);
+  }
+}
+
+.ansprechpartner__category-title {
+  font-size: clamp(1.8rem, 4vw, 2.2rem);
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: clamp(1.5rem, 3vw, 2rem);
+  text-align: center;
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -0.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4rem;
+    height: 2px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      $ansprechpartner-accent,
+      transparent
+    );
+  }
+}
+
+.ansprechpartner__team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: clamp(1.5rem, 3vw, 2rem);
+
+  @media (max-width: $breakpoint-sm) {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+.ansprechpartner__member-card {
+  padding: clamp(1.3rem, 3vw, 1.6rem);
+  border-radius: clamp(0.9rem, 2vw, 1.2rem);
+  background: linear-gradient(
+    150deg,
+    rgba(10, 18, 26, 0.92) 0%,
+    rgba(6, 14, 22, 0.86) 40%,
+    rgba(4, 10, 18, 0.92) 100%
+  );
+  border: 1px solid $ansprechpartner-border;
+  box-shadow: 0 22px 44px rgba(10, 18, 26, 0.28);
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: $ansprechpartner-accent;
+    opacity: 0.8;
+  }
+
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 32px 64px rgba(10, 18, 26, 0.4);
+    border-color: $ansprechpartner-accent;
+  }
+
+  // Category-specific colors
+  &[data-category="geschaeftsfuehrung"] {
+    &::before {
+      background: $color-gf;
+    }
+    &:hover {
+      border-color: $color-gf;
+    }
+  }
+  &[data-category="verkauf"] {
+    &::before {
+      background: $color-verkauf;
+    }
+    &:hover {
+      border-color: $color-verkauf;
+    }
+  }
+  &[data-category="service"] {
+    &::before {
+      background: $color-service;
+    }
+    &:hover {
+      border-color: $color-service;
+    }
+  }
+  &[data-category="administration"] {
+    &::before {
+      background: $color-admin;
+    }
+    &:hover {
+      border-color: $color-admin;
+    }
+  }
+}
+
+.ansprechpartner__member-image {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.ansprechpartner__member-placeholder {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: linear-gradient(
+    135deg,
+    $ansprechpartner-accent,
+    color.adjust($ansprechpartner-accent, $lightness: 15%)
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 2rem;
+  box-shadow: 0 8px 24px rgba($ansprechpartner-accent, 0.4);
+  position: relative;
+
+  .ansprechpartner__member-card[data-category="geschaeftsfuehrung"] & {
+    background: linear-gradient(
+      135deg,
+      $color-gf,
+      color.adjust($color-gf, $lightness: 15%)
+    );
+    box-shadow: 0 8px 24px color.change($color-gf, $alpha: 0.4);
+  }
+
+  .ansprechpartner__member-card[data-category="verkauf"] & {
+    background: linear-gradient(
+      135deg,
+      $color-verkauf,
+      color.adjust($color-verkauf, $lightness: 15%)
+    );
+    box-shadow: 0 8px 24px color.change($color-verkauf, $alpha: 0.4);
+  }
+
+  .ansprechpartner__member-card[data-category="service"] & {
+    background: linear-gradient(
+      135deg,
+      $color-service,
+      color.adjust($color-service, $lightness: 15%)
+    );
+    box-shadow: 0 8px 24px color.change($color-service, $alpha: 0.4);
+  }
+
+  .ansprechpartner__member-card[data-category="administration"] & {
+    background: linear-gradient(
+      135deg,
+      $color-admin,
+      color.adjust($color-admin, $lightness: 15%)
+    );
+    box-shadow: 0 8px 24px color.change($color-admin, $alpha: 0.4);
+  }
+}
+
+.ansprechpartner__member-info {
+  text-align: center;
+}
+
+.ansprechpartner__member-name {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 0.25rem;
+}
+
+.ansprechpartner__member-position {
+  font-size: 1rem;
+  font-weight: 500;
+  color: $ansprechpartner-accent;
+  margin-bottom: 0.25rem;
+}
+
+.ansprechpartner__member-department {
+  font-size: 0.9rem;
+  color: $ansprechpartner-text-muted;
+  margin-bottom: 1rem;
+}
+
+.ansprechpartner__member-description {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: $ansprechpartner-text-muted;
+  margin-bottom: 1.5rem;
+}
+
+.ansprechpartner__member-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.ansprechpartner__contact-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+
+  i {
+    color: $ansprechpartner-accent;
+    width: 16px;
+    text-align: center;
+  }
+
+  a {
+    color: $ansprechpartner-text-muted;
+    text-decoration: none;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: $ansprechpartner-accent;
+    }
+  }
+}
+
+.ansprechpartner__cta {
+  background: linear-gradient(
+    135deg,
+    $ansprechpartner-surface 0%,
+    rgba(255, 255, 255, 0.02) 100%
+  );
+  border: 1px solid $ansprechpartner-border;
+  border-radius: 1rem;
+  padding: clamp(2rem, 4vw, 3rem);
+  margin-top: clamp(3rem, 6vw, 4rem);
+  text-align: center;
+}
+
+.ansprechpartner__cta-container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.ansprechpartner__cta-title {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 1rem;
+}
+
+.ansprechpartner__cta-description {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: $ansprechpartner-text-muted;
+  margin-bottom: 2rem;
+}
+
+.ansprechpartner__cta-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.ansprechpartner__cta-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+
+  &--primary {
+    background: linear-gradient(
+      135deg,
+      $ansprechpartner-accent,
+      lighten($ansprechpartner-accent, 10%)
+    );
+    color: white;
+
+    &:hover {
+      background: linear-gradient(
+        135deg,
+        lighten($ansprechpartner-accent, 5%),
+        lighten($ansprechpartner-accent, 15%)
+      );
+      transform: translateY(-2px);
+      box-shadow: 0 4px 16px rgba($ansprechpartner-accent, 0.4);
+    }
+  }
+
+  &--secondary {
+    background: transparent;
+    color: $ansprechpartner-accent;
+    border-color: $ansprechpartner-accent;
+
+    &:hover {
+      background: rgba($ansprechpartner-accent, 0.1);
+      transform: translateY(-2px);
+    }
+  }
+}
+
+// Responsive improvements
+@media (max-width: $breakpoint-sm) {
+  .ansprechpartner__cta-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .ansprechpartner__cta-button {
+    min-width: 200px;
+    justify-content: center;
+  }
+}

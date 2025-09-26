@@ -6,6 +6,7 @@ import FahrzeugbestandList from "../Pages/Fahrzeugbestand/FahrzeugbestandList";
 import FahrzeugdetailsPage from "../Pages/Fahrzeugbestand/FahrzeugdetailsPage";
 import UeberUns from "../Pages/Unternehmen/UeberUns";
 import Karriere from "../Pages/Unternehmen/Karriere";
+import Ansprechpartner from "../Pages/Unternehmen/Ansprechpartner";
 
 function App() {
   return (
@@ -21,6 +22,10 @@ function App() {
           />
           <Route path="/ueber-uns" element={<UeberUns />} />
           <Route path="/karriere" element={<Karriere />} />
+          <Route
+            path="/unternehmen/ansprechpartner"
+            element={<Ansprechpartner />}
+          />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </main>
