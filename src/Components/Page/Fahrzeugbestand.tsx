@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useCallback } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useState, useEffect, useCallback, useMemo } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 
 interface VehicleInfo {
   brand: string;
@@ -16,7 +16,30 @@ interface VehicleCategory {
 const Fahrzeugbestand: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState<string>("neuwagen");
   const [isMobile, setIsMobile] = useState<boolean>(false);
+  const [activeBrand, setActiveBrand] = useState<string | null>(null);
   const navigate = useNavigate();
+  const location = useLocation();
+
+  const urlParams = useMemo(() => {
+    const searchParams = new URLSearchParams(location.search);
+    return {
+      category: searchParams.get("category")?.toLowerCase() ?? null,
+      brand: searchParams.get("brand")?.toUpperCase() ?? null,
+    };
+  }, [location.search]);
+
+  // Sync active filters with URL parameters
+  useEffect(() => {
+    if (urlParams.category) {
+      setActiveCategory(urlParams.category);
+    }
+
+    if (urlParams.brand) {
+      setActiveBrand(urlParams.brand);
+    } else {
+      setActiveBrand(null);
+    }
+  }, [urlParams.category, urlParams.brand]);
 
   // Check if device is mobile
   useEffect(() => {
@@ -179,6 +202,11 @@ const Fahrzeugbestand: React.FC = () => {
       )
     : [];
 
+  const handleCategorySelect = useCallback((categoryId: string) => {
+    setActiveCategory(categoryId);
+    setActiveBrand(null);
+  }, []);
+
   const closeNavigationOverlays = useCallback(() => {
     const overlayIds = ["showMega2", "menu-toggle"];
 
@@ -197,6 +225,7 @@ const Fahrzeugbestand: React.FC = () => {
       searchParams.set("category", activeCategory);
       searchParams.set("brand", brandName);
 
+      setActiveBrand(brandName);
       closeNavigationOverlays();
       navigate({
         pathname: "/fahrzeugbestand",
@@ -230,7 +259,7 @@ const Fahrzeugbestand: React.FC = () => {
                   className={`category-item ${
                     activeCategory === category.id ? "active" : ""
                   }`}
-                  onClick={() => setActiveCategory(category.id)}
+                  onClick={() => handleCategorySelect(category.id)}
                 >
                   <h3>
                     {category.icon} {category.name}
@@ -247,7 +276,7 @@ const Fahrzeugbestand: React.FC = () => {
                 className={`category-item ${
                   activeCategory === category.id ? "active" : ""
                 }`}
-                onClick={() => setActiveCategory(category.id)}
+                onClick={() => handleCategorySelect(category.id)}
               >
                 <h3>
                   {category.icon} {category.name}
@@ -268,10 +297,62 @@ const Fahrzeugbestand: React.FC = () => {
             {isMobile ? (
               // Mobile Swiper Structure for Brands
               <div className="swiper-container-brands">
-                {groupedBrands.map((data) => (
-                  <div key={data.brand} className="brand-section">
+                {groupedBrands.map((data) => {
+                  const isBrandActive = activeBrand === data.brand;
+
+                  return (
                     <div
-                      className="brand-card brand-card--interactive"
+                      key={data.brand}
+                      className={`brand-section ${
+                        isBrandActive ? "is-active" : ""
+                      }`}
+                    >
+                      <div
+                        className={`brand-card brand-card--interactive ${
+                          isBrandActive ? "is-active" : ""
+                        }`}
+                        role="button"
+                        tabIndex={0}
+                        aria-label={`${data.brand} auswählen`}
+                        style={{ cursor: "pointer" }}
+                        onClick={() => handleBrandNavigate(data.brand)}
+                        onKeyDown={(event) =>
+                          handleBrandKeyDown(event, data.brand)
+                        }
+                      >
+                        <img
+                          src={data.image}
+                          alt={`${data.brand} Logo`}
+                          className="brand-image"
+                        />
+                        <div className="brand-info">
+                          <h4 className="brand-name">{data.brand}</h4>
+                          <span className="vehicle-count">
+                            {data.vehicles.length} Fahrzeug
+                            {data.vehicles.length !== 1 ? "e" : ""} verfügbar
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            ) : (
+              // Desktop Structure for Brands
+              groupedBrands.map((data) => {
+                const isBrandActive = activeBrand === data.brand;
+
+                return (
+                  <div
+                    key={data.brand}
+                    className={`brand-section ${
+                      isBrandActive ? "is-active" : ""
+                    }`}
+                  >
+                    <div
+                      className={`brand-card brand-card--interactive ${
+                        isBrandActive ? "is-active" : ""
+                      }`}
                       role="button"
                       tabIndex={0}
                       aria-label={`${data.brand} auswählen`}
@@ -295,36 +376,8 @@ const Fahrzeugbestand: React.FC = () => {
                       </div>
                     </div>
                   </div>
-                ))}
-              </div>
-            ) : (
-              // Desktop Structure for Brands
-              groupedBrands.map((data) => (
-                <div key={data.brand} className="brand-section">
-                  <div
-                    className="brand-card brand-card--interactive"
-                    role="button"
-                    tabIndex={0}
-                    aria-label={`${data.brand} auswählen`}
-                    style={{ cursor: "pointer" }}
-                    onClick={() => handleBrandNavigate(data.brand)}
-                    onKeyDown={(event) => handleBrandKeyDown(event, data.brand)}
-                  >
-                    <img
-                      src={data.image}
-                      alt={`${data.brand} Logo`}
-                      className="brand-image"
-                    />
-                    <div className="brand-info">
-                      <h4 className="brand-name">{data.brand}</h4>
-                      <span className="vehicle-count">
-                        {data.vehicles.length} Fahrzeug
-                        {data.vehicles.length !== 1 ? "e" : ""} verfügbar
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              ))
+                );
+              })
             )}
           </div>
         </div>

@@ -8,14 +8,10 @@ $-offers-card-border-color: rgba(0, 0, 0, 0.038);
 $-offers-card-margin: 0.66rem;
 $-half-pixel-width: math.div(1rem, 32);
 
-
-
 .bestand {
   position: relative;
   padding: 3rem 0;
 }
-
-
 
 .bestand__column-text {
   float: top;
@@ -328,5 +324,442 @@ $-half-pixel-width: math.div(1rem, 32);
   transition: opacity 0.25s ease-in-out;
   .bestand__card:hover & {
     opacity: 1;
+  }
+}
+
+// =============================================
+// FAHRZEUGBESTAND LIST - Homepage Style Classes
+// =============================================
+
+// Variables
+$cupra-burnt: #e86838;
+$cupra-ink: #0a161d;
+$fahrzeugbestand-text-strong: color.scale($color-text, $lightness: 6%);
+$fahrzeugbestand-text-primary: rgba($color-text, 0.9);
+$fahrzeugbestand-text-soft: rgba($color-text, 0.78);
+$fahrzeugbestand-text-muted: rgba($color-text, 0.65);
+$fahrzeugbestand-border: rgba($color-text, 0.16);
+
+// Main section
+.fahrzeugbestand-list {
+  position: relative;
+  padding-block: clamp(5.5rem, 11vw, 9rem);
+  background-color: $color-eigengrau;
+  color: $fahrzeugbestand-text-primary;
+  overflow: hidden;
+  isolation: isolate;
+
+  @media (max-width: $breakpoint-sm) {
+    padding-block: clamp(4.25rem, 18vw, 6.5rem);
+  }
+}
+
+// Background effects
+.fahrzeugbestand-list__background {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: -2;
+}
+
+.fahrzeugbestand-list__glow {
+  position: absolute;
+  width: clamp(16rem, 40vw, 28rem);
+  aspect-ratio: 1 / 1;
+  background: radial-gradient(
+    circle,
+    rgba($cupra-burnt, 0.16) 0%,
+    rgba($cupra-burnt, 0.05) 54%,
+    transparent 82%
+  );
+  filter: blur(38px);
+  opacity: 0.7;
+  animation: fahrzeugbestand-glow 18s ease-in-out infinite;
+
+  &--left {
+    top: -18%;
+    left: -10%;
+  }
+
+  &--right {
+    bottom: -20%;
+    right: -8%;
+    animation-delay: 6s;
+  }
+}
+
+// Main container
+.fahrzeugbestand-list__container {
+  @include make-container();
+  position: relative;
+  max-width: min(1580px, 94vw);
+  margin: 0 auto;
+  padding-inline: clamp(1.5rem, 4vw, 2.75rem);
+}
+
+// Header section
+.fahrzeugbestand-list__header {
+  display: grid;
+  gap: clamp(1rem, 3vw, 1.85rem);
+  max-width: clamp(24rem, 68vw, 46rem);
+  margin-bottom: clamp(2.75rem, 6vw, 4.1rem);
+  animation: fahrzeugbestand-fade-up 0.8s ease-out both;
+}
+
+.fahrzeugbestand-list__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  width: max-content;
+  padding: 0.4rem 1.1rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: rgba($color-text, 0.82);
+}
+
+.fahrzeugbestand-list__badge-dot {
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 50%;
+  background: linear-gradient(
+    135deg,
+    $cupra-burnt,
+    color.scale($cupra-burnt, $lightness: 12%)
+  );
+  box-shadow: 0 0 0.45rem rgba($cupra-burnt, 0.42);
+}
+
+.fahrzeugbestand-list__copy {
+  display: grid;
+  gap: clamp(0.85rem, 2.4vw, 1.5rem);
+}
+
+.fahrzeugbestand-list__title {
+  margin: 0;
+  font-size: clamp(2.1rem, 3.2vw, 3.1rem);
+  line-height: 1.08;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: $fahrzeugbestand-text-strong;
+  max-width: 24ch;
+}
+
+.fahrzeugbestand-list__lead {
+  margin: 0;
+  font-size: clamp(1.02rem, 2.1vw, 1.24rem);
+  line-height: 1.6;
+  max-width: 60ch;
+  color: $fahrzeugbestand-text-soft;
+}
+
+// Vehicle grid
+.fahrzeugbestand-list__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 280px));
+  gap: clamp(1.5rem, 3.4vw, 2.6rem);
+  align-items: stretch;
+  justify-content: center;
+  animation: fahrzeugbestand-fade-up 0.85s ease-out 0.1s both;
+
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(auto-fill, minmax(260px, 260px));
+  }
+
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+.fahrzeugbestand-list__card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 280px;
+  padding: clamp(1rem, 2.5vw, 1.5rem);
+  border-radius: clamp(0.8rem, 2vw, 1.2rem);
+  background: linear-gradient(
+    150deg,
+    rgba(8, 20, 28, 0.9) 0%,
+    rgba(4, 12, 18, 0.86) 52%,
+    rgba(2, 9, 14, 0.92) 100%
+  );
+  border: 1px solid $fahrzeugbestand-border;
+  box-shadow: 0 26px 48px rgba($cupra-ink, 0.28);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  overflow: hidden;
+
+  @media (max-width: 768px) {
+    max-width: 260px;
+  }
+
+  &:hover,
+  &:focus-within {
+    transform: translateY(-6px);
+    box-shadow: 0 36px 68px rgba($cupra-ink, 0.32);
+  }
+}
+
+// Vehicle image
+.fahrzeugbestand-list__image {
+  width: 100%;
+  height: clamp(10rem, 16vw, 14rem);
+  object-fit: cover;
+  border-radius: clamp(0.6rem, 1.5vw, 1rem);
+  margin-bottom: clamp(0.8rem, 1.8vw, 1.2rem);
+  filter: grayscale(10%);
+}
+
+// Vehicle content
+.fahrzeugbestand-list__content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  flex-grow: 1;
+}
+
+.fahrzeugbestand-list__name {
+  font-size: clamp(1.2rem, 2.2vw, 1.4rem);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  margin: 0;
+  color: $fahrzeugbestand-text-strong;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.fahrzeugbestand-list__variant {
+  font-size: 1rem;
+  margin: 0;
+  color: $fahrzeugbestand-text-muted;
+  margin-bottom: 0.5rem;
+}
+
+// Vehicle specs
+.fahrzeugbestand-list__specs {
+  display: flex;
+  border-top: 1px solid $fahrzeugbestand-border;
+  border-bottom: 1px solid $fahrzeugbestand-border;
+  background-image: linear-gradient(
+    90deg,
+    transparent calc(50% - 0.5px),
+    $fahrzeugbestand-border calc(50% - 0.5px),
+    $fahrzeugbestand-border calc(50% + 0.5px),
+    transparent calc(50% + 0.5px)
+  );
+  background-repeat: no-repeat;
+  background-size: 100% 75%;
+  background-position: center center;
+  margin: 0.5rem 0;
+}
+
+.fahrzeugbestand-list__spec {
+  flex: 1 1 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 1rem 0.5rem;
+  font-size: 0.85rem;
+  color: $fahrzeugbestand-text-muted;
+
+  strong {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: $fahrzeugbestand-text-strong;
+    margin-bottom: 0.25rem;
+  }
+}
+
+// Price section
+.fahrzeugbestand-list__price {
+  margin-top: auto;
+  padding-top: 0.75rem;
+
+  .price {
+    display: block;
+    font-size: clamp(1.4rem, 2.5vw, 1.8rem);
+    font-weight: 600;
+    color: $cupra-burnt;
+    line-height: 0.9em;
+    margin-bottom: 0.25rem;
+  }
+
+  .price-note {
+    font-size: 0.85rem;
+    color: $fahrzeugbestand-text-muted;
+  }
+}
+
+// Action buttons
+.fahrzeugbestand-list__actions {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1rem;
+
+  .btn {
+    flex: 1;
+    padding: 0.75rem 1rem;
+    font-size: 0.9rem;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    text-align: center;
+    transition: all 0.3s ease;
+
+    &.btn-outline {
+      background: transparent;
+      border: 1px solid $cupra-burnt;
+      color: $cupra-burnt;
+
+      &:hover {
+        background: $cupra-burnt;
+        color: white;
+        transform: translateY(-2px);
+      }
+    }
+  }
+}
+
+// Empty state
+.fahrzeugbestand-list__empty {
+  text-align: center;
+  padding: clamp(3rem, 8vw, 6rem) 0;
+
+  .title {
+    font-size: clamp(1.8rem, 3vw, 2.4rem);
+    font-weight: 600;
+    color: $fahrzeugbestand-text-strong;
+    margin-bottom: 1rem;
+  }
+
+  .text {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    color: $fahrzeugbestand-text-soft;
+    margin: 0;
+
+    a {
+      color: $cupra-burnt;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+// CTA section
+.fahrzeugbestand-list__cta-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: clamp(2.8rem, 6vw, 4rem);
+  animation: fahrzeugbestand-fade-up 0.85s ease-out 0.2s both;
+}
+
+.fahrzeugbestand-list__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.85rem 1.9rem;
+  border-radius: 999px;
+  border: 1.4px solid rgba($cupra-burnt, 0.34);
+  background: rgba($cupra-burnt, 0.08);
+  color: $cupra-burnt;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: all 0.35s ease;
+
+  svg {
+    width: 1.1rem;
+    height: 1.1rem;
+    transition: transform 0.35s ease;
+  }
+
+  &:hover,
+  &:focus-visible {
+    transform: translateY(-2px);
+    background: rgba($cupra-burnt, 0.12);
+    border-color: rgba($cupra-burnt, 0.5);
+
+    svg {
+      transform: translateX(4px);
+    }
+  }
+
+  &:focus-visible {
+    outline: 2px solid rgba($cupra-burnt, 0.4);
+    outline-offset: 3px;
+  }
+}
+
+// Responsive design
+@media (max-width: $breakpoint-lg) {
+  .fahrzeugbestand-list__header {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: $breakpoint-sm) {
+  .fahrzeugbestand-list__grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    justify-items: center;
+  }
+
+  .fahrzeugbestand-list__cta {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .fahrzeugbestand-list__actions {
+    flex-direction: column;
+  }
+}
+
+// Animations
+@keyframes fahrzeugbestand-fade-up {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 24px, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes fahrzeugbestand-glow {
+  0%,
+  100% {
+    transform: scale(1) translate3d(0, 0, 0);
+    opacity: 0.64;
+  }
+
+  50% {
+    transform: scale(1.12) translate3d(0.5rem, -0.4rem, 0);
+    opacity: 0.8;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fahrzeugbestand-list__glow,
+  .fahrzeugbestand-list__header,
+  .fahrzeugbestand-list__grid,
+  .fahrzeugbestand-list__cta-wrapper {
+    animation: none;
+  }
+
+  .fahrzeugbestand-list__card,
+  .fahrzeugbestand-list__cta {
+    transition: none;
   }
 }

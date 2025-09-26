@@ -1,0 +1,89 @@
+@use "sass:color";
+@use "../abstracts" as *;
+
+// =============================================
+// MEGA MENU FORCE CLOSE FUNCTIONALITY
+// =============================================
+
+/* Force close mega menus - Navigation auto-close functionality */
+.force-close-menus {
+  // Hide all mega menu boxes completely
+  .mega-box,
+  .vehicle-category-menu,
+  .vehicle-brands-grid {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    transform: translateY(-20px) !important;
+    pointer-events: none !important;
+  }
+
+  // Prevent hover states from showing mega menus
+  .nav-links li:hover .mega-box,
+  .nav-links li .mega-box {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+  }
+
+  // Remove hover effects on navigation items
+  .vehicle-category-item.active,
+  .vehicle-category-item:hover,
+  .nav-links li:hover,
+  .nav-links li a:hover,
+  .nav-links li label:hover {
+    background-color: transparent !important;
+    color: inherit !important;
+    text-decoration: none !important;
+  }
+
+  // Remove pseudo-element hover effects
+  .vehicle-category-item.active::after,
+  .vehicle-category-item.active::before,
+  .vehicle-category-item:hover::after,
+  .vehicle-category-item:hover::before {
+    display: none !important;
+    opacity: 0 !important;
+  }
+
+  // Force all checkboxes to be invisible and non-interactive
+  input[type="checkbox"] {
+    opacity: 0 !important;
+    pointer-events: none !important;
+    visibility: hidden !important;
+
+    &:checked {
+      opacity: 0 !important;
+    }
+
+    // Prevent any checkbox from being checked during force-close
+    &:checked + label + .mega-box {
+      display: none !important;
+      visibility: hidden !important;
+      opacity: 0 !important;
+    }
+  }
+
+  // Prevent any transitions or animations during force-close
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+
+  // Extra safety - hide any dropdown or submenu
+  .dropdown,
+  .submenu,
+  .nav-dropdown {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+  }
+}
+
+// Additional safety rules for mega menu containers
+nav.force-close-menus {
+  .mega-box {
+    max-height: 0 !important;
+    overflow: hidden !important;
+  }
+}

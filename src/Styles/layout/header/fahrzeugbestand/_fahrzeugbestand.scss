@@ -138,7 +138,7 @@
       transition: all 0.3s ease;
       border: 2px solid rgba(255, 255, 255, 0.1);
       text-align: center;
-      min-width: 140px;
+      min-width: 190px;
       height: 80px;
 
       // Tablet adjustments
@@ -393,6 +393,19 @@
       transition: all 0.3s ease;
       border: 2px solid rgba(255, 255, 255, 0.1);
 
+      &.is-active {
+        border-color: $color-primary;
+        background: rgba(255, 255, 255, 0.12);
+        box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45);
+        transform: translateY(-3px);
+
+        @media (max-width: 970px) {
+          transform: none;
+          box-shadow: none;
+          background: rgba(255, 255, 255, 0.1);
+        }
+      }
+
       // Mobile Swiper Implementation
       @media (max-width: 970px) {
         flex: 0 0 100vw;
@@ -428,6 +441,29 @@
         text-align: center;
         height: 120px;
         justify-content: space-between;
+
+        &.is-active {
+          transform: translateY(-2px);
+          transition: all 0.3s ease;
+
+          @media (max-width: 970px) {
+            transform: none;
+          }
+
+          .brand-image {
+            filter: brightness(1.15) contrast(1.25);
+          }
+
+          .brand-info {
+            .brand-name {
+              color: mix($color-primary, #ffffff, 35%);
+            }
+
+            .vehicle-count {
+              color: rgba(255, 255, 255, 0.9);
+            }
+          }
+        }
 
         // Mobile wrapper styling
         @media (max-width: 970px) {

@@ -188,11 +188,11 @@ function Header() {
             <a href="#" className="desktop-item">
               Geschäftskunden
             </a>
-            <input type="checkbox" id="showMega2" />
+            <input type="checkbox" id="showDrop1" />
             <label
-              htmlFor="showMega2"
+              htmlFor="showDrop1"
               className="mobile-item"
-              onClick={() => handleMenuToggle("")}
+              onClick={() => handleMenuToggle("showDrop1")}
             >
               Geschäftskunden
             </label>
