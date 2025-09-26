@@ -3,9 +3,7 @@
 
 .unternehmen {
   display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  justify-content: center;
+  flex-direction: column;
   width: 95%;
 
   @media (max-width: $breakpoint-md) {
@@ -22,6 +20,8 @@
 .unternehmen__header {
   text-align: center;
   padding: 0 2rem;
+  margin-bottom: 2rem;
+  width: 100%;
 
   @media (max-width: $breakpoint-sm) {
     margin-bottom: 2rem;
@@ -50,6 +50,119 @@ $-margin: 0.8rem;
   justify-content: center;
   gap: $-margin;
   margin-bottom: 2rem;
+
+  @media (max-width: $breakpoint-sm) {
+    gap: math.div($-margin, 1.5);
+  }
 }
 
-// Cards reuse .service-card styles from Werkstatt
+// Cards reuse .service-card styles from Werkstatt, but with customizations
+.unternehmen .service-card {
+  $-width: math.div(
+    100%,
+    6.2
+  ); // 6 Cards pro Reihe auf Desktop (alle in einer Reihe)
+  width: calc(#{$-width} - #{($-margin * 2)});
+  height: auto; // Angepasst an Inhalt
+  min-height: 220px; // Reduzierte Mindesthöhe
+  max-height: 240px; // Maximale Höhe für große Bildschirme
+
+  // Für sehr große Bildschirme (>1400px) noch kompakter
+  @media (min-width: 1400px) {
+    min-height: 200px;
+    max-height: 220px;
+  }
+
+  @media (max-width: $breakpoint-md) {
+    $-width-md: math.div(100%, 3.2); // 3 Cards pro Reihe auf Tablet
+    width: calc(#{$-width-md} - #{($-margin * 2)});
+    height: auto;
+    min-height: 200px;
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    $-width-sm: 100%; // 1 Card pro Reihe auf Mobile
+    width: calc(#{$-width-sm} - #{($-margin * 2)});
+    height: auto;
+    min-height: 180px;
+  }
+}
+
+// Clickable card styling
+.unternehmen .clickable-card {
+  position: relative;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  .service-card__link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 100%;
+    z-index: 1;
+  }
+
+  .service-card__wrapper {
+    transition: filter 0.3s ease;
+  }
+
+  .service-card__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+      135deg,
+      rgba(0, 0, 0, 0.7) 0%,
+      rgba(0, 0, 0, 0.85) 100%
+    );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(1px);
+    border-radius: 0.8rem;
+    z-index: 2;
+    pointer-events: none;
+  }
+
+  .service-card__overlay-content {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: whitesmoke;
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: center;
+  }
+
+  .service-card__overlay-arrow {
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+  }
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.4),
+      -6px -6px 12px rgba(255, 255, 255, 0.08);
+
+    .service-card__wrapper {
+      filter: blur(0.5px);
+    }
+
+    .service-card__overlay {
+      opacity: 1;
+    }
+
+    .service-card__overlay-arrow {
+      transform: translateX(3px);
+    }
+  }
+}
