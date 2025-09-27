@@ -177,7 +177,7 @@ function Werkstatt() {
         </svg>
       ),
       description: "Bequemer Service direkt zu Ihnen nach Hause oder ins Büro.",
-      ctaHref: "/werkstatt/holbring",
+      ctaHref: "/werkstatt/holundbring",
       ctaLabel: "Service anfragen",
     },
   ];
