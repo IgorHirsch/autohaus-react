@@ -456,7 +456,7 @@
 
           .brand-info {
             .brand-name {
-              color: mix($color-primary, #ffffff, 35%);
+              color: color.mix($color-primary, #ffffff, 35%);
             }
 
             .vehicle-count {

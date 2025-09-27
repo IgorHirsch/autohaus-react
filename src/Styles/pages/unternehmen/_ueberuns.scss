@@ -68,13 +68,13 @@ $ueberuns-accent: #e86838;
 }
 
 .ueberuns__container {
-  @include make-container();
   max-width: min(1320px, 94vw);
   margin: 0 auto;
   padding-inline: clamp(1.5rem, 5vw, 3.5rem);
   display: flex;
   flex-direction: column;
   gap: clamp(2.5rem, 6vw, 3.75rem);
+  @include make-container();
 }
 
 .ueberuns__hero {

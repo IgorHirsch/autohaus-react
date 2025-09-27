@@ -58,11 +58,11 @@ $team-border: rgba($color-text, 0.16);
 }
 
 .home-team__container {
-  @include make-container();
   position: relative;
   max-width: min(1580px, 94vw);
   margin: 0 auto;
   padding-inline: clamp(1.5rem, 4vw, 2.75rem);
+  @include make-container();
 }
 
 .home-team__header {

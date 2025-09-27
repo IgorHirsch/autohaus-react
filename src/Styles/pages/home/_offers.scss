@@ -68,11 +68,11 @@ $cupra-neutral-soft: color.mix($cupra-neutral, #ffffff, 60%);
 }
 
 .home-offers__container {
-  @include make-container();
   position: relative;
   max-width: min(1620px, 94vw);
   margin: 0 auto;
   padding-inline: clamp(1.5rem, 4vw, 2.75rem);
+  @include make-container();
 }
 
 .home-offers__badge-row {
