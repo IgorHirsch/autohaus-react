@@ -89,7 +89,7 @@ function Werkstatt() {
         </svg>
       ),
       description: "Kompletter Reifenservice von Beratung bis Montage.",
-      ctaHref: "/werkstatt/reifen",
+      ctaHref: "/werkstatt/reifenservice",
       ctaLabel: "Reifen-Check",
     },
     {

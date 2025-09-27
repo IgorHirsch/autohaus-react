@@ -1,0 +1,515 @@
+@use "sass:color";
+@use "sass:math";
+@use "../../abstracts" as *;
+
+// Reifenservice spezifische Farben (Grün/Natur-Töne für Nachhaltigkeit und Vertrauen)
+$reifenservice-primary: #2d7d32;
+$reifenservice-accent: #4caf50;
+$reifenservice-dark: #1b5e20;
+$reifenservice-light: #81c784;
+
+.reifenservice-section {
+  position: relative;
+  padding-block: clamp(6rem, 12vw, 10rem);
+  color: $color-text;
+  background-color: $color-eigengrau;
+  overflow: hidden;
+  isolation: isolate;
+
+  @media (max-width: $breakpoint-sm) {
+    padding-block: clamp(4.5rem, 20vw, 6rem);
+  }
+}
+
+.reifenservice-section__background {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+
+  .reifenservice-section__glow {
+    position: absolute;
+    width: clamp(16rem, 40vw, 28rem);
+    aspect-ratio: 1 / 1;
+    background: radial-gradient(
+      circle,
+      rgba($reifenservice-accent, 0.25) 0%,
+      rgba($reifenservice-accent, 0.05) 60%,
+      transparent 100%
+    );
+    filter: blur(50px);
+    opacity: 0.6;
+    animation: reifenservice-glow 18s ease-in-out infinite;
+
+    &--left {
+      top: -10%;
+      left: clamp(-12rem, -8vw, -5rem);
+    }
+
+    &--right {
+      bottom: -20%;
+      right: clamp(-10rem, -6vw, -4rem);
+      animation-delay: 3s;
+    }
+  }
+}
+
+@keyframes reifenservice-glow {
+  0%, 100% {
+    transform: scale(1) translate3d(0, 0, 0);
+    opacity: 0.4;
+  }
+  50% {
+    transform: scale(1.2) translate3d(-0.75rem, 0.75rem, 0);
+    opacity: 0.6;
+  }
+}
+
+.reifenservice-section__container {
+  position: relative;
+  max-width: min(1620px, 94vw);
+  margin: 0 auto;
+  padding-inline: clamp(1.5rem, 4vw, 2.75rem);
+  @include make-container();
+}
+
+/* ==================== BREADCRUMB NAVIGATION ==================== */
+
+.reifenservice-section__breadcrumb {
+  margin-bottom: clamp(2rem, 4vw, 3rem);
+}
+
+.reifenservice-section__breadcrumb-list {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.5rem, 1vw, 0.75rem);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.reifenservice-section__breadcrumb-item {
+  display: flex;
+  align-items: center;
+}
+
+.reifenservice-section__breadcrumb-link {
+  font-size: clamp(0.85rem, 1.6vw, 0.95rem);
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.6);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  padding: clamp(0.25rem, 0.5vw, 0.4rem) clamp(0.5rem, 1vw, 0.75rem);
+  border-radius: clamp(0.25rem, 0.5vw, 0.4rem);
+
+  &:hover {
+    color: $reifenservice-accent;
+    background: rgba($reifenservice-accent, 0.08);
+    transform: translateX(-0.125rem);
+  }
+
+  &:focus {
+    outline: 2px solid rgba($reifenservice-accent, 0.4);
+    outline-offset: 2px;
+  }
+}
+
+.reifenservice-section__breadcrumb-separator {
+  display: flex;
+  align-items: center;
+  margin: 0 clamp(0.25rem, 0.5vw, 0.4rem);
+
+  svg {
+    width: clamp(0.75rem, 1.2vw, 0.9rem);
+    height: clamp(0.75rem, 1.2vw, 0.9rem);
+    color: rgba(255, 255, 255, 0.3);
+  }
+}
+
+.reifenservice-section__breadcrumb-current {
+  font-size: clamp(0.85rem, 1.6vw, 0.95rem);
+  font-weight: 600;
+  color: $reifenservice-accent;
+  padding: clamp(0.25rem, 0.5vw, 0.4rem) clamp(0.5rem, 1vw, 0.75rem);
+  background: rgba($reifenservice-accent, 0.12);
+  border-radius: clamp(0.25rem, 0.5vw, 0.4rem);
+}
+
+.reifenservice-section__content {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: clamp(2.5rem, 4vw, 4.5rem);
+  align-items: start;
+  margin-bottom: clamp(4rem, 8vw, 6rem);
+
+  @media (max-width: $breakpoint-md) {
+    grid-template-columns: 1fr;
+    gap: clamp(2rem, 6vw, 3rem);
+    margin-bottom: clamp(3rem, 6vw, 4rem);
+  }
+}
+
+.reifenservice-section__intro {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1rem, 2.5vw, 1.85rem);
+}
+
+.reifenservice-section__media {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1.75rem, 3vw, 2.4rem);
+  position: relative;
+  align-items: stretch;
+}
+
+.reifenservice-section__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: clamp(0.5rem, 1.5vw, 0.75rem) clamp(1rem, 2.5vw, 1.5rem);
+  background: rgba($reifenservice-accent, 0.15);
+  border: 1px solid rgba($reifenservice-accent, 0.3);
+  border-radius: 2rem;
+  font-size: clamp(0.8rem, 1.5vw, 0.9rem);
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+  letter-spacing: 0.025em;
+  width: fit-content;
+}
+
+.reifenservice-section__badge-dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  background-color: $reifenservice-accent;
+  border-radius: 50%;
+  animation: pulse-reifenservice 2s ease-in-out infinite;
+}
+
+@keyframes pulse-reifenservice {
+  0%, 100% { opacity: 0.7; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.1); }
+}
+
+.reifenservice-section__title {
+  font-size: clamp(2.25rem, 5.5vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1.15;
+  color: $color-text;
+  letter-spacing: -0.02em;
+}
+
+.reifenservice-section__lead {
+  font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 500;
+}
+
+.reifenservice-section__description {
+  font-size: clamp(0.95rem, 2vw, 1.1rem);
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.reifenservice-section__actions {
+  display: flex;
+  align-items: center;
+  gap: clamp(1rem, 2.5vw, 1.5rem);
+  margin-top: clamp(0.5rem, 1vw, 1rem);
+}
+
+.reifenservice-section__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: clamp(0.5rem, 1vw, 0.75rem);
+  padding: clamp(0.85rem, 2vw, 1.1rem) clamp(1.5rem, 3.5vw, 2rem);
+  background: linear-gradient(135deg, $reifenservice-primary, $reifenservice-accent);
+  border: 1px solid rgba($reifenservice-accent, 0.4);
+  border-radius: clamp(0.5rem, 1vw, 0.75rem);
+  font-family: inherit;
+  font-size: clamp(0.95rem, 2vw, 1.05rem);
+  font-weight: 600;
+  color: #ffffff;
+  text-decoration: none;
+  letter-spacing: 0.025em;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 16px rgba($reifenservice-primary, 0.3);
+
+  &:hover {
+    transform: translateY(-0.125rem);
+    box-shadow: 0 6px 24px rgba($reifenservice-primary, 0.4);
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+.reifenservice-section__cta-icon {
+  width: clamp(1rem, 2vw, 1.2rem);
+  height: clamp(1rem, 2vw, 1.2rem);
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+
+  .reifenservice-section__cta:hover & {
+    transform: translateX(0.25rem);
+  }
+}
+
+.reifenservice-section__media-frame {
+  position: relative;
+  border-radius: clamp(1rem, 2vw, 1.5rem);
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: all 0.4s ease;
+
+  &:hover {
+    transform: translateY(-0.25rem);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  }
+}
+
+.reifenservice-section__media-image {
+  display: block;
+  width: 100%;
+  height: clamp(16rem, 22vw, 20rem);
+  object-fit: cover;
+  object-position: center;
+}
+
+.reifenservice-section__media-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: clamp(0.75rem, 2vw, 1.2rem);
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+  color: rgba(255, 255, 255, 0.9);
+  font-size: clamp(0.8rem, 1.5vw, 0.9rem);
+}
+
+.reifenservice-section__card {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1rem, 2.5vw, 1.5rem);
+  padding: clamp(1.5rem, 3vw, 2.25rem);
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: clamp(1rem, 2vw, 1.5rem);
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.08);
+    transform: translateY(-0.125rem);
+  }
+}
+
+.reifenservice-section__card-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: clamp(3rem, 6vw, 4rem);
+  height: clamp(3rem, 6vw, 4rem);
+  background: linear-gradient(135deg, $reifenservice-primary, $reifenservice-accent);
+  border-radius: 50%;
+  color: #ffffff;
+
+  svg {
+    width: clamp(1.5rem, 3vw, 2rem);
+    height: clamp(1.5rem, 3vw, 2rem);
+  }
+}
+
+.reifenservice-section__card-copy {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.5rem, 1vw, 0.75rem);
+}
+
+.reifenservice-section__card-kicker {
+  font-size: clamp(0.8rem, 1.5vw, 0.9rem);
+  font-weight: 600;
+  color: $reifenservice-accent;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.reifenservice-section__card-title {
+  font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+  font-weight: 700;
+  line-height: 1.3;
+  color: $color-text;
+  margin: 0;
+}
+
+.reifenservice-section__card-text {
+  font-size: clamp(0.9rem, 1.8vw, 1rem);
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0;
+}
+
+.reifenservice-section__card-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: clamp(0.9rem, 1.8vw, 1rem);
+  font-weight: 600;
+  color: $reifenservice-accent;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  width: fit-content;
+
+  &:hover {
+    transform: translateX(0.25rem);
+    color: $reifenservice-light;
+  }
+
+  svg {
+    width: 1rem;
+    height: 1rem;
+  }
+}
+
+/* ==================== PRICING SECTION ==================== */
+
+.reifenservice-section__pricing {
+  margin-top: clamp(4rem, 8vw, 6rem);
+  padding-top: clamp(4rem, 8vw, 6rem);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.reifenservice-section__pricing-header {
+  text-align: center;
+  margin-bottom: clamp(3rem, 6vw, 4rem);
+}
+
+.reifenservice-section__pricing-title {
+  font-size: clamp(2rem, 4.5vw, 2.75rem);
+  font-weight: 700;
+  line-height: 1.2;
+  color: $color-text;
+  margin-bottom: clamp(0.75rem, 1.5vw, 1rem);
+}
+
+.reifenservice-section__pricing-subtitle {
+  font-size: clamp(1rem, 2.2vw, 1.2rem);
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0;
+}
+
+.reifenservice-section__pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
+  gap: clamp(2rem, 4vw, 3rem);
+  margin-bottom: clamp(2rem, 4vw, 3rem);
+}
+
+.reifenservice-section__pricing-category {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: clamp(1rem, 2vw, 1.5rem);
+  padding: clamp(1.5rem, 3vw, 2.25rem);
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.06);
+    transform: translateY(-0.25rem);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  }
+}
+
+.reifenservice-section__category-title {
+  font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+  font-weight: 700;
+  line-height: 1.3;
+  color: $reifenservice-accent;
+  margin-bottom: clamp(1.25rem, 2.5vw, 1.75rem);
+  padding-bottom: clamp(0.75rem, 1.5vw, 1rem);
+  border-bottom: 2px solid rgba($reifenservice-accent, 0.3);
+}
+
+.reifenservice-section__price-list {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.75rem, 1.5vw, 1rem);
+}
+
+.reifenservice-section__price-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: clamp(0.5rem, 1vw, 0.75rem) 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.reifenservice-section__service-name {
+  font-size: clamp(0.9rem, 1.8vw, 1rem);
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.85);
+  flex: 1;
+}
+
+.reifenservice-section__price {
+  font-size: clamp(0.9rem, 1.8vw, 1rem);
+  font-weight: 600;
+  color: $reifenservice-accent;
+  white-space: nowrap;
+  text-align: right;
+}
+
+.reifenservice-section__pricing-note {
+  background: rgba($reifenservice-primary, 0.1);
+  border: 1px solid rgba($reifenservice-accent, 0.2);
+  border-radius: clamp(0.75rem, 1.5vw, 1rem);
+  padding: clamp(1rem, 2vw, 1.5rem);
+  text-align: center;
+
+  p {
+    font-size: clamp(0.85rem, 1.6vw, 0.95rem);
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.6);
+    margin: 0;
+
+    &:first-child {
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+    }
+  }
+}
+
+/* ==================== RESPONSIVE ADJUSTMENTS ==================== */
+
+@media (max-width: $breakpoint-md) {
+  .reifenservice-section__pricing-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .reifenservice-section__price-item {
+    flex-direction: column;
+    gap: 0.25rem;
+    align-items: flex-start;
+  }
+  
+  .reifenservice-section__price {
+    text-align: left;
+  }
+}
+
+@media (max-width: $breakpoint-sm) {
+  .reifenservice-section__pricing-grid {
+    gap: clamp(1.5rem, 4vw, 2rem);
+  }
+}
