@@ -1,0 +1,605 @@
+@use '../../abstracts' as *;
+
+// TÜV Color Scheme - Blue theme
+$tuv-primary: #1565c0;
+$tuv-secondary: #1976d2;
+$tuv-accent: #42a5f5;
+$tuv-light: #e3f2fd;
+$tuv-dark: #0d47a1;
+$tuv-success: #4caf50;
+$tuv-warning: #ff9800;
+
+.tuv-section {
+  position: relative;
+  min-height: 100vh;
+  padding: clamp(2rem, 5vw, 4rem) 0;
+  background: linear-gradient(
+    135deg,
+    rgba(21, 101, 192, 0.05) 0%,
+    rgba(25, 118, 210, 0.08) 50%,
+    rgba(66, 165, 245, 0.05) 100%
+  );
+  overflow: hidden;
+
+  &__background {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  &__glow {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.4;
+    animation: tuv-glow 6s ease-in-out infinite;
+
+    &--left {
+      width: clamp(200px, 30vw, 400px);
+      height: clamp(200px, 30vw, 400px);
+      background: radial-gradient(circle, $tuv-accent, transparent 70%);
+      top: 10%;
+      left: -10%;
+      animation-delay: -2s;
+    }
+
+    &--right {
+      width: clamp(150px, 25vw, 300px);
+      height: clamp(150px, 25vw, 300px);
+      background: radial-gradient(circle, $tuv-secondary, transparent 70%);
+      bottom: 20%;
+      right: -5%;
+      animation-delay: -4s;
+    }
+  }
+
+  &__container {
+    position: relative;
+    z-index: 1;
+    max-width: min(1620px, 94vw);
+    margin: 0 auto;
+    padding-inline: clamp(1.5rem, 4vw, 2.75rem);
+    @include make-container();
+  }
+
+  // Breadcrumb Navigation - konsistent mit Reifenservice
+  &__breadcrumb {
+    margin-bottom: clamp(2rem, 4vw, 3rem);
+
+    &-list {
+      display: flex;
+      align-items: center;
+      gap: clamp(0.5rem, 1vw, 0.75rem);
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    &-item {
+      display: flex;
+      align-items: center;
+    }
+
+    &-link {
+      font-size: clamp(0.85rem, 1.6vw, 0.95rem);
+      font-weight: 500;
+      color: rgba($tuv-dark, 0.6);
+      text-decoration: none;
+      transition: all 0.3s ease;
+      padding: clamp(0.25rem, 0.5vw, 0.4rem) clamp(0.5rem, 1vw, 0.75rem);
+      border-radius: clamp(0.25rem, 0.5vw, 0.4rem);
+
+      &:hover {
+        color: $tuv-primary;
+        background: rgba($tuv-primary, 0.08);
+        transform: translateX(-0.125rem);
+      }
+
+      &:focus {
+        outline: 2px solid rgba($tuv-primary, 0.4);
+        outline-offset: 2px;
+      }
+    }
+
+    &-separator {
+      display: flex;
+      align-items: center;
+      margin: 0 clamp(0.25rem, 0.5vw, 0.4rem);
+
+      svg {
+        width: clamp(0.75rem, 1.2vw, 0.9rem);
+        height: clamp(0.75rem, 1.2vw, 0.9rem);
+        color: rgba($tuv-dark, 0.3);
+      }
+    }
+
+    &-current {
+      font-size: clamp(0.85rem, 1.6vw, 0.95rem);
+      font-weight: 600;
+      color: $tuv-dark;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(3rem, 6vw, 5rem);
+  }
+
+  // Intro Section - konsistent mit Reifenservice
+  &__intro {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(1rem, 2.5vw, 1.85rem);
+    max-width: 800px;
+  }
+
+  &__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: clamp(0.5rem, 1.5vw, 0.75rem) clamp(1rem, 2.5vw, 1.5rem);
+    background: rgba($tuv-primary, 0.15);
+    border: 1px solid rgba($tuv-primary, 0.3);
+    border-radius: 2rem;
+    font-size: clamp(0.8rem, 1.5vw, 0.9rem);
+    font-weight: 600;
+    color: $tuv-primary;
+    letter-spacing: 0.025em;
+    width: fit-content;
+
+    &-dot {
+      width: 0.5rem;
+      height: 0.5rem;
+      background-color: $tuv-primary;
+      border-radius: 50%;
+      animation: pulse-tuv 2s ease-in-out infinite;
+    }
+  }
+
+  &__title {
+    font-size: clamp(2.25rem, 5.5vw, 3.5rem);
+    font-weight: 700;
+    line-height: 1.15;
+    color: $tuv-dark;
+    letter-spacing: -0.02em;
+  }
+
+  &__lead {
+    font-size: clamp(1.15rem, 2.8vw, 1.4rem);
+    color: rgba($tuv-dark, 0.9);
+    font-weight: 500;
+    line-height: 1.45;
+    margin: 0;
+  }
+
+  &__description {
+    font-size: clamp(0.95rem, 2.2vw, 1.1rem);
+    color: rgba($tuv-dark, 0.75);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  &__actions {
+    display: flex;
+    justify-content: flex-start;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  &__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: clamp(0.85rem, 2vw, 1.1rem) clamp(1.5rem, 3.5vw, 2.25rem);
+    background: linear-gradient(135deg, $tuv-primary 0%, $tuv-secondary 100%);
+    color: white;
+    border: none;
+    border-radius: clamp(0.5rem, 1vw, 0.75rem);
+    font-size: clamp(0.95rem, 2.2vw, 1.125rem);
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 20px rgba($tuv-primary, 0.3);
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba($tuv-primary, 0.4);
+    }
+
+    &-icon {
+      width: clamp(1rem, 2.2vw, 1.25rem);
+      height: clamp(1rem, 2.2vw, 1.25rem);
+      transition: transform 0.3s ease;
+    }
+
+    &:hover &-icon {
+      transform: translateX(4px);
+    }
+  }
+
+  // Features Section
+  &__features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+  }
+
+  &__feature-card {
+    background: rgba(white, 0.8);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba($tuv-primary, 0.1);
+    border-radius: 1rem;
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 40px rgba($tuv-primary, 0.15);
+      border-color: rgba($tuv-primary, 0.2);
+    }
+  }
+
+  &__feature-icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, $tuv-primary, $tuv-secondary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    color: white;
+  }
+
+  &__feature-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: $tuv-dark;
+    margin-bottom: 1rem;
+  }
+
+  &__feature-text {
+    color: rgba($tuv-dark, 0.7);
+    line-height: 1.6;
+  }
+
+  // Pricing Section
+  &__pricing {
+    background: rgba(white, 0.6);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba($tuv-primary, 0.1);
+    border-radius: 1.5rem;
+    padding: clamp(2rem, 5vw, 3rem);
+
+    &-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    &-title {
+      font-size: clamp(2rem, 4vw, 2.5rem);
+      font-weight: 700;
+      color: $tuv-dark;
+      margin-bottom: 1rem;
+    }
+
+    &-subtitle {
+      font-size: clamp(1rem, 2.5vw, 1.125rem);
+      color: rgba($tuv-dark, 0.7);
+    }
+
+    &-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+
+    &-card {
+      background: rgba(white, 0.9);
+      border: 1px solid rgba($tuv-primary, 0.15);
+      border-radius: 1rem;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      position: relative;
+
+      &:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 40px rgba($tuv-primary, 0.2);
+      }
+
+      &--highlight {
+        border: 2px solid $tuv-primary;
+        transform: scale(1.02);
+
+        .tuv-section__pricing-card-header {
+          background: linear-gradient(135deg, $tuv-primary, $tuv-secondary);
+          color: white;
+        }
+      }
+
+      &-badge {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        background: $tuv-success;
+        color: white;
+        padding: 0.25rem 0.75rem;
+        border-radius: 1rem;
+        font-size: 0.75rem;
+        font-weight: 600;
+      }
+
+      &-header {
+        background: rgba($tuv-primary, 0.05);
+        padding: 2rem 1.5rem;
+        text-align: center;
+        border-bottom: 1px solid rgba($tuv-primary, 0.1);
+      }
+
+      &-title {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: $tuv-dark;
+        margin-bottom: 0.5rem;
+      }
+
+      &-subtitle {
+        color: rgba($tuv-dark, 0.6);
+        font-size: 0.875rem;
+      }
+
+      &-content {
+        padding: 1.5rem;
+      }
+    }
+
+    &-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid rgba($tuv-primary, 0.1);
+
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+
+    &-service {
+      color: $tuv-dark;
+      font-weight: 500;
+    }
+
+    &-price {
+      font-weight: 700;
+      color: $tuv-primary;
+      font-size: 1.125rem;
+    }
+
+    &-old {
+      text-decoration: line-through;
+      color: rgba($tuv-dark, 0.5);
+      font-size: 0.875rem;
+      margin-right: 0.5rem;
+    }
+  }
+
+  // Additional Services
+  &__additional {
+    margin-top: 3rem;
+
+    &-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: $tuv-dark;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    &-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+    }
+
+    &-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 1.5rem;
+      background: rgba($tuv-light, 0.5);
+      border-radius: 0.75rem;
+      border: 1px solid rgba($tuv-primary, 0.1);
+      transition: all 0.3s ease;
+
+      &:hover {
+        background: rgba($tuv-light, 0.8);
+        border-color: rgba($tuv-primary, 0.2);
+      }
+    }
+
+    &-service {
+      color: $tuv-dark;
+      font-weight: 500;
+    }
+
+    &-price {
+      font-weight: 700;
+      color: $tuv-primary;
+    }
+  }
+
+  // Info Section
+  &__info {
+    background: rgba($tuv-light, 0.3);
+    border: 1px solid rgba($tuv-primary, 0.15);
+    border-radius: 1rem;
+    padding: 2rem;
+
+    &-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    &-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: $tuv-dark;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+
+    &-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+
+      li {
+        position: relative;
+        padding-left: 2rem;
+        margin-bottom: 0.75rem;
+        color: rgba($tuv-dark, 0.8);
+        line-height: 1.6;
+
+        &:before {
+          content: '✓';
+          position: absolute;
+          left: 0;
+          color: $tuv-success;
+          font-weight: 700;
+        }
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+
+  // Responsive Design
+  @media (max-width: 768px) {
+    padding: 2rem 0;
+
+    &__glow {
+      &--left,
+      &--right {
+        width: 150px;
+        height: 150px;
+      }
+    }
+
+    &__pricing {
+      &-grid {
+        grid-template-columns: 1fr;
+      }
+
+      &-card {
+        &--highlight {
+          transform: none;
+        }
+      }
+    }
+
+    &__features {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    &__additional {
+      &-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    &__breadcrumb {
+      &-list {
+        flex-wrap: wrap;
+      }
+    }
+  }
+
+  @media (max-width: 480px) {
+    &__pricing {
+      padding: 1.5rem;
+      
+      &-card {
+        &-header {
+          padding: 1.5rem 1rem;
+        }
+        
+        &-content {
+          padding: 1rem;
+        }
+      }
+    }
+
+    &__additional {
+      &-item {
+        flex-direction: column;
+        gap: 0.5rem;
+        text-align: center;
+      }
+    }
+  }
+}
+
+// Animations
+@keyframes tuv-glow {
+  0%, 100% {
+    transform: scale(1) translate3d(0, 0, 0);
+    opacity: 0.4;
+  }
+  50% {
+    transform: scale(1.2) translate3d(-0.75rem, 0.75rem, 0);
+    opacity: 0.6;
+  }
+}
+
+@keyframes pulse-tuv {
+  0%, 100% { 
+    opacity: 0.7; 
+    transform: scale(1); 
+  }
+  50% { 
+    opacity: 1; 
+    transform: scale(1.1); 
+  }
+}
+
+// High contrast mode support
+@media (prefers-contrast: high) {
+  .tuv-section {
+    &__title {
+      color: $tuv-dark !important;
+    }
+    
+    &__pricing-card {
+      border-width: 2px;
+    }
+  }
+}
+
+// Reduced motion support
+@media (prefers-reduced-motion: reduce) {
+  .tuv-section {
+    &__glow {
+      animation: none;
+    }
+    
+    &__badge-dot {
+      animation: none;
+    }
+    
+    &__cta,
+    &__feature-card,
+    &__pricing-card {
+      transition: none;
+    }
+  }
+}

@@ -12,6 +12,7 @@ import Nachhaltigkeit from "../Pages/Unternehmen/Nachhaltigkeit";
 import Standorte from "../Pages/Unternehmen/Standorte";
 import Reifenservice from "../Pages/Werkstatt/Reifenservice";
 import Wartung from "../Pages/Werkstatt/Wartung";
+import Tuv from "../Pages/Werkstatt/Tuv";
 
 function App() {
   return (
@@ -40,6 +41,7 @@ function App() {
 
           <Route path="/werkstatt/wartung" element={<Wartung />} />
           <Route path="/werkstatt/reifenservice" element={<Reifenservice />} />
+          <Route path="/werkstatt/tuev" element={<Tuv />} />
 
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
