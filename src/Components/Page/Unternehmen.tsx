@@ -158,6 +158,8 @@ function Unternehmen() {
         </svg>
       ),
       description: "Kontakt & Anfahrt.",
+      ctaHref: "/unternehmen/standorte",
+      ctaLabel: "Standort besuchen",
     },
   ];
 
@@ -185,7 +187,7 @@ function Unternehmen() {
                     </p>
                   </div>
                 </div>
-                
+
                 <div className="service-card__overlay">
                   <div className="service-card__overlay-content">
                     <span className="service-card__overlay-text">
@@ -205,7 +207,7 @@ function Unternehmen() {
                   <div className="service-card__icon">{sec.icon}</div>
                   <p className="service-card__description">{sec.description}</p>
                 </div>
-                
+
                 <div className="service-card__overlay">
                   <div className="service-card__overlay-content">
                     <span className="service-card__overlay-text">
