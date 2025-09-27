@@ -10,6 +10,7 @@ import Ansprechpartner from "../Pages/Unternehmen/Ansprechpartner";
 import Presse from "../Pages/Unternehmen/Presse";
 import Nachhaltigkeit from "../Pages/Unternehmen/Nachhaltigkeit";
 import Standorte from "../Pages/Unternehmen/Standorte";
+import WerkstattService from "../Pages/Werkstatt/WerkstattService";
 
 function App() {
   return (
@@ -35,6 +36,7 @@ function App() {
             element={<Nachhaltigkeit />}
           />
           <Route path="/unternehmen/standorte" element={<Standorte />} />
+          <Route path="/werkstatt/:service" element={<WerkstattService />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </main>

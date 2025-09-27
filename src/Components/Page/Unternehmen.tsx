@@ -172,49 +172,31 @@ function Unternehmen() {
 
       <div className="unternehmen__grid">
         {companySections.map((sec) => (
-          <div key={sec.id} className="service-card clickable-card">
+          <div key={sec.id} className="company-card">
             {sec.ctaHref ? (
-              <Link to={sec.ctaHref} className="service-card__link">
-                <div className="service-card__wrapper">
-                  <div className="service-card__header">
-                    <h3 className="service-card__title">{sec.title}</h3>
+              <Link to={sec.ctaHref} className="company-card__link">
+                <div className="company-card__wrapper">
+                  <div className="company-card__header">
+                    <h3 className="company-card__title">{sec.title}</h3>
                   </div>
 
-                  <div className="service-card__content">
-                    <div className="service-card__icon">{sec.icon}</div>
-                    <p className="service-card__description">
+                  <div className="company-card__content">
+                    <div className="company-card__icon">{sec.icon}</div>
+                    <p className="company-card__description">
                       {sec.description}
                     </p>
                   </div>
                 </div>
-
-                <div className="service-card__overlay">
-                  <div className="service-card__overlay-content">
-                    <span className="service-card__overlay-text">
-                      {sec.ctaLabel ?? "Mehr erfahren"}
-                    </span>
-                    <span className="service-card__overlay-arrow">→</span>
-                  </div>
-                </div>
               </Link>
             ) : (
-              <div className="service-card__wrapper">
-                <div className="service-card__header">
-                  <h3 className="service-card__title">{sec.title}</h3>
+              <div className="company-card__wrapper">
+                <div className="company-card__header">
+                  <h3 className="company-card__title">{sec.title}</h3>
                 </div>
 
-                <div className="service-card__content">
-                  <div className="service-card__icon">{sec.icon}</div>
-                  <p className="service-card__description">{sec.description}</p>
-                </div>
-
-                <div className="service-card__overlay">
-                  <div className="service-card__overlay-content">
-                    <span className="service-card__overlay-text">
-                      Mehr erfahren
-                    </span>
-                    <span className="service-card__overlay-arrow">→</span>
-                  </div>
+                <div className="company-card__content">
+                  <div className="company-card__icon">{sec.icon}</div>
+                  <p className="company-card__description">{sec.description}</p>
                 </div>
               </div>
             )}

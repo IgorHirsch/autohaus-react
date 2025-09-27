@@ -1,5 +1,6 @@
 @use "sass:math";
 @use "../../../../abstracts/variables" as *;
+@use "../../../../abstracts/mixins" as *;
 
 .unternehmen {
   display: flex;
@@ -51,18 +52,26 @@ $-margin: 0.8rem;
   gap: $-margin;
   margin-bottom: 2rem;
 
+  @include make-container();
+
   @media (max-width: $breakpoint-sm) {
     gap: math.div($-margin, 1.5);
   }
 }
 
-// Cards reuse .service-card styles from Werkstatt, but with customizations
-.unternehmen .service-card {
-  $-width: math.div(
-    100%,
-    6.2
-  ); // 6 Cards pro Reihe auf Desktop (alle in einer Reihe)
-  width: calc(#{$-width} - #{($-margin * 2)});
+.company-card {
+  width: 23rem; // Berücksichtigt Margin
+  margin: $-margin;
+  padding: 1rem;
+  border-radius: 0.8rem;
+  overflow: hidden;
+  font-size: 0.9rem;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3),
+    -4px -4px 8px rgba(255, 255, 255, 0.05);
+  position: relative;
+  transition: all 0.25s ease;
   height: auto; // Angepasst an Inhalt
   min-height: 220px; // Reduzierte Mindesthöhe
   max-height: 240px; // Maximale Höhe für große Bildschirme
@@ -74,7 +83,7 @@ $-margin: 0.8rem;
   }
 
   @media (max-width: $breakpoint-md) {
-    $-width-md: math.div(100%, 3.2); // 3 Cards pro Reihe auf Tablet
+    $-width-md: math.div(100%, 2); // 2 Cards pro Reihe auf Tablet
     width: calc(#{$-width-md} - #{($-margin * 2)});
     height: auto;
     min-height: 200px;
@@ -83,18 +92,11 @@ $-margin: 0.8rem;
   @media (max-width: $breakpoint-sm) {
     $-width-sm: 100%; // 1 Card pro Reihe auf Mobile
     width: calc(#{$-width-sm} - #{($-margin * 2)});
+    margin: math.div($-margin, 1.5);
     height: auto;
     min-height: 180px;
   }
-}
-
-// Clickable card styling
-.unternehmen .clickable-card {
-  position: relative;
-  cursor: pointer;
-  transition: all 0.3s ease;
-
-  .service-card__link {
+  &__link {
     display: block;
     text-decoration: none;
     color: inherit;
@@ -103,66 +105,90 @@ $-margin: 0.8rem;
     left: 0;
     right: 0;
     bottom: 0;
-    height: 100%;
     z-index: 1;
   }
 
-  .service-card__wrapper {
-    transition: filter 0.3s ease;
+  &__wrapper {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
 
-  .service-card__overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(
-      135deg,
-      rgba(0, 0, 0, 0.7) 0%,
-      rgba(0, 0, 0, 0.85) 100%
-    );
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    transition: all 0.3s ease;
-    backdrop-filter: blur(1px);
-    border-radius: 0.8rem;
-    z-index: 2;
-    pointer-events: none;
+  &__header {
+    text-align: center;
+    padding: 0 0 1rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   }
 
-  .service-card__overlay-content {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    color: whitesmoke;
-    font-size: 1rem;
+  &__title {
+    font-size: 1.1rem;
     font-weight: 600;
+    color: whitesmoke;
+    margin: 0;
+    line-height: 1.3;
     text-align: center;
   }
 
-  .service-card__overlay-arrow {
-    font-size: 1.2rem;
-    transition: transform 0.3s ease;
+  &__content {
+    padding: 1rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    flex-grow: 1;
+  }
+
+  &__icon {
+    padding: 1rem;
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.15) 0%,
+      rgba(255, 255, 255, 0.08) 100%
+    );
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 60px;
+    height: 60px;
+    margin: 0 auto 1rem auto;
+    transition: all 0.3s ease;
+
+    svg {
+      width: 30px;
+      height: 30px;
+      fill: whitesmoke;
+      transition: all 0.3s ease;
+    }
+  }
+
+  &__description {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.4;
+    margin: 0;
+    text-align: center;
+    flex-grow: 1;
   }
 
   &:hover {
-    transform: translateY(-2px);
+    transform: translateY(-2px) scale(1.02);
     box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.4),
       -6px -6px 12px rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.12);
 
-    .service-card__wrapper {
-      filter: blur(0.5px);
-    }
+    .company-card__icon {
+      background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.25) 0%,
+        rgba(255, 255, 255, 0.15) 100%
+      );
 
-    .service-card__overlay {
-      opacity: 1;
-    }
-
-    .service-card__overlay-arrow {
-      transform: translateX(3px);
+      svg {
+        fill: #ffffff;
+        transform: scale(1.1);
+      }
     }
   }
 }
