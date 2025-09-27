@@ -13,6 +13,7 @@ import Standorte from "../Pages/Unternehmen/Standorte";
 import Reifenservice from "../Pages/Werkstatt/Reifenservice";
 import Wartung from "../Pages/Werkstatt/Wartung";
 import Tuv from "../Pages/Werkstatt/Tuv";
+import KlimaelEktro from "../Pages/Werkstatt/KlimaElektro";
 
 function App() {
   return (
@@ -42,6 +43,7 @@ function App() {
           <Route path="/werkstatt/wartung" element={<Wartung />} />
           <Route path="/werkstatt/reifenservice" element={<Reifenservice />} />
           <Route path="/werkstatt/tuev" element={<Tuv />} />
+          <Route path="/werkstatt/klimaelektro" element={<KlimaelEktro />} />
 
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>

@@ -135,7 +135,7 @@ function Werkstatt() {
         </svg>
       ),
       description: "Klimaanlagen-Service und Elektronik-Diagnose.",
-      ctaHref: "/werkstatt/klima",
+      ctaHref: "/werkstatt/klimaelektro",
       ctaLabel: "Service buchen",
     },
     {
