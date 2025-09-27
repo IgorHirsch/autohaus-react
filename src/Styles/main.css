@@ -8679,59 +8679,6 @@ nav input {
     padding-top: 5vh; /* Noch weniger Abstand auf sehr kleinen Bildschirmen */
   }
 }
-.werkstatt {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  justify-content: center;
-  width: 95%;
-}
-@media (max-width: 62em) {
-  .werkstatt {
-    width: 98%;
-    padding: 2rem 0;
-  }
-}
-@media (max-width: 48em) {
-  .werkstatt {
-    width: 100%;
-    padding: 1.5rem 0;
-  }
-}
-
-.werkstatt__header {
-  text-align: center;
-  padding: 0 2rem;
-}
-@media (max-width: 48em) {
-  .werkstatt__header {
-    margin-bottom: 2rem;
-    padding: 0 1rem;
-  }
-}
-
-.werkstatt__title {
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: whitesmoke;
-  margin-bottom: 1rem;
-}
-
-.werkstatt__subtitle {
-  font-size: 1.1rem;
-  color: rgba(255, 255, 255, 0.8);
-  max-width: 640px;
-  margin: 0 auto;
-}
-
-.werkstatt__grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 0.8rem;
-  margin-bottom: 2rem;
-}
-
 .geschaeftskunden-megamenu {
   padding: 2rem 1rem;
   background: rgb(22, 22, 29);

@@ -1,0 +1,307 @@
+@use "sass:color";
+@use "sass:math";
+@use "../../abstracts" as *;
+
+$werkstatt-primary: #2c5aa0;
+$werkstatt-accent: #4a90e2;
+$werkstatt-dark: #1a365d;
+
+.wartung-section {
+  position: relative;
+  padding-block: clamp(6rem, 12vw, 10rem);
+  color: $color-text;
+  background-color: $color-eigengrau;
+  overflow: hidden;
+  isolation: isolate;
+
+  @media (max-width: $breakpoint-sm) {
+    padding-block: clamp(4.5rem, 20vw, 6rem);
+  }
+}
+
+.wartung-section__background {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+
+  .wartung-section__glow {
+    position: absolute;
+    width: clamp(16rem, 40vw, 28rem);
+    aspect-ratio: 1 / 1;
+    background: radial-gradient(
+      circle,
+      rgba($werkstatt-accent, 0.35) 0%,
+      rgba($werkstatt-accent, 0.05) 60%,
+      transparent 100%
+    );
+    filter: blur(50px);
+    opacity: 0.6;
+    animation: wartung-glow 20s ease-in-out infinite;
+
+    &--left {
+      top: -10%;
+      left: clamp(-12rem, -8vw, -5rem);
+    }
+
+    &--right {
+      bottom: -20%;
+      right: clamp(-10rem, -6vw, -4rem);
+      animation-delay: 4s;
+    }
+  }
+}
+
+@keyframes wartung-glow {
+  0%, 100% {
+    transform: scale(1) translate3d(0, 0, 0);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1.1) translate3d(-0.5rem, 0.5rem, 0);
+    opacity: 0.7;
+  }
+}
+
+.wartung-section__container {
+  position: relative;
+  max-width: min(1620px, 94vw);
+  margin: 0 auto;
+  padding-inline: clamp(1.5rem, 4vw, 2.75rem);
+  @include make-container();
+}
+
+.wartung-section__content {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: clamp(2.5rem, 4vw, 4.5rem);
+  align-items: start;
+
+  @media (max-width: $breakpoint-md) {
+    grid-template-columns: 1fr;
+    gap: clamp(2rem, 6vw, 3rem);
+  }
+}
+
+.wartung-section__intro {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1rem, 2.5vw, 1.85rem);
+}
+
+.wartung-section__media {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1.75rem, 3vw, 2.4rem);
+  position: relative;
+  align-items: stretch;
+}
+
+.wartung-section__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: clamp(0.5rem, 1.5vw, 0.75rem) clamp(1rem, 2.5vw, 1.5rem);
+  background: rgba($werkstatt-accent, 0.12);
+  border: 1px solid rgba($werkstatt-accent, 0.2);
+  border-radius: 2rem;
+  font-size: clamp(0.8rem, 1.5vw, 0.9rem);
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+  letter-spacing: 0.025em;
+}
+
+.wartung-section__badge-dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  background-color: $werkstatt-accent;
+  border-radius: 50%;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.7; }
+  50% { opacity: 1; }
+}
+
+.wartung-section__title {
+  font-size: clamp(2.25rem, 5.5vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1.15;
+  color: $color-text;
+  letter-spacing: -0.02em;
+}
+
+.wartung-section__lead {
+  font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.wartung-section__description {
+  font-size: clamp(0.95rem, 2vw, 1.1rem);
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.wartung-section__actions {
+  display: flex;
+  align-items: center;
+  gap: clamp(1rem, 2.5vw, 1.5rem);
+  margin-top: clamp(0.5rem, 1vw, 1rem);
+}
+
+.wartung-section__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: clamp(0.5rem, 1vw, 0.75rem);
+  padding: clamp(0.85rem, 2vw, 1.1rem) clamp(1.5rem, 3.5vw, 2rem);
+  background: linear-gradient(135deg, $werkstatt-primary, $werkstatt-accent);
+  border: 1px solid rgba($werkstatt-accent, 0.3);
+  border-radius: clamp(0.5rem, 1vw, 0.75rem);
+  font-family: inherit;
+  font-size: clamp(0.95rem, 2vw, 1.05rem);
+  font-weight: 600;
+  color: #ffffff;
+  text-decoration: none;
+  letter-spacing: 0.025em;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 16px rgba($werkstatt-primary, 0.3);
+
+  &:hover {
+    transform: translateY(-0.125rem);
+    box-shadow: 0 6px 24px rgba($werkstatt-primary, 0.4);
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+.wartung-section__cta-icon {
+  width: clamp(1rem, 2vw, 1.2rem);
+  height: clamp(1rem, 2vw, 1.2rem);
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+
+  .wartung-section__cta:hover & {
+    transform: translateX(0.25rem);
+  }
+}
+
+.wartung-section__media-frame {
+  position: relative;
+  border-radius: clamp(1rem, 2vw, 1.5rem);
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: all 0.4s ease;
+
+  &:hover {
+    transform: translateY(-0.25rem);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  }
+}
+
+.wartung-section__media-image {
+  display: block;
+  width: 100%;
+  height: clamp(16rem, 22vw, 20rem);
+  object-fit: cover;
+  object-position: center;
+}
+
+.wartung-section__media-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: clamp(0.75rem, 2vw, 1.2rem);
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+  color: rgba(255, 255, 255, 0.9);
+  font-size: clamp(0.8rem, 1.5vw, 0.9rem);
+}
+
+.wartung-section__card {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1rem, 2.5vw, 1.5rem);
+  padding: clamp(1.5rem, 3vw, 2.25rem);
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: clamp(1rem, 2vw, 1.5rem);
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.08);
+    transform: translateY(-0.125rem);
+  }
+}
+
+.wartung-section__card-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: clamp(3rem, 6vw, 4rem);
+  height: clamp(3rem, 6vw, 4rem);
+  background: linear-gradient(135deg, $werkstatt-primary, $werkstatt-accent);
+  border-radius: 50%;
+  color: #ffffff;
+
+  svg {
+    width: clamp(1.5rem, 3vw, 2rem);
+    height: clamp(1.5rem, 3vw, 2rem);
+  }
+}
+
+.wartung-section__card-copy {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.5rem, 1vw, 0.75rem);
+}
+
+.wartung-section__card-kicker {
+  font-size: clamp(0.8rem, 1.5vw, 0.9rem);
+  font-weight: 600;
+  color: $werkstatt-accent;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.wartung-section__card-title {
+  font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+  font-weight: 700;
+  line-height: 1.3;
+  color: $color-text;
+  margin: 0;
+}
+
+.wartung-section__card-text {
+  font-size: clamp(0.9rem, 1.8vw, 1rem);
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0;
+}
+
+.wartung-section__card-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: clamp(0.9rem, 1.8vw, 1rem);
+  font-weight: 600;
+  color: $werkstatt-accent;
+  text-decoration: none;
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: translateX(0.25rem);
+  }
+
+  svg {
+    width: 1rem;
+    height: 1rem;
+  }
+}

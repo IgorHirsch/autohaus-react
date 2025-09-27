@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "../../Styles/pages/werkstatt/_werkstatt.scss";
+import "../../Styles/layout/header/megamenu/werkstatt/_werkstatt.scss";
 
 function Werkstatt() {
   const werkstattServices = [

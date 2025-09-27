@@ -10,7 +10,7 @@ import Ansprechpartner from "../Pages/Unternehmen/Ansprechpartner";
 import Presse from "../Pages/Unternehmen/Presse";
 import Nachhaltigkeit from "../Pages/Unternehmen/Nachhaltigkeit";
 import Standorte from "../Pages/Unternehmen/Standorte";
-import WerkstattService from "../Pages/Werkstatt/WerkstattService";
+import WerkstattService from "../Pages/Werkstatt/Wartung";
 
 function App() {
   return (
