@@ -14,6 +14,7 @@ import Reifenservice from "../Pages/Werkstatt/Reifenservice";
 import Wartung from "../Pages/Werkstatt/Wartung";
 import Tuv from "../Pages/Werkstatt/Tuv";
 import KlimaelEktro from "../Pages/Werkstatt/KlimaElektro";
+import UnfallKarosserie from "../Components/Page/UnfallKarosserie";
 
 function App() {
   return (
@@ -44,6 +45,7 @@ function App() {
           <Route path="/werkstatt/reifenservice" element={<Reifenservice />} />
           <Route path="/werkstatt/tuev" element={<Tuv />} />
           <Route path="/werkstatt/klimaelektro" element={<KlimaelEktro />} />
+          <Route path="/werkstatt/unfallkarosserie" element={<UnfallKarosserie />} />
 
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>

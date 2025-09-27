@@ -156,7 +156,7 @@ function Werkstatt() {
         </svg>
       ),
       description: "Unfallreparaturen und Karosseriearbeiten.",
-      ctaHref: "/werkstatt/unfall",
+      ctaHref: "/werkstatt/unfallkarosserie",
       ctaLabel: "Kostenvoranschlag",
     },
     {
