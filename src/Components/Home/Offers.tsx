@@ -208,7 +208,7 @@ function Offers() {
         {/* --- Optionaler CTA leitet zu weiteren Bestandsangeboten weiter --- */}
         <footer className="home-offers__footer">
           <a
-            href="/fahrzeugbestand"
+            href="/autohaus-react/fahrzeugbestand.html"
             className="home-offers__cta"
             aria-label="Alle Fahrzeuge im Bestand ansehen"
           >
