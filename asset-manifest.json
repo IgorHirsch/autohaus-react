@@ -1,11 +1,11 @@
 {
   "files": {
     "main.css": "/autohaus-react/static/css/main.3d793302.css",
-    "main.js": "/autohaus-react/static/js/main.34ce1fb2.js",
+    "main.js": "/autohaus-react/static/js/main.ec1243f0.js",
     "index.html": "/autohaus-react/index.html"
   },
   "entrypoints": [
     "static/css/main.3d793302.css",
-    "static/js/main.34ce1fb2.js"
+    "static/js/main.ec1243f0.js"
   ]
 }
