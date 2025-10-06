@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function Offers() {
   return (
@@ -207,7 +208,26 @@ function Offers() {
 
         {/* --- Optionaler CTA leitet zu weiteren Bestandsangeboten weiter --- */}
         <footer className="home-offers__footer">
-          <a
+          <Link to="/fahrzeugbestand" className="home-offers__cta">
+            Alle Angebote entdecken
+            <svg
+              className="home-offers__cta-icon"
+              viewBox="0 0 20 20"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
+            >
+              <path
+                d="M5 10h10m0 0-3.5-3.5M15 10l-3.5 3.5"
+                stroke="currentColor"
+                strokeWidth="1.6"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </Link>
+
+          {/* <a
             href="#/fahrzeugbestand.html"
             className="home-offers__cta"
             aria-label="Alle Fahrzeuge im Bestand ansehen"
@@ -228,7 +248,7 @@ function Offers() {
                 strokeLinejoin="round"
               />
             </svg>
-          </a>
+          </a> */}
         </footer>
       </div>
     </section>
