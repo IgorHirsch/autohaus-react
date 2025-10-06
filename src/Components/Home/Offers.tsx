@@ -67,7 +67,7 @@ function Offers() {
             <div className="offers__card-hover">
               <a
                 href="/kontakt"
-                className="button contact-button button--slim button--secondary"
+                className="home-offers__cta button contact-button button--slim"
                 data-probefahrt-open="true"
               >
                 Probefahrt anfragen
@@ -109,7 +109,7 @@ function Offers() {
             <div className="offers__card-hover">
               <a
                 href="/kontakt"
-                className="button contact-button button--slim button--secondary"
+                className="home-offers__cta button contact-button button--slim"
                 data-probefahrt-open="true"
               >
                 Beratung sichern
@@ -166,7 +166,7 @@ function Offers() {
             <div className="offers__image-container">
               <img
                 className="offers__image"
-                src="https://tse1.mm.bing.net/th/id/OIP.u-9wOvN5z3jzelVZ3tTEBgHaEo?w=1680&h=1050&rs=1&pid=ImgDetMain&o=7&rm=3"
+                src="https://wallpaperaccess.com/full/9020911.jpg"
                 alt="Nissan Ariya Evolve Pack Elektro"
                 loading="lazy"
               />
@@ -196,7 +196,7 @@ function Offers() {
             <div className="offers__card-hover">
               <a
                 href="/kontakt"
-                className="button contact-button button--slim button--secondary"
+                className="home-offers__cta button contact-button button--slim "
                 data-probefahrt-open="true"
               >
                 Beratung sichern

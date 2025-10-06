@@ -201,6 +201,7 @@ $cupra-neutral-soft: color.mix($cupra-neutral, #ffffff, 60%);
   margin: 0;
 }
 
+// ✨ ELEGANTE CARD MIT SUBTILEN SCHATTEN ✨
 .home-offers__card {
   position: relative;
   display: flex;
@@ -216,13 +217,13 @@ $cupra-neutral-soft: color.mix($cupra-neutral, #ffffff, 60%);
     rgba(2, 9, 14, 0.98) 100%
   );
   border: 1px solid rgba($cupra-ink, 0.18);
-  box-shadow: 0 28px 48px rgba($cupra-ink, 0.12);
+  box-shadow: 0 8px 24px rgba($cupra-burnt, 0.08); // ✅ Eleganter, subtiler Schatten
   transition: transform 0.35s ease, box-shadow 0.35s ease;
 
   &:hover,
   &:focus-within {
-    transform: translateY(-6px);
-    box-shadow: 0 34px 64px rgba($cupra-ink, 0.18);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba($cupra-burnt, 0.12); // ✅ Sanfter Hover-Schatten
   }
 }
 
@@ -328,6 +329,7 @@ $cupra-neutral-soft: color.mix($cupra-neutral, #ffffff, 60%);
   color: color.scale($cupra-burnt, $lightness: 6%);
 }
 
+// 🌟 VERBESSERTER HOVER-OVERLAY MIT GLASSMORPHISMUS 🌟
 .offers__card-hover,
 .werbecard__card-hover {
   position: absolute;
@@ -335,20 +337,37 @@ $cupra-neutral-soft: color.mix($cupra-neutral, #ffffff, 60%);
   display: flex;
   align-items: center;
   justify-content: center;
+
+  // 🌟 Stärkere Verdunkelung mit Glassmorphismus
   background: linear-gradient(
     180deg,
-    rgba(8, 22, 33, 0.05) 0%,
-    rgba(8, 22, 33, 0.74) 100%
+    rgba(2, 12, 20, 0.25) 0%,
+    rgba(4, 16, 24, 0.88) 50%,
+    rgba(6, 18, 28, 0.95) 100%
   );
+
+  // 💎 Backdrop Blur für Glassmorphismus-Effekt
+  backdrop-filter: blur(12px) saturate(1.2);
+  -webkit-backdrop-filter: blur(12px) saturate(1.2);
+
   opacity: 0;
-  transition: opacity 0.35s ease;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 
   .home-offers__card:hover &,
   .home-offers__card:focus-within & {
     opacity: 1;
+    backdrop-filter: blur(16px) saturate(1.3);
+    -webkit-backdrop-filter: blur(16px) saturate(1.3);
+
+    // 🎯 Button Zoom-In Animation beim Erscheinen
+    .button {
+      animation: button-zoom-in 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) 0.15s
+        both;
+    }
   }
 }
 
+// ✅ ALTER BUTTON-STIL (EINFACH UND ELEGANT) ✅
 .offers__card-hover .button.button--secondary,
 .werbecard__card-hover .button.button--secondary {
   background: rgba($cupra-burnt, 0.22);
@@ -367,7 +386,7 @@ $cupra-neutral-soft: color.mix($cupra-neutral, #ffffff, 60%);
 
 .home-offers__card--accent {
   border: 1px solid rgba($cupra-burnt, 0.35);
-  box-shadow: 0 32px 60px rgba($cupra-deep, 0.25);
+  box-shadow: 0 12px 36px rgba($cupra-burnt, 0.15); // ✅ Eleganter Accent-Schatten
 }
 
 .home-offers__card--accent .werbecard__content-heading {
@@ -424,6 +443,18 @@ $cupra-neutral-soft: color.mix($cupra-neutral, #ffffff, 60%);
 
   .home-offers__cta:hover & {
     transform: translateX(3px);
+  }
+}
+
+// 🎯 Button Zoom-In Animation
+@keyframes button-zoom-in {
+  from {
+    opacity: 0;
+    transform: scale(0.8) translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
   }
 }
 
@@ -522,5 +553,9 @@ $cupra-neutral-soft: color.mix($cupra-neutral, #ffffff, 60%);
   .home-offers__card,
   .home-offers__cta {
     transition: none;
+  }
+
+  .button {
+    animation: none !important;
   }
 }
