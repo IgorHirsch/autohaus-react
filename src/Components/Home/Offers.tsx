@@ -39,7 +39,7 @@ function Offers() {
             <div className="offers__image-container">
               <img
                 className="offers__image"
-                src="https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?q=75&w=1080&auto=format&fit=crop"
+                src="https://tse3.mm.bing.net/th/id/OIP.oWnpL5BbdSjo2-koCdVvlQHaEF?rs=1&pid=ImgDetMain&o=7&rm=3"
                 alt="Cupra Formentor VZ Extreme 2.0 TSI"
                 loading="lazy"
               />
@@ -79,7 +79,7 @@ function Offers() {
             <div className="offers__image-container">
               <img
                 className="offers__image"
-                src="https://images.unsplash.com/photo-1560958089-b8a1929cea89?q=75&w=1080&auto=format&fit=crop"
+                src="https://th.bing.com/th/id/R.73741b681e2212bead9ffcfe1a4d96f6?rik=zl9OBvTxtCMo6w&pid=ImgRaw&r=0"
                 alt="Nissan Ariya Evolve Pack Elektro"
                 loading="lazy"
               />
@@ -166,13 +166,13 @@ function Offers() {
             <div className="offers__image-container">
               <img
                 className="offers__image"
-                src="https://images.unsplash.com/photo-1560958089-b8a1929cea89?q=75&w=1080&auto=format&fit=crop"
+                src="https://tse1.mm.bing.net/th/id/OIP.u-9wOvN5z3jzelVZ3tTEBgHaEo?w=1680&h=1050&rs=1&pid=ImgDetMain&o=7&rm=3"
                 alt="Nissan Ariya Evolve Pack Elektro"
                 loading="lazy"
               />
             </div>
             <div className="offers__content">
-              <h3 className="offers__content-heading">Nissan Ariya</h3>
+              <h3 className="offers__content-heading">Nissan GT-R</h3>
               <p className="offers__content-subheading">
                 Evolve Pack | Elektro
               </p>

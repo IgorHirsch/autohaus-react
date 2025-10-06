@@ -159,7 +159,7 @@ function Services() {
           <div className="services__card" role="listitem">
             <img
               className="services__card-img"
-              src="https://images.unsplash.com/photo-1486754735734-325b5831c3ad?q=75&w=400&h=500&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              src="https://media.istockphoto.com/photos/auto-parts-picture-id478107962?k=6&m=478107962&s=612x612&w=0&h=nPeHqK8gTia3wBa_Era7YcY-PBOQVGGT1VE1Veh3cw0="
               alt="Zubehör"
             />
             <div className="services__card-icon-background"></div>

@@ -64,7 +64,7 @@ function Wilkommen() {
             <figure className="home-welcome__media-frame">
               <img
                 className="home-welcome__media-image"
-                src="https://images.pexels.com/photos/4489730/pexels-photo-4489730.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                src="https://www.seat-mediacenter.de/content/dam/seat-media-center/Img/de/2022/06/20220610_fuenf-spannende-fakten-ueber-cupra/F%C3%BCnf%20Fakten_CUPRA_04.jpg/jcr:content/renditions/cq5dam.web.1280.1280.jpeg"
                 alt="Showroom mit beleuchteten Cupra Fahrzeugen"
                 loading="lazy"
               />

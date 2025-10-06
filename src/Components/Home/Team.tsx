@@ -13,7 +13,7 @@ function Team() {
         {/* --- Section intro mirrors Willkommen spacing and tone --- */}
         <header className="home-team__header">
           <span className="home-team__badge">
-            Menschen bei Autohaus Hirsch
+            Menschen bei Auto Emotion
             <span className="home-team__badge-dot" aria-hidden="true" />
           </span>
           <div className="home-team__copy">

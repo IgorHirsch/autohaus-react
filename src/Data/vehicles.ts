@@ -49,7 +49,7 @@ export const allVehicles: Vehicle[] = [
   {
     id: "cupra-formentor-new",
     image:
-      "https://images.unsplash.com/photo-1580414155110-c40d5df5982d?w=400&h=300&fit=crop&crop=center",
+      "https://autohaus-seitz.de/fahrzeugsuche/wp-content/uploads/carimg/072255_03.jpg",
     imageAlt: "Cupra Formentor VZ Extreme 2.0 TSI Neuwagen",
     name: "Cupra Formentor",
     variant: "VZ Extreme 2.0 TSI",
@@ -70,8 +70,7 @@ export const allVehicles: Vehicle[] = [
   },
   {
     id: "cupra-ateca-new",
-    image:
-      "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=300&fit=crop&crop=center",
+    image: "https://www.adu.ch/Autobilder/125085_AS_GG.jpg",
     imageAlt: "Cupra Ateca 2.0 TSI 4Drive Neuwagen",
     name: "Cupra Ateca",
     variant: "2.0 TSI 4Drive DSG",
@@ -93,7 +92,7 @@ export const allVehicles: Vehicle[] = [
   {
     id: "cupra-ateca-new-experience",
     image:
-      "https://images.unsplash.com/photo-1558470598-a5dda9640f99?w=400&h=300&fit=crop&crop=center",
+      "https://www.caralliance.be/wp-content/uploads/featured-cupra-ateca-334323.jpeg",
     imageAlt: "Cupra Ateca Experience Plus 1.5 TSI",
     name: "Cupra Ateca",
     variant: "Experience Plus 1.5 TSI",
@@ -118,7 +117,7 @@ export const allVehicles: Vehicle[] = [
   {
     id: "cupra-ateca-new-vz-biturbo",
     image:
-      "https://images.unsplash.com/photo-1589391886645-d51941baf7fb?w=400&h=300&fit=crop&crop=center",
+      "https://www.sparneuwagen.de/wp-content/uploads/2023/04/cupra-ateca2-2048x1366.jpg",
     imageAlt: "Cupra Ateca VZ Biturbo Performance",
     name: "Cupra Ateca",
     variant: "VZ Biturbo Performance",
@@ -146,8 +145,7 @@ export const allVehicles: Vehicle[] = [
   // NEUWAGEN - SEAT
   {
     id: "seat-leon-new",
-    image:
-      "https://images.unsplash.com/photo-1494976424394-f23b1b354e6d?w=400&h=300&fit=crop&crop=center",
+    image: "https://img.autrado.de/2735/4825_1024.jpg",
     imageAlt: "Seat Leon FR 1.5 TSI Neuwagen",
     name: "Seat Leon",
     variant: "FR 1.5 TSI DSG",
@@ -169,8 +167,7 @@ export const allVehicles: Vehicle[] = [
   // NEUWAGEN - NISSAN
   {
     id: "nissan-qashqai-new",
-    image:
-      "https://images.unsplash.com/photo-1549924231-f129b911e442?w=400&h=300&fit=crop&crop=center",
+    image: "https://img.autrado.de/2932/44092_1024.jpg",
     imageAlt: "Nissan Qashqai 1.3 DIG-T Neuwagen",
     name: "Nissan Qashqai",
     variant: "1.3 DIG-T 160 PS",
@@ -192,8 +189,7 @@ export const allVehicles: Vehicle[] = [
   // GEBRAUCHTWAGEN - CUPRA
   {
     id: "cupra-formentor-used-1",
-    image:
-      "https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=400&h=300&fit=crop&crop=center",
+    image: "https://www.toyota-dieburg.de/images/fahrzeuge/2686.2.1246.382.jpg",
     imageAlt: "Cupra Formentor Gebrauchtwagen",
     name: "Cupra Formentor",
     variant: "VZ 2.0 TSI DSG",
@@ -219,7 +215,7 @@ export const allVehicles: Vehicle[] = [
   {
     id: "seat-leon-used-1",
     image:
-      "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=400&h=300&fit=crop&crop=center",
+      "https://images.motorpoint.co.uk/vehicles/2023-06/21/1375439/3/1024.jpg",
     imageAlt: "Seat Leon Gebrauchtwagen",
     name: "Seat Leon",
     variant: "FR 1.5 TSI",
@@ -242,7 +238,7 @@ export const allVehicles: Vehicle[] = [
   {
     id: "nissan-qashqai-used-1",
     image:
-      "https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=400&h=300&fit=crop&crop=center",
+      "https://tse3.mm.bing.net/th/id/OIP.LSYrTWOsfCwdvOQfBWfYTQHaE8?rs=1&pid=ImgDetMain&o=7&rm=3",
     imageAlt: "Nissan Qashqai Gebrauchtwagen",
     name: "Nissan Qashqai",
     variant: "1.3 DIG-T Tekna",
@@ -268,7 +264,7 @@ export const allVehicles: Vehicle[] = [
   {
     id: "cupra-ateca-demo-1",
     image:
-      "https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?w=400&h=300&fit=crop&crop=center",
+      "https://autoskauftmanbeikoch.de/de/wp-content/uploads/2019/03/CUPRA-Ateca-Special-Edition-1.jpg",
     imageAlt: "Cupra Ateca Vorführwagen",
     name: "Cupra Ateca",
     variant: "2.0 TSI 4Drive",
@@ -291,7 +287,7 @@ export const allVehicles: Vehicle[] = [
   {
     id: "seat-arona-demo-1",
     image:
-      "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=300&fit=crop&crop=center",
+      "https://tse2.mm.bing.net/th/id/OIP.F3ZsdCn2OvNdmxqHP9DItwHaE8?rs=1&pid=ImgDetMain&o=7&rm=3",
     imageAlt: "Seat Arona Vorführwagen",
     name: "Seat Arona",
     variant: "FR 1.0 TSI DSG",
@@ -314,7 +310,7 @@ export const allVehicles: Vehicle[] = [
   {
     id: "nissan-juke-demo-1",
     image:
-      "https://images.unsplash.com/photo-1533473359331-0cb6be7ddd95?w=400&h=300&fit=crop&crop=center",
+      "https://tse4.mm.bing.net/th/id/OIP.8UTPwyTDMfj2BJwK1MrjjQHaE8?rs=1&pid=ImgDetMain&o=7&rm=3",
     imageAlt: "Nissan Juke Vorführwagen",
     name: "Nissan Juke",
     variant: "1.0 DIG-T N-Connecta",
@@ -336,8 +332,7 @@ export const allVehicles: Vehicle[] = [
   // JAHRESWAGEN - SEAT
   {
     id: "seat-ibiza-jahres-1",
-    image:
-      "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=400&h=300&fit=crop&crop=center",
+    image: "https://img.autrado.de/955/74978_1024.jpg",
     imageAlt: "Seat Ibiza Jahreswagen",
     name: "Seat Ibiza",
     variant: "FR 1.0 TSI",
@@ -362,8 +357,7 @@ export const allVehicles: Vehicle[] = [
   // JAHRESWAGEN - AUDI
   {
     id: "audi-a3-jahres-1",
-    image:
-      "https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=400&h=300&fit=crop&crop=center",
+    image: "https://img.autrado.de/1686/3429199_640.jpg",
     imageAlt: "Audi A3 Jahreswagen",
     name: "Audi A3",
     variant: "35 TFSI S-Line",
@@ -386,7 +380,7 @@ export const allVehicles: Vehicle[] = [
   {
     id: "porsche-cayenne-leasing-1",
     image:
-      "https://images.unsplash.com/photo-1544829099-b9a0c4faa685?w=400&h=300&fit=crop&crop=center",
+      "https://kr-leasing.de/wp-content/uploads/porsche-cayenne-e1677665228692.jpg",
     imageAlt: "Porsche Cayenne Leasing-Rückläufer",
     name: "Porsche Cayenne",
     variant: "S 2.9 V6 Turbo",
@@ -415,7 +409,7 @@ export const allVehicles: Vehicle[] = [
   {
     id: "audi-q5-leasing-1",
     image:
-      "https://images.unsplash.com/photo-1563720223185-11003d516935?w=400&h=300&fit=crop&crop=center",
+      "https://tse1.mm.bing.net/th/id/OIP.RyP_VdZiCrZQC5zWU2-ZtAHaEs?rs=1&pid=ImgDetMain&o=7&rm=3",
     imageAlt: "Audi Q5 Leasing-Rückläufer",
     name: "Audi Q5",
     variant: "45 TFSI Quattro S-Line",
@@ -438,7 +432,7 @@ export const allVehicles: Vehicle[] = [
   {
     id: "porsche-911-ersatz-1",
     image:
-      "https://images.unsplash.com/photo-1525609004556-c46c7d6cf023?w=400&h=300&fit=crop&crop=center",
+      "https://images.finder.porsche.com/64956d69-2c03-4946-a4c5-753b8d62aabd/960",
     imageAlt: "Porsche 911 Ersatz-/Mietwagen",
     name: "Porsche 911",
     variant: "Carrera S",
@@ -463,8 +457,7 @@ export const allVehicles: Vehicle[] = [
   // ERSATZ-MIETWAGEN - AUDI
   {
     id: "audi-a6-ersatz-1",
-    image:
-      "https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?w=400&h=300&fit=crop&crop=center",
+    image: "https://www.mietwagen-talk.de/attachment/159153-img-1114-jpg/",
     imageAlt: "Audi A6 Ersatz-/Mietwagen",
     name: "Audi A6",
     variant: "50 TDI Quattro S-Line",
@@ -487,7 +480,7 @@ export const allVehicles: Vehicle[] = [
   {
     id: "cupra-leon-ersatz-1",
     image:
-      "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=400&h=300&fit=crop&crop=center",
+      "https://media.whatcar.com/wc-image/2024-12/cupra-leon-estate-front-left-driving.jpg",
     imageAlt: "Cupra Leon Ersatz-/Mietwagen",
     name: "Cupra Leon",
     variant: "VZ 2.0 TSI DSG",
@@ -513,7 +506,7 @@ export const allVehicles: Vehicle[] = [
   {
     id: "seat-leon-ersatz-1",
     image:
-      "https://images.unsplash.com/photo-1485291571150-772bcfc10da5?w=400&h=300&fit=crop&crop=center",
+      "https://gomeraindividual.de/wp-content/uploads/mietwagen-seat-leon.jpg",
     imageAlt: "Seat Leon Ersatz-/Mietwagen",
     name: "Seat Leon",
     variant: "FR 1.5 TSI DSG",
@@ -536,7 +529,7 @@ export const allVehicles: Vehicle[] = [
   {
     id: "vw-golf-ersatz-1",
     image:
-      "https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=400&h=300&fit=crop&crop=center",
+      "https://www.auto-data.net/images/f39/Volkswagen-Golf-VIII-facelift-2024.jpg",
     imageAlt: "Volkswagen Golf Ersatz-/Mietwagen",
     name: "Volkswagen Golf",
     variant: "GTI 2.0 TSI DSG",
@@ -559,7 +552,7 @@ export const allVehicles: Vehicle[] = [
   {
     id: "porsche-macan-new",
     image:
-      "https://images.unsplash.com/photo-1580414155110-c40d5df5982d?w=400&h=300&fit=crop&crop=center",
+      "https://tse3.mm.bing.net/th/id/OIP.Yhe2kgTgzJene3O-AMzJ0wHaFj?rs=1&pid=ImgDetMain&o=7&rm=3",
     imageAlt: "Porsche Macan Neuwagen",
     name: "Porsche Macan",
     variant: "S",
@@ -582,7 +575,7 @@ export const allVehicles: Vehicle[] = [
   {
     id: "audi-a4-new",
     image:
-      "https://images.unsplash.com/photo-1518105779142-d975f22f1b0a?w=400&h=300&fit=crop&crop=center",
+      "https://tse2.mm.bing.net/th/id/OIP.9a_Hz-ZbfPuMFgfA18q7wgHaFk?rs=1&pid=ImgDetMain&o=7&rm=3",
     imageAlt: "Audi A4 Neuwagen",
     name: "Audi A4",
     variant: "40 TFSI S-Line",
@@ -605,7 +598,7 @@ export const allVehicles: Vehicle[] = [
   {
     id: "audi-q3-used-1",
     image:
-      "https://images.unsplash.com/photo-1567789884554-0b844b597180?w=400&h=300&fit=crop&crop=center",
+      "https://tse1.mm.bing.net/th/id/OIP.YNmZGgSymQ9xDjUEpd4r1gHaE7?rs=1&pid=ImgDetMain&o=7&rm=3",
     imageAlt: "Audi Q3 Gebrauchtwagen",
     name: "Audi Q3",
     variant: "35 TFSI S-Line",
